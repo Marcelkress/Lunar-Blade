@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f7d5afd3687e440f885188e9b64a32d, type: 3}
+  m_Name: Blade Character Stats
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterMovementStats
+  maxWalkSpeed: 5
+  groundAcceleration: 35
+  groundDeceleration: 35
+  airAcceleration: 4
+  airDeceleration: 15
+  maxRunSpeed: 10
+  onlyRunning: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  groundDetectionRayLength: 0.02
+  headDetectionRayLength: 0.02
+  headWidth: 0.75
+  debugShowGroundedBox: 0
+  JumpHeight: 5
+  JumpHeightCompensationFactor: 1.054
+  TimeTillJumpApex: 0.3
+  GravityOnReleaseMultiplier: 2
+  MaxFallSpeed: 30
+  NumberOfJumpsAllowed: 2
+  TimeForUpwardsCancel: 0.027
+  ApexThreshold: 0.554
+  ApexHangTime: 0.084
+  JumpBufferTime: 0.125
+  JumpCoyoteTime: 0.1
+  dashSpeed: 30
+  dashDuration: 0.1
+  dashInterval: 0.2
+  dashAcceleration: 36.4
+  dashHangTime: 1
+  DebugShowIsGroundedBox: 0
+  DebugShowHeadBumpBox: 0
