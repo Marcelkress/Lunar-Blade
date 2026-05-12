@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Timers;
 using UnityEngine;
+using UnityEngine.TextCore.LowLevel;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -13,9 +14,8 @@ public class CharacterMovement : MonoBehaviour
     private InputManager inputManager;
     
     // Movement
-    [HideInInspector] public Vector2 moveVelocity;
+    [HideInInspector] public float horizontalVelocity;
     private bool isFacingRight;
-    public bool canMove;
     
     //Collision check
     private RaycastHit2D groundHit, headHit;
@@ -42,11 +42,14 @@ public class CharacterMovement : MonoBehaviour
     private float coyoteTimer;
     
     // dash vars
+    public bool canDash;
     private bool isDashing;
-    private bool canDash;
-    private float canDashTimer, isDashingTimer;
-    private bool isDashHanging;
-    private bool groundDashCheck;
+    private bool isAirDashing;
+    private float dashTimer, dashOnGroundTimer;
+    private int numberOfDashesUsed;
+    private Vector2 dashDirection;
+    private bool isDashFastFalling;
+    private float dashFastFallTime, dashFastFallingReleaseSpeed;
     
     private void Awake()
     {
@@ -60,6 +63,7 @@ public class CharacterMovement : MonoBehaviour
     {
         CountTimers();
         JumpChecks();
+        LandCheck();
         DashCheck();
     }
     
@@ -67,8 +71,9 @@ public class CharacterMovement : MonoBehaviour
     {
         CollisionCheck();
         Jump();
-        Dash(moveStats.dashAcceleration);
-
+        Fall();
+        Dash();
+        
         if (isGrounded)
         {
             Move(moveStats.groundAcceleration, moveStats.groundDeceleration, inputManager.moveVector);
@@ -77,59 +82,41 @@ public class CharacterMovement : MonoBehaviour
         {
             Move(moveStats.airAcceleration, moveStats.airDeceleration, inputManager.moveVector);
         }
+        
+        ApplyVelocity();
     }
 
-    public void LockMove(bool val)
+    private void ApplyVelocity()
     {
-        canMove = val;
-    }
-    
-    public void LockMove(float lockTime)
-    {
-        canMove = false;
-        StartCoroutine(UnlockMove(lockTime));
-    }
-
-    private IEnumerator UnlockMove(float time)
-    {
-        yield return new WaitForSeconds(time);
-        canMove = true;
+        // clamp fall speed;
+        VerticalVelocity = Mathf.Clamp(VerticalVelocity, -moveStats.MaxFallSpeed, 50f);
+        rb.linearVelocity = new Vector2(horizontalVelocity, VerticalVelocity);
     }
     
     #region  Move
     
     private void Move(float acceleration, float deceleration, Vector2 moveInput)
     {
-        if (!canMove)
-        {
-            moveVelocity = Vector2.Lerp(moveVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
-
-            rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
-        }
-        else if (moveInput != Vector2.zero && !isDashing)
+        if (Mathf.Abs(moveInput.x) >= moveStats.moveThreshold) 
         {
             TurnCheck(moveInput);
             
-            Vector2 targetVelocity = Vector2.zero;
+            float targetVelocity = 0;
 
             if (inputManager.runIsHeld || moveStats.onlyRunning)
             {
-                targetVelocity = new Vector2(moveInput.x, 0f) * moveStats.maxRunSpeed;
+                targetVelocity = moveInput.x * moveStats.maxRunSpeed;
             }
             else
             {
-                targetVelocity = new Vector2(moveInput.x, 0f) * moveStats.maxWalkSpeed;
+                targetVelocity = moveInput.x * moveStats.maxWalkSpeed;
             }
 
-            moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
-
-            rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
+            horizontalVelocity = Mathf.Lerp(horizontalVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
         }
-        else if(moveInput == Vector2.zero)
+        else if(Mathf.Abs(moveInput.x) < moveStats.moveThreshold)
         {
-            moveVelocity = Vector2.Lerp(moveVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
-
-            rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
+            horizontalVelocity = Mathf.Lerp(horizontalVelocity, 0, deceleration * Time.fixedDeltaTime);
         }
     }
 
@@ -173,7 +160,6 @@ public class CharacterMovement : MonoBehaviour
 
         if (groundHit.collider != null)
         {
-            groundDashCheck = true;
             isGrounded = true;
         }
         else
@@ -228,6 +214,15 @@ public class CharacterMovement : MonoBehaviour
 
     #region  JUMP
 
+    private void ResetJumpValues()
+    {
+        isJumping = false;
+        _isFalling = false;
+        _isFastFalling = false;
+        fastFallTime = 0;
+        _isPastApexThreshold = false;
+    }
+    
     private void JumpChecks()
     {
         if (inputManager.jumpWasPressed)
@@ -289,19 +284,6 @@ public class CharacterMovement : MonoBehaviour
             InitiateJump(2);
             _isFastFalling = false;
         }
-        
-        // Landed
-        if ((isJumping || _isFalling) && isGrounded && VerticalVelocity <= 0)
-        {
-            isJumping = false;
-            _isFalling = false;
-            _isFastFalling = false;
-            _isPastApexThreshold = false;
-            fastFallTime = 0;
-            VerticalVelocity = Physics2D.gravity.y;
-            
-            numberOfJumpsUsed = 0;
-        }
     }
 
     private void InitiateJump(int numberOfJumpsUsed)
@@ -318,12 +300,6 @@ public class CharacterMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (isDashing)
-        {
-            Debug.Log("Dashing");
-            return;
-        }
-        
         // Apply gravity while jumping
         if (isJumping)
         {
@@ -360,7 +336,7 @@ public class CharacterMovement : MonoBehaviour
                 }
 
                 // Gravity on ascending not past apex threshold
-                else
+                else if(!_isFastFalling)
                 {
                     VerticalVelocity += moveStats.gravity * Time.fixedDeltaTime;
                     
@@ -400,7 +376,31 @@ public class CharacterMovement : MonoBehaviour
 
             fastFallTime += Time.fixedDeltaTime;
         }
-        
+    }
+    
+    #endregion
+    
+    #region Land/Fall
+
+    private void LandCheck()
+    {
+        // Landed
+        if ((isJumping || _isFalling) && isGrounded && VerticalVelocity <= 0)
+        {
+            isJumping = false;
+            _isFalling = false;
+            _isFastFalling = false;
+            _isPastApexThreshold = false;
+            fastFallTime = 0;
+            VerticalVelocity = Physics2D.gravity.y;
+            
+            numberOfJumpsUsed = 0;
+            //numberOfDashesUsed = 0;
+        }
+    }
+
+    private void Fall()
+    {
         // Normal gravity while falling
         if (!isGrounded && !isJumping)
         {
@@ -411,14 +411,7 @@ public class CharacterMovement : MonoBehaviour
 
             VerticalVelocity += moveStats.gravity * Time.fixedDeltaTime;
         }
-        
-        // clamp fall speed;
-        VerticalVelocity = Mathf.Clamp(VerticalVelocity, -moveStats.MaxFallSpeed, 50f);
-
-        rb.linearVelocity = new Vector2(rb.angularVelocity, VerticalVelocity);
     }
-    
-    
     
     #endregion
     
@@ -426,17 +419,6 @@ public class CharacterMovement : MonoBehaviour
     private void CountTimers()
     {
         jumpBufferTimer -= Time.deltaTime;
-
-        isDashingTimer += Time.deltaTime;
-        canDashTimer += Time.deltaTime;
-        if (canDashTimer > moveStats.dashInterval)
-        {
-            canDash = true;
-        }
-        else
-        {
-            canDash = false;
-        }
 
         if (!isGrounded)
         {
@@ -446,41 +428,164 @@ public class CharacterMovement : MonoBehaviour
         {
             coyoteTimer = moveStats.JumpCoyoteTime;
         }
+        
+        if (isGrounded)
+        {
+            dashOnGroundTimer -= Time.deltaTime;
+        }
     }
     #endregion
     
     # region Dash
     private void DashCheck()
     {
-        if (inputManager.dashWasPressed && canDash && groundDashCheck)
+        if (inputManager.dashWasPressed)
         {
-            isDashingTimer = 0;
+            // ground dash
+            if (isGrounded && !isDashing)
+            {
+                InitiateDash();
+            }
+            
+            // air dash
+            else if (!isGrounded && !isDashing && numberOfDashesUsed < moveStats.numberOfDashes)
+            {
+                isAirDashing = true;
+                InitiateDash();
+                
+                // Wall jump stuff from here tutorial, but we dont have wall slide/jump 
+            }
+
+            //canDash = false;
         }
     }
-    
-    private void Dash(float acceleration)
-    {
-        if (isDashingTimer < moveStats.dashDuration)
-        {
-            groundDashCheck = false;
-            canDashTimer = 0;
-            isGrounded = false;
-            isDashing = true;
-            
-            int direction = isFacingRight ? 1 : -1;
-            
-            Vector2 targetVelocity = Vector2.zero;
-            
-            targetVelocity = new Vector2(direction, 0f) * moveStats.dashSpeed;
-            
-            moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
 
-            rb.linearVelocity = new Vector2(moveVelocity.x, 0f);
-        }
-        else
+    private void InitiateDash()
+    {
+        dashDirection = inputManager.moveVector;
+
+        Vector2 closestDirection = Vector2.zero;
+
+        float minDistance = Vector2.Distance(dashDirection, moveStats.dashDirections[0]);
+
+        for (int i = 0; i < moveStats.dashDirections.Length; i++)
         {
-            isDashing = false;
+            // skip comparisons if we hit direction bang on
+            if (dashDirection == moveStats.dashDirections[i])
+            {
+                closestDirection = dashDirection;
+                break;
+            }
+
+            float distance = Vector2.Distance(dashDirection, moveStats.dashDirections[i]);
+            
+            // Check if this is a diagonal direction and apply a bias
+            bool isDiagonal = (Mathf.Abs(moveStats.dashDirections[i].x) == 1 &&
+                               Mathf.Abs(moveStats.dashDirections[i].y) == 1);
+            if (isDiagonal)
+            {
+                distance -= moveStats.dashDiagonalBias;
+            }
+            else if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestDirection = moveStats.dashDirections[i];
+            }
         }
+        
+        // With 0 direction input
+        if (closestDirection == Vector2.zero)
+        {
+            if (isFacingRight)
+            {
+                closestDirection = Vector2.right;
+            }
+            else
+            {
+                closestDirection = Vector2.left;
+            }
+        }
+
+        dashDirection = closestDirection;
+        numberOfDashesUsed++;
+        isDashing = true;
+        dashTimer = 0;
+        dashOnGroundTimer = moveStats.timeBetweenDashOnGround;
+        
+        ResetJumpValues();
+    }
+    
+    private void Dash()
+    {
+        if (isDashing)
+        {
+            // Stop the dash after the timer
+            dashTimer += Time.fixedDeltaTime;
+            if (dashTimer >= moveStats.dashTime)
+            {
+                if (isGrounded)
+                {
+                    ResetDashes();
+                }
+
+                isAirDashing = false;
+                isDashing = false;
+
+                if (!isJumping)
+                {
+                    dashFastFallTime = 0f;
+                    dashFastFallingReleaseSpeed = VerticalVelocity;
+
+                    if (!isGrounded)
+                    {
+                        isDashFastFalling = true;
+                    }
+                }
+
+                return;
+            }
+
+            horizontalVelocity = moveStats.dashSpeed * dashDirection.x;
+
+            if (dashDirection.y != 0f || isAirDashing)
+            {
+                VerticalVelocity = moveStats.dashSpeed * dashDirection.y;
+            }
+        }
+        
+        // Handle dash cut time
+        else if (isDashFastFalling)
+        {
+            if (VerticalVelocity > 0f)
+            {
+                if (dashFastFallTime < moveStats.dashTimeForUpwardsCancel)
+                {
+                    VerticalVelocity = Mathf.Lerp(dashFastFallingReleaseSpeed, 0f,
+                        (dashFastFallTime / moveStats.dashTimeForUpwardsCancel));
+                }
+                else if (dashFastFallTime >= moveStats.dashTimeForUpwardsCancel)
+                {
+                    VerticalVelocity += moveStats.gravity * moveStats.dashGravityOnReleaseMultiplier *
+                                        Time.fixedDeltaTime;
+                }
+                
+                dashFastFallTime += Time.fixedDeltaTime;
+            }
+            else
+            {
+                VerticalVelocity += moveStats.gravity * moveStats.dashGravityOnReleaseMultiplier * Time.fixedDeltaTime;
+            }
+
+            if (isGrounded)
+            {
+                isDashFastFalling = false;
+            }
+        }
+    }
+
+    private void ResetDashes()
+    {
+        numberOfDashesUsed = 0;
     }
     
     #endregion

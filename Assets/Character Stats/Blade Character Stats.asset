@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7d5afd3687e440f885188e9b64a32d, type: 3}
   m_Name: Blade Character Stats
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovementStats
-  maxWalkSpeed: 5
-  groundAcceleration: 35
-  groundDeceleration: 35
-  airAcceleration: 4
-  airDeceleration: 15
-  maxRunSpeed: 10
+  moveThreshold: 0.25
+  maxWalkSpeed: 12
+  groundAcceleration: 20
+  groundDeceleration: 20
+  airAcceleration: 5
+  airDeceleration: 5
+  maxRunSpeed: 9.5
   onlyRunning: 1
   groundLayer:
     serializedVersion: 2
@@ -25,22 +26,27 @@ MonoBehaviour:
   groundDetectionRayLength: 0.02
   headDetectionRayLength: 0.02
   headWidth: 0.75
-  debugShowGroundedBox: 0
-  JumpHeight: 5
+  debugShowGroundedBox: 1
+  JumpHeight: 6.5
   JumpHeightCompensationFactor: 1.054
-  TimeTillJumpApex: 0.3
+  TimeTillJumpApex: 0.35
   GravityOnReleaseMultiplier: 2
-  MaxFallSpeed: 30
+  MaxFallSpeed: 26
   NumberOfJumpsAllowed: 2
   TimeForUpwardsCancel: 0.027
-  ApexThreshold: 0.554
-  ApexHangTime: 0.084
+  ApexThreshold: 0.97
+  ApexHangTime: 0.075
   JumpBufferTime: 0.125
   JumpCoyoteTime: 0.1
-  dashSpeed: 30
-  dashDuration: 0.1
-  dashInterval: 0.2
-  dashAcceleration: 36.4
-  dashHangTime: 1
+  dashSpeed: 20
+  dashTime: 0.2
+  timeBetweenDashOnGround: 0.2
+  resetOnWallSlide: 1
+  numberOfDashes: 1
+  dashDiagonalBias: 0.2
+  dashDiagonallyBias: 0.4
+  dashGravityOnReleaseMultiplier: 1
+  dashTimeForUpwardsCancel: 0.027
+  damage: 0
   DebugShowIsGroundedBox: 0
   DebugShowHeadBumpBox: 0

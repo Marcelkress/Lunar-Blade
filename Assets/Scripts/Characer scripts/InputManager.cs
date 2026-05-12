@@ -35,22 +35,18 @@ public class InputManager : MonoBehaviour
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        //dashIsHeld = context.performed;
-        
         if (context.performed)
         {
+            //Debug.Log("Dash true");
             dashWasPressed = true;
-        }
-        else if(context.canceled)
-        {
-            dashWasPressed = false;
         }
         StartCoroutine(DashWaitFrame());
     }
     
     private IEnumerator DashWaitFrame()
     {
-        yield return new WaitForEndOfFrame();
+        yield return null;
+        //Debug.Log("Dash false");
         dashWasPressed = false;
     }
 
