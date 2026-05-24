@@ -43,9 +43,45 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Simple Attack",
+                    "name": "Attack One",
                     "type": "Button",
                     "id": "405a9b2c-b739-4540-8e25-eff3fb661f21",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack Two",
+                    "type": "Button",
+                    "id": "00f47d9c-715b-41bb-aee5-12bc1284c6fb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Atack Three",
+                    "type": "Button",
+                    "id": "2428d65c-f369-4663-be2b-ccaf6e77b6d8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Special Attack Binding One",
+                    "type": "Button",
+                    "id": "3e6132bd-5f09-4a88-9c6b-3e60ddd962ae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Special Attack Binding Two",
+                    "type": "Button",
+                    "id": "29215a62-46d3-43a1-a1bc-9f790e58a046",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -291,7 +327,84 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Simple Attack",
+                    "action": "Attack One",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "473334d2-91da-405b-ac8a-d1517460b735",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack One",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bf520093-da1a-49bc-a8c1-e4c9ab29dfbe",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack Two",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "abba06a8-d165-465d-ae01-344528f34b22",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack Two",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d063a0e6-02af-4202-a5d4-97d7793721f9",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Atack Three",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "54c7743e-f922-4a15-9796-9bd8c9ef4c82",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Atack Three",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f751ac2-1d1e-4a4e-afbf-5ff890736948",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Special Attack Binding One",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2fd84044-1dff-41b6-b97d-3ac613e547a0",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Special Attack Binding Two",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -4,7 +4,6 @@ public class AttackManager : MonoBehaviour
 {
     private InputManager inputManager;
     private CharacterMovement movement;
-    public float lockTime;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,7 +20,7 @@ public class AttackManager : MonoBehaviour
 
     private void AttackCheck()
     {
-        if (inputManager.simpleAttackWasPressed)
+        if (inputManager.attackOneWasPressed || inputManager.attackTwoWasPressed)
         {
             Attack();
         }
@@ -29,6 +28,7 @@ public class AttackManager : MonoBehaviour
 
     private void Attack()
     {
+//        Debug.Log("Simple attack");
         //movement.LockMove(lockTime);
     }
 }

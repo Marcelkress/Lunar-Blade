@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
     // Movement
     [HideInInspector] public Vector2 moveVelocity;
     private bool isFacingRight;
-    public bool canMove;
+    [HideInInspector] public bool canMove;
     
     //Collision check
     private RaycastHit2D groundHit, headHit;
@@ -29,6 +29,7 @@ public class CharacterMovement : MonoBehaviour
     private float fastFallTime;
     private float _fastFallReleaseSpeed; 
     private int numberOfJumpsUsed;
+    private bool canJump = true;
     
     //apex vars
     private float apexPoint;
@@ -67,7 +68,6 @@ public class CharacterMovement : MonoBehaviour
     {
         CollisionCheck();
         Jump();
-        Dash(moveStats.dashAcceleration);
 
         if (isGrounded)
         {
@@ -77,10 +77,16 @@ public class CharacterMovement : MonoBehaviour
         {
             Move(moveStats.airAcceleration, moveStats.airDeceleration, inputManager.moveVector);
         }
+        
+        // IMPORTANT:
+        // Dash() is called after Move() because if we're dashing we want
+        // the dash velocity to override the move velocity
+        Dash(moveStats.dashAcceleration);
     }
 
     public void LockMove(bool val)
     {
+        canJump = val;
         canMove = val;
     }
     
@@ -106,7 +112,7 @@ public class CharacterMovement : MonoBehaviour
 
             rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
         }
-        else if (moveInput != Vector2.zero && !isDashing)
+        else if (moveInput != Vector2.zero)
         {
             TurnCheck(moveInput);
             
@@ -202,6 +208,7 @@ public class CharacterMovement : MonoBehaviour
     private void CollisionCheck()
     {
         IsGrounded();
+        BumpedHead();
     }
 
     private void BumpedHead()
@@ -230,7 +237,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void JumpChecks()
     {
-        if (inputManager.jumpWasPressed)
+        if (inputManager.jumpWasPressed && canJump)
         {
             jumpBufferTimer = moveStats.JumpBufferTime;
             jumpReleasedDuringBuffer = false;

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Blade Character Stats
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovementStats
   maxWalkSpeed: 5
-  groundAcceleration: 35
-  groundDeceleration: 35
-  airAcceleration: 4
-  airDeceleration: 15
+  groundAcceleration: 20.2
+  groundDeceleration: 32.4
+  airAcceleration: 22.6
+  airDeceleration: 42
   maxRunSpeed: 10
   onlyRunning: 1
   groundLayer:
@@ -33,14 +33,16 @@ MonoBehaviour:
   MaxFallSpeed: 30
   NumberOfJumpsAllowed: 2
   TimeForUpwardsCancel: 0.027
-  ApexThreshold: 0.554
-  ApexHangTime: 0.084
+  ApexThreshold: 0.848
+  ApexHangTime: 0.079
   JumpBufferTime: 0.125
   JumpCoyoteTime: 0.1
   dashSpeed: 30
   dashDuration: 0.1
   dashInterval: 0.2
-  dashAcceleration: 36.4
-  dashHangTime: 1
+  dashAcceleration: 90.3
+  damage: 0
+  specialAttackRegisterWindow: 0.2
+  attackInputBuffer: 0.5
   DebugShowIsGroundedBox: 0
   DebugShowHeadBumpBox: 0

@@ -23,13 +23,53 @@ public class AnimatorManager : MonoBehaviour
         UpdateMovementValues();
         SetMovementParams();
         AttackAnimations();
+        AttackBuffer();
     }
 
     private void AttackAnimations()
     {
-        if (inputManager.simpleAttackWasPressed)
+        if (inputManager.attackOneWasPressed)
         {
-            anim.SetTrigger("Simple Attack");
+            Debug.Log("Attack 1");
+            anim.SetTrigger("Enter Attack Tree");
+            anim.SetTrigger("Attack One");
+            count = true;
+            timer = 0;
+        }
+        else if (inputManager.attackTwoWasPressed)
+        {
+            Debug.Log("Attack 2");
+            anim.SetTrigger("Enter Attack Tree"); 
+            anim.SetTrigger("Attack Two");
+            count = true;
+            timer = 0;
+        }
+        else if (inputManager.attackThreeWasPressed)
+        { 
+            Debug.Log("Attack 3");
+            anim.SetTrigger("Enter Attack Tree"); 
+            anim.SetTrigger("Attack Three");
+            count = true;
+            timer = 0;
+        }
+    }
+
+    private bool count;
+    private float timer;
+
+    private void AttackBuffer()
+    {
+        if (count)
+        {
+            timer += Time.deltaTime;
+            if (timer > movement.moveStats.attackInputBuffer)
+            {
+                anim.ResetTrigger("Attack One");
+                anim.ResetTrigger("Attack Two");
+                anim.ResetTrigger("Attack Three");
+                anim.ResetTrigger("Enter Attack Tree");
+                count = false;
+            }
         }
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,8 +9,12 @@ public class InputManager : MonoBehaviour
     public bool jumpWasPressed, jumpIsHeld, jumpWasReleased;
     public bool runIsHeld;
     public bool dashWasPressed;
-    public bool simpleAttackWasPressed;
+    public bool attackOneWasPressed, attackTwoWasPressed,
+        attackThreeWasPressed;
     
+    private bool specialOneWasPressed, specialTwoWasPressed;
+    
+    #region Movement
     public void OnMove(InputAction.CallbackContext context)
     {
         //Debug.Log("move");
@@ -65,22 +70,82 @@ public class InputManager : MonoBehaviour
         runIsHeld = context.performed;
     }
 
-    public void OnSimpleAttack(InputAction.CallbackContext context)
+    
+
+    #endregion
+
+    #region Attack
+    
+    public void OnAttackOne(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            simpleAttackWasPressed = true;
+            attackOneWasPressed = true;
         }
         else if(context.canceled)
         {
-            simpleAttackWasPressed = false;
+            attackOneWasPressed = false;
         }
         StartCoroutine(SimpleAttackWaitFrame());
     }
     
+    public void OnAttackTwo(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            attackTwoWasPressed = true;
+        }
+        else if(context.canceled)
+        {
+            attackTwoWasPressed = false;
+        }
+        StartCoroutine(SimpleAttackWaitFrame());
+    }
+    
+    public void OnAttackThree(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            attackThreeWasPressed = true;
+        }
+        else if(context.canceled)
+        {
+            attackThreeWasPressed = false;
+        }
+        StartCoroutine(SimpleAttackWaitFrame());
+    }
+
+    
     private IEnumerator SimpleAttackWaitFrame()
     {
         yield return new WaitForEndOfFrame();
-        simpleAttackWasPressed = false;
+        attackOneWasPressed = attackTwoWasPressed = attackThreeWasPressed = false;
     }
+    
+    public void OnSpecialAttackBindingOne(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            specialOneWasPressed = true;
+        }
+        else if(context.canceled)
+        {
+            specialOneWasPressed = false;
+        }
+    }
+    
+    public void OnSpecialAttackBindingTwo(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            specialTwoWasPressed = true;
+        }
+        else if(context.canceled)
+        {
+            specialTwoWasPressed = false;
+        }
+    }
+
+    #endregion
+    
 }
