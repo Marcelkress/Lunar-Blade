@@ -41,8 +41,7 @@ MonoBehaviour:
   dashDuration: 0.1
   dashInterval: 0.2
   dashAcceleration: 90.3
-  damage: 0
-  specialAttackRegisterWindow: 0.2
+  specialAttackInputBuffer: 0.5
   attackInputBuffer: 0.5
   DebugShowIsGroundedBox: 0
   DebugShowHeadBumpBox: 0

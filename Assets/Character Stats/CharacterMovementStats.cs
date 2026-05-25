@@ -49,8 +49,7 @@ public class CharacterMovementStats : ScriptableObject
     [Range(20f, 200f)] public float dashAcceleration = 100;
 
     [Header("Attack")] 
-    public int damage;
-    public float specialAttackRegisterWindow = 0.2f;
+    public float specialAttackInputBuffer = 0.2f;
     [Range(0.1f, 1f)]public float attackInputBuffer = 0.5f;
     
     [Header ("Debug" )]

@@ -24,13 +24,18 @@ public class AnimatorManager : MonoBehaviour
         SetMovementParams();
         AttackAnimations();
         AttackBuffer();
+        
+        if (inputManager.dashWasPressed)
+        {
+            anim.SetTrigger("Dash");
+        }
     }
 
     private void AttackAnimations()
     {
         if (inputManager.attackOneWasPressed)
         {
-            Debug.Log("Attack 1");
+            //Debug.Log("Attack 1");
             anim.SetTrigger("Enter Attack Tree");
             anim.SetTrigger("Attack One");
             count = true;
@@ -38,7 +43,7 @@ public class AnimatorManager : MonoBehaviour
         }
         else if (inputManager.attackTwoWasPressed)
         {
-            Debug.Log("Attack 2");
+            //Debug.Log("Attack 2");
             anim.SetTrigger("Enter Attack Tree"); 
             anim.SetTrigger("Attack Two");
             count = true;
@@ -46,9 +51,17 @@ public class AnimatorManager : MonoBehaviour
         }
         else if (inputManager.attackThreeWasPressed)
         { 
-            Debug.Log("Attack 3");
+            //Debug.Log("Attack 3");
             anim.SetTrigger("Enter Attack Tree"); 
             anim.SetTrigger("Attack Three");
+            count = true;
+            timer = 0;
+        }
+        else if (inputManager.specialAttackPressed)
+        { 
+            Debug.Log("Special attack");
+            anim.SetTrigger("Enter Attack Tree"); 
+            anim.SetTrigger("Attack Special");
             count = true;
             timer = 0;
         }

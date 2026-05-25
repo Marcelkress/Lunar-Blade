@@ -45,7 +45,7 @@ public class CharacterMovement : MonoBehaviour
     // dash vars
     private bool isDashing;
     private bool canDash;
-    private float canDashTimer, isDashingTimer;
+    private float canDashTimer, isDashingTimer = 1f;
     private bool isDashHanging;
     private bool groundDashCheck;
     
@@ -84,7 +84,7 @@ public class CharacterMovement : MonoBehaviour
         Dash(moveStats.dashAcceleration);
     }
 
-    public void LockMove(bool val)
+    public void CanMove(bool val)
     {
         canJump = val;
         canMove = val;
@@ -271,7 +271,7 @@ public class CharacterMovement : MonoBehaviour
         // initiate jump
         if (jumpBufferTimer > 0 && !isJumping && (isGrounded || coyoteTimer > 0))
         {
-            Debug.Log("Normal jump");
+            //Debug.Log("Normal jump");
             InitiateJump(1);
 
             if (jumpReleasedDuringBuffer)
@@ -284,7 +284,7 @@ public class CharacterMovement : MonoBehaviour
         // Double jump
         else if (jumpBufferTimer > 0 && isJumping && numberOfJumpsUsed < moveStats.NumberOfJumpsAllowed)
         {
-            Debug.Log("Double jump");
+            //Debug.Log("Double jump");
             _isFastFalling = false;
             InitiateJump(1);
         }
@@ -292,7 +292,7 @@ public class CharacterMovement : MonoBehaviour
         // Initiate jump after coyote time
         else if (jumpBufferTimer > 0 && _isFalling && numberOfJumpsUsed < moveStats.NumberOfJumpsAllowed - 1)
         {
-            Debug.Log("Coyote jump");
+            //Debug.Log("Coyote jump");
             InitiateJump(2);
             _isFastFalling = false;
         }
@@ -327,7 +327,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (isDashing)
         {
-            Debug.Log("Dashing");
+            //Debug.Log("Dashing");
             return;
         }
         

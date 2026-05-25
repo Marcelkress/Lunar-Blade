@@ -5,15 +5,29 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    private CharacterMovement movement;
     public Vector2 moveVector;
     public bool jumpWasPressed, jumpIsHeld, jumpWasReleased;
     public bool runIsHeld;
     public bool dashWasPressed;
     public bool attackOneWasPressed, attackTwoWasPressed,
         attackThreeWasPressed;
+    public bool specialAttackPressed;
     
     private bool specialOneWasPressed, specialTwoWasPressed;
-    
+    private float timer;
+    private bool countTimer;
+
+    private void Start()
+    {
+        movement = GetComponent<CharacterMovement>();
+    }
+
+    private void Update()
+    {
+       SpecialAttackBuffer();
+    }
+
     #region Movement
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -86,7 +100,7 @@ public class InputManager : MonoBehaviour
         {
             attackOneWasPressed = false;
         }
-        StartCoroutine(SimpleAttackWaitFrame());
+        StartCoroutine(ResetNextFrame(() => attackOneWasPressed = false));
     }
     
     public void OnAttackTwo(InputAction.CallbackContext context)
@@ -99,7 +113,7 @@ public class InputManager : MonoBehaviour
         {
             attackTwoWasPressed = false;
         }
-        StartCoroutine(SimpleAttackWaitFrame());
+        StartCoroutine(ResetNextFrame(() => attackTwoWasPressed = false));
     }
     
     public void OnAttackThree(InputAction.CallbackContext context)
@@ -112,14 +126,7 @@ public class InputManager : MonoBehaviour
         {
             attackThreeWasPressed = false;
         }
-        StartCoroutine(SimpleAttackWaitFrame());
-    }
-
-    
-    private IEnumerator SimpleAttackWaitFrame()
-    {
-        yield return new WaitForEndOfFrame();
-        attackOneWasPressed = attackTwoWasPressed = attackThreeWasPressed = false;
+        StartCoroutine(ResetNextFrame(() => attackThreeWasPressed = false));
     }
     
     public void OnSpecialAttackBindingOne(InputAction.CallbackContext context)
@@ -132,6 +139,8 @@ public class InputManager : MonoBehaviour
         {
             specialOneWasPressed = false;
         }
+
+        //StartCoroutine(ResetNextFrame(() => specialOneWasPressed = false));
     }
     
     public void OnSpecialAttackBindingTwo(InputAction.CallbackContext context)
@@ -144,8 +153,44 @@ public class InputManager : MonoBehaviour
         {
             specialTwoWasPressed = false;
         }
+        
+        //StartCoroutine(ResetNextFrame(() => specialTwoWasPressed = false));
     }
 
+    private void SpecialAttackBuffer()
+    {
+        if (specialOneWasPressed || specialTwoWasPressed)
+        {
+            countTimer = true;
+        }
+
+        if (countTimer)
+        {
+            timer += Time.deltaTime;
+            Debug.Log("Within buffer");
+            
+            if (specialOneWasPressed && specialTwoWasPressed && timer < movement.moveStats.specialAttackInputBuffer)
+            {
+                specialAttackPressed = true;
+                //Debug.Log("Special Attack!");
+                StartCoroutine(ResetNextFrame(() => specialAttackPressed = false));
+                //StartCoroutine(ResetNextFrame(() => specialOneWasPressed = false));
+                //StartCoroutine(ResetNextFrame(() => specialTwoWasPressed = false));
+            }
+            else if (timer > movement.moveStats.specialAttackInputBuffer)
+            {
+                countTimer = false;
+                timer = 0;
+            }
+        }
+    }
+    
     #endregion
     
+    // Routine that resets bool after a frame
+    private IEnumerator ResetNextFrame(params Action[] resets)
+    {
+        yield return new WaitForEndOfFrame();
+        foreach (var r in resets) r();
+    }
 }
