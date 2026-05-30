@@ -18,7 +18,7 @@ public class AttackHitDetection : MonoBehaviour
         im = owner.GetComponent<InputManager>();
 
         var myCollider = GetComponent<Collider2D>();
-        // ignore collisions between this hit collider and all colliders that belong to the same owner
+
         var ownerColliders = owner.GetComponentsInChildren<Collider2D>();
         foreach (var c in ownerColliders)
         {
