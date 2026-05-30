@@ -15,8 +15,33 @@ public class InputManager : MonoBehaviour
     public bool specialAttackPressed;
     
     private bool specialOneWasPressed, specialTwoWasPressed;
+    private float specialOneTimer, specialTwoTimer;
     private float timer;
     private bool countTimer;
+
+    public static int playerCount = 0;
+    public int layerMask;
+    public int playerID;
+
+    private void Awake()
+    {
+        playerCount++;
+        
+        if (playerCount == 1)
+        {
+            playerID = 1;
+            int layer = LayerMask.NameToLayer("Player 1");
+            layerMask = layer;
+            gameObject.layer = layer;
+        }
+        else if (playerCount == 2)
+        {
+            playerID = 2;
+            int layer = LayerMask.NameToLayer("Player 2");
+            layerMask = layer;
+            gameObject.layer = layer;
+        }
+    }
 
     private void Start()
     {
@@ -134,60 +159,54 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         {
             specialOneWasPressed = true;
+            specialOneTimer = 0;
         }
-        else if(context.canceled)
-        {
-            specialOneWasPressed = false;
-        }
-
-        //StartCoroutine(ResetNextFrame(() => specialOneWasPressed = false));
     }
-    
+
     public void OnSpecialAttackBindingTwo(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             specialTwoWasPressed = true;
+            specialTwoTimer = 0; 
         }
-        else if(context.canceled)
-        {
-            specialTwoWasPressed = false;
-        }
-        
-        //StartCoroutine(ResetNextFrame(() => specialTwoWasPressed = false));
     }
-
     private void SpecialAttackBuffer()
     {
-        if (specialOneWasPressed || specialTwoWasPressed)
+        if (specialOneWasPressed)
         {
-            countTimer = true;
+            specialOneTimer += Time.deltaTime;
+            if (specialOneTimer > movement.moveStats.specialAttackInputBuffer)
+            {
+                specialOneWasPressed = false;
+            }
         }
 
-        if (countTimer)
+        if (specialTwoWasPressed)
         {
-            timer += Time.deltaTime;
-            Debug.Log("Within buffer");
-            
-            if (specialOneWasPressed && specialTwoWasPressed && timer < movement.moveStats.specialAttackInputBuffer)
+            specialTwoTimer += Time.deltaTime;
+            if (specialTwoTimer > movement.moveStats.specialAttackInputBuffer)
             {
-                specialAttackPressed = true;
-                //Debug.Log("Special Attack!");
-                StartCoroutine(ResetNextFrame(() => specialAttackPressed = false));
-                //StartCoroutine(ResetNextFrame(() => specialOneWasPressed = false));
-                //StartCoroutine(ResetNextFrame(() => specialTwoWasPressed = false));
+                specialTwoWasPressed = false;
             }
-            else if (timer > movement.moveStats.specialAttackInputBuffer)
-            {
-                countTimer = false;
-                timer = 0;
-            }
+        }
+        
+        if (specialOneWasPressed && specialTwoWasPressed)
+        {
+            specialAttackPressed = true;
+            StartCoroutine(ResetNextFrame(() => specialAttackPressed = false));
+            specialOneWasPressed = false;
+            specialTwoWasPressed = false;
         }
     }
     
     #endregion
     
-    // Routine that resets bool after a frame
+    /// <summary>
+    /// Routine that executes action after one frame
+    /// </summary>
+    /// <param name="resets"></param>
+    /// <returns></returns>
     private IEnumerator ResetNextFrame(params Action[] resets)
     {
         yield return new WaitForEndOfFrame();

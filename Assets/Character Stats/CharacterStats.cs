@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CharacterMovementStats", menuName = "Scriptable Objects/CharacterMovementStats")]
-public class CharacterMovementStats : ScriptableObject
+public class CharacterStats : ScriptableObject
 {
     [Header("Walk")] 
     [Range(1f, 100f)] public float maxWalkSpeed = 12f;
@@ -45,12 +45,24 @@ public class CharacterMovementStats : ScriptableObject
     [Header("Dash")] 
     public float dashSpeed = 20;
     public float dashDuration = 0.2f;
-    public float dashInterval = .8f;
+    public float betweenDashInterval = .8f;
     [Range(20f, 200f)] public float dashAcceleration = 100;
 
+    [Header("Health")] 
+    public int maxHealth;
+    
     [Header("Attack")] 
     public float specialAttackInputBuffer = 0.2f;
     [Range(0.1f, 1f)]public float attackInputBuffer = 0.5f;
+    [Range(0.1f, 20f)]public float attackDecelerationMultiplier = 0.2f;
+
+    [Header("Combat")] 
+    public int attackOneDmg = 1;
+    public int attackTwoDmg = 2, attackThreeDmg = 3;
+    public int specialAttackDmg = 4;
+    [Range(0.01f, 1)] public float takeHitStaggerTime = 0.2f;
+    [Range(0.01f, 1)] public float invulnerabilityTimeAfterHit = 0.2f;
+    
     
     [Header ("Debug" )]
     public bool DebugShowIsGroundedBox; public bool DebugShowHeadBumpBox;

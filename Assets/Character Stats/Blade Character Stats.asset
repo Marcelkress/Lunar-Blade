@@ -15,8 +15,8 @@ MonoBehaviour:
   maxWalkSpeed: 5
   groundAcceleration: 20.2
   groundDeceleration: 32.4
-  airAcceleration: 22.6
-  airDeceleration: 42
+  airAcceleration: 7.3
+  airDeceleration: 1.5
   maxRunSpeed: 10
   onlyRunning: 1
   groundLayer:
@@ -29,19 +29,27 @@ MonoBehaviour:
   JumpHeight: 5
   JumpHeightCompensationFactor: 1.054
   TimeTillJumpApex: 0.3
-  GravityOnReleaseMultiplier: 2
+  GravityOnReleaseMultiplier: 0.5
   MaxFallSpeed: 30
   NumberOfJumpsAllowed: 2
   TimeForUpwardsCancel: 0.027
-  ApexThreshold: 0.848
-  ApexHangTime: 0.079
+  ApexThreshold: 1
+  ApexHangTime: 0.01
   JumpBufferTime: 0.125
   JumpCoyoteTime: 0.1
-  dashSpeed: 30
+  dashSpeed: 20
   dashDuration: 0.1
-  dashInterval: 0.2
-  dashAcceleration: 90.3
-  specialAttackInputBuffer: 0.5
+  betweenDashInterval: 0.8
+  dashAcceleration: 90
+  maxHealth: 10
+  specialAttackInputBuffer: 0.3
   attackInputBuffer: 0.5
+  attackDecelerationMultiplier: 12
+  attackOneDmg: 1
+  attackTwoDmg: 2
+  attackThreeDmg: 3
+  specialAttackDmg: 4
+  takeHitStaggerTime: 0.2
+  invulnerabilityTimeAfterHit: 0.2
   DebugShowIsGroundedBox: 0
   DebugShowHeadBumpBox: 0

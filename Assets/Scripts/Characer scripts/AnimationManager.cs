@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public class AnimatorManager : MonoBehaviour
+public class AnimationManager : MonoBehaviour
 {
     private Animator anim;
     private CharacterMovement movement;
     private InputManager inputManager;
-
+    private PlayerHealth health;
+    
     private bool isGrounded, moving;
     private float velocityY;
     
@@ -15,6 +17,8 @@ public class AnimatorManager : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         movement = GetComponent<CharacterMovement>();
         inputManager = GetComponent<InputManager>();
+        health = GetComponentInChildren<PlayerHealth>();
+        health.TakeHitEvent.AddListener(TakeHitAnim);
     }
 
     // Update is called once per frame
@@ -29,6 +33,11 @@ public class AnimatorManager : MonoBehaviour
         {
             anim.SetTrigger("Dash");
         }
+    }
+
+    private void TakeHitAnim()
+    {
+        anim.SetTrigger("Take Hit");
     }
 
     private void AttackAnimations()
@@ -57,9 +66,9 @@ public class AnimatorManager : MonoBehaviour
             count = true;
             timer = 0;
         }
-        else if (inputManager.specialAttackPressed)
+        else if (inputManager.specialAttackPressed && movement.isGrounded)
         { 
-            Debug.Log("Special attack");
+            //Debug.Log("Special attack");
             anim.SetTrigger("Enter Attack Tree"); 
             anim.SetTrigger("Attack Special");
             count = true;

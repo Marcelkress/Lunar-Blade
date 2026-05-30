@@ -10,9 +10,9 @@ public class HitDummy : MonoBehaviour, IHittable
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    public void TakeHit()
+    public void TakeHit(int damage)
     {
-        Debug.Log("OUCH!");
+        Debug.Log("OUCH! - Took " + damage + " damage");
         sprite.color = Color.red;
         Invoke(nameof(ResetColor), .3f);
     }

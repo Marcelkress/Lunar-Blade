@@ -14,6 +14,16 @@ public class AnimEvents : MonoBehaviour
     {
         GetComponentInParent<CharacterMovement>().CanMove(true);
     }
+
+    public void StartStagger()
+    {
+        GetComponentInParent<CharacterMovement>().StartStagger();
+    }
+
+    public void EndStagger()
+    {
+        GetComponentInParent<CharacterMovement>().EndStagger();
+    }
     
     public void EnableDamageCollider(int colliderID)
     {

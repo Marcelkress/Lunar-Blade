@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     [Header("References")] 
-    public CharacterMovementStats moveStats;
+    public CharacterStats moveStats;
     [SerializeField] private Collider2D feetColl, bodyColl;
 
     private Rigidbody2D rb;
@@ -49,6 +49,9 @@ public class CharacterMovement : MonoBehaviour
     private bool isDashHanging;
     private bool groundDashCheck;
     
+    // Stagger vars
+    private bool isStaggered;
+    
     private void Awake()
     {
         isFacingRight = true;
@@ -67,6 +70,7 @@ public class CharacterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         CollisionCheck();
+        
         Jump();
 
         if (isGrounded)
@@ -87,19 +91,31 @@ public class CharacterMovement : MonoBehaviour
     public void CanMove(bool val)
     {
         canJump = val;
-        canMove = val;
-    }
-    
-    public void LockMove(float lockTime)
-    {
-        canMove = false;
-        StartCoroutine(UnlockMove(lockTime));
+        
+        if(isGrounded)
+            canMove = val;
+        
+        canDash = val;
     }
 
-    private IEnumerator UnlockMove(float time)
+    public void StartStagger()
     {
-        yield return new WaitForSeconds(time);
+        VerticalVelocity = 0;
+        rb.simulated = false;
+        moveVelocity = Vector2.zero;
+        isStaggered = true;
+        canJump = false;
+        canMove = false;
+        canDash = false;
+    }
+    
+    public void EndStagger()
+    {
+        rb.simulated = true;
+        isStaggered = false;
+        canJump = true;
         canMove = true;
+        canDash = true;
     }
     
     #region  Move
@@ -108,7 +124,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (!canMove)
         {
-            moveVelocity = Vector2.Lerp(moveVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
+            moveVelocity = Vector2.Lerp(moveVelocity, Vector2.zero, moveStats.attackDecelerationMultiplier * Time.fixedDeltaTime);
 
             rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
         }
@@ -425,8 +441,6 @@ public class CharacterMovement : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.angularVelocity, VerticalVelocity);
     }
     
-    
-    
     #endregion
     
     #region Timers
@@ -436,7 +450,7 @@ public class CharacterMovement : MonoBehaviour
 
         isDashingTimer += Time.deltaTime;
         canDashTimer += Time.deltaTime;
-        if (canDashTimer > moveStats.dashInterval)
+        if (canDashTimer > moveStats.betweenDashInterval)
         {
             canDash = true;
         }
