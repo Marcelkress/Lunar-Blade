@@ -52,6 +52,9 @@ public class CharacterMovement : MonoBehaviour
     // Stagger vars
     private bool isStaggered;
     
+    // Audio vars
+    public bool jumpPerformed, doubleJumpPerformed; 
+    
     private void Awake()
     {
         isFacingRight = true;
@@ -289,6 +292,7 @@ public class CharacterMovement : MonoBehaviour
         {
             //Debug.Log("Normal jump");
             InitiateJump(1);
+            jumpPerformed = true;
 
             if (jumpReleasedDuringBuffer)
             {
@@ -303,6 +307,7 @@ public class CharacterMovement : MonoBehaviour
             //Debug.Log("Double jump");
             _isFastFalling = false;
             InitiateJump(1);
+            doubleJumpPerformed = true;
         }
         
         // Initiate jump after coyote time
@@ -310,6 +315,7 @@ public class CharacterMovement : MonoBehaviour
         {
             //Debug.Log("Coyote jump");
             InitiateJump(2);
+            jumpPerformed = true;
             _isFastFalling = false;
         }
         
