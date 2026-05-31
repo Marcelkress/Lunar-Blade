@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Timers;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class CharacterMovement : MonoBehaviour
     private bool isStaggered;
     
     // Audio vars
-    public bool jumpPerformed, doubleJumpPerformed; 
+    public UnityEvent jumpPerformed, doubleJumpPerformed; 
     
     private void Awake()
     {
@@ -292,7 +293,7 @@ public class CharacterMovement : MonoBehaviour
         {
             //Debug.Log("Normal jump");
             InitiateJump(1);
-            jumpPerformed = true;
+            jumpPerformed.Invoke();
 
             if (jumpReleasedDuringBuffer)
             {
@@ -307,7 +308,7 @@ public class CharacterMovement : MonoBehaviour
             //Debug.Log("Double jump");
             _isFastFalling = false;
             InitiateJump(1);
-            doubleJumpPerformed = true;
+            doubleJumpPerformed.Invoke();
         }
         
         // Initiate jump after coyote time
@@ -315,7 +316,7 @@ public class CharacterMovement : MonoBehaviour
         {
             //Debug.Log("Coyote jump");
             InitiateJump(2);
-            jumpPerformed = true;
+            jumpPerformed.Invoke();
             _isFastFalling = false;
         }
         
