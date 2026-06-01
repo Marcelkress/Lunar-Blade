@@ -58,8 +58,8 @@ public class InputManager : MonoBehaviour
     #region Movement
     public void OnMove(InputAction.CallbackContext context)
     {
-        //Debug.Log("move");
         moveVector = context.ReadValue<Vector2>();
+        Debug.Log(moveVector);
     }
 
     public void OnJump(InputAction.CallbackContext context)

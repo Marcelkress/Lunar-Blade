@@ -140,7 +140,9 @@ public class CharacterMovement : MonoBehaviour
 
             if (inputManager.runIsHeld || moveStats.onlyRunning)
             {
+                //ADD SPEED INCREASE FOR JOYSTICK AXIS
                 targetVelocity = new Vector2(moveInput.x, 0f) * moveStats.maxRunSpeed;
+                //Debug.Log(targetVelocity);
             }
             else
             {

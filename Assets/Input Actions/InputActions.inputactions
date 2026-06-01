@@ -147,7 +147,7 @@
                 {
                     "name": "2D Vector",
                     "id": "bae3e471-56fe-429c-aced-34b78cc993a7",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -310,6 +310,61 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "2D Vector",
+                    "id": "ef863990-5dee-423b-beef-5d140ec7f1ac",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "ff30b294-5136-4490-9d54-f5b092b037ae",
+                    "path": "<HID::Akishop Customs PS360+ v1.00>/hat/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "76e6190b-7a6e-4705-9d8f-2901d79232bc",
+                    "path": "<HID::Akishop Customs PS360+ v1.00>/hat/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "23365913-2d44-4d05-b685-450e5960a221",
+                    "path": "<HID::Akishop Customs PS360+ v1.00>/hat/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "119df0bd-82a9-4c99-9ce0-a2760aa746d5",
+                    "path": "<HID::Akishop Customs PS360+ v1.00>/hat/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "16c2751a-d2ed-4092-8c68-3c09b5b206fe",
                     "path": "<Keyboard>/space",
@@ -335,6 +390,17 @@
                     "name": "",
                     "id": "ca4d3e1b-7f06-4bf0-a35e-03fd26d3070d",
                     "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5f9808f2-c50a-41fc-bf8e-42ea5dcd65d8",
+                    "path": "<HID::Akishop Customs PS360+ v1.00>/hat/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -388,6 +454,17 @@
                 },
                 {
                     "name": "",
+                    "id": "89646795-955f-436e-ab8b-ef9dd2b4dd6e",
+                    "path": "<HID::Akishop Customs PS360+ v1.00>/button6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "67194446-85d2-4b84-8d81-3bac12b7aada",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
@@ -401,6 +478,17 @@
                     "name": "",
                     "id": "473334d2-91da-405b-ac8a-d1517460b735",
                     "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack One",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8875361b-04d8-43f8-924e-fc44ab0bc989",
+                    "path": "<HID::Akishop Customs PS360+ v1.00>/button2",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -432,6 +520,17 @@
                 },
                 {
                     "name": "",
+                    "id": "813b8797-b967-4aaa-b9a9-8e02222ee4f1",
+                    "path": "<HID::Akishop Customs PS360+ v1.00>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack Two",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d063a0e6-02af-4202-a5d4-97d7793721f9",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
@@ -445,6 +544,17 @@
                     "name": "",
                     "id": "54c7743e-f922-4a15-9796-9bd8c9ef4c82",
                     "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack Three",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1cdf780-13b6-4711-97f0-a98a3a18ec40",
+                    "path": "<HID::Akishop Customs PS360+ v1.00>/button4",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -476,6 +586,17 @@
                 },
                 {
                     "name": "",
+                    "id": "5dcd1dca-eb27-4c29-9eae-890356bcb4b4",
+                    "path": "<HID::Akishop Customs PS360+ v1.00>/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Special Attack Binding One",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2fd84044-1dff-41b6-b97d-3ac613e547a0",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
@@ -489,6 +610,17 @@
                     "name": "",
                     "id": "829b4cbb-1b88-46ca-8260-ed40e6079dc2",
                     "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Special Attack Binding Two",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "88bcdbe8-42d5-46d5-92f2-34c3f8484be3",
+                    "path": "<HID::Akishop Customs PS360+ v1.00>/button8",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

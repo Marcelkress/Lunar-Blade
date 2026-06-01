@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Blade Character Stats
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovementStats
   maxWalkSpeed: 5
-  groundAcceleration: 20.2
-  groundDeceleration: 32.4
+  groundAcceleration: 10
+  groundDeceleration: 9.8
   airAcceleration: 7.3
   airDeceleration: 1.5
   maxRunSpeed: 10
