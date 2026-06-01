@@ -24,7 +24,7 @@ MonoBehaviour:
     m_Bits: 8
   groundDetectionRayLength: 0.02
   headDetectionRayLength: 0.02
-  headWidth: 0.75
+  headWidth: 0.488
   debugShowGroundedBox: 0
   JumpHeight: 5
   JumpHeightCompensationFactor: 1.054
@@ -39,7 +39,7 @@ MonoBehaviour:
   JumpCoyoteTime: 0.1
   dashSpeed: 20
   dashDuration: 0.1
-  betweenDashInterval: 0.8
+  betweenDashInterval: 0.28
   dashAcceleration: 90
   maxHealth: 10
   specialAttackInputBuffer: 0.3

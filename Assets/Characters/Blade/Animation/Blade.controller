@@ -505,7 +505,7 @@ AnimatorStateMachine:
     m_Position: {x: 360, y: -200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8633387332318466815}
-    m_Position: {x: 110, y: 210, z: 0}
+    m_Position: {x: 140, y: 220, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: 8431912523400954274}
@@ -718,6 +718,18 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &229442040842186049
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d786d4623dd2e4bdca8550ba8deea65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnlockMove
 --- !u!1102 &572133930658474640
 AnimatorState:
   serializedVersion: 6
@@ -735,6 +747,7 @@ AnimatorState:
   - {fileID: 3622037850536310127}
   m_StateMachineBehaviours:
   - {fileID: 8344228154614670823}
+  - {fileID: 3780318849963947875}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1106,6 +1119,18 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &3780318849963947875
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17505f14287fd2542b98576e0c9984a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1102 &4874898696404265754
 AnimatorState:
   serializedVersion: 6
@@ -1476,7 +1501,7 @@ AnimatorStateMachine:
     m_Position: {x: 540, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 572133930658474640}
-    m_Position: {x: 730, y: 10, z: 0}
+    m_Position: {x: 710, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3529451016472753901}
     m_Position: {x: 540, y: 270, z: 0}
@@ -1534,7 +1559,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7092157850931314533}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 229442040842186049}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

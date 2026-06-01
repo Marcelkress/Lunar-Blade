@@ -13,19 +13,21 @@ public class InputManager : MonoBehaviour
     public bool attackOneWasPressed, attackTwoWasPressed,
         attackThreeWasPressed;
     public bool specialAttackPressed;
-    
+
     private bool specialOneWasPressed, specialTwoWasPressed;
     private float specialOneTimer, specialTwoTimer;
-    private float timer;
-    private bool countTimer;
 
     public static int playerCount = 0;
     public int layerMask;
     public int playerID;
 
+    // God vars
+    public bool canReceiveInput;
+
     private void Awake()
     {
         playerCount++;
+        canReceiveInput = true;
         
         if (playerCount == 1)
         {
@@ -65,6 +67,7 @@ public class InputManager : MonoBehaviour
         if (context.started || context.performed)
         {
             //Debug.Log("Recognizing jump");
+            Debug.Log(Time.frameCount);
             jumpWasPressed = true;
             jumpWasReleased = false;
         }
@@ -79,7 +82,8 @@ public class InputManager : MonoBehaviour
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        //dashIsHeld = context.performed;
+        if(!canReceiveInput)
+            return;
         
         if (context.performed)
         {
@@ -117,6 +121,7 @@ public class InputManager : MonoBehaviour
     
     public void OnAttackOne(InputAction.CallbackContext context)
     {
+
         if (context.performed)
         {
             attackOneWasPressed = true;
@@ -193,6 +198,7 @@ public class InputManager : MonoBehaviour
         
         if (specialOneWasPressed && specialTwoWasPressed)
         {
+            Debug.Log(Time.frameCount   );
             specialAttackPressed = true;
             StartCoroutine(ResetNextFrame(() => specialAttackPressed = false));
             specialOneWasPressed = false;

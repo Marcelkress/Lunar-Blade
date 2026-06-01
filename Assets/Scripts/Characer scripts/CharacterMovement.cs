@@ -45,7 +45,7 @@ public class CharacterMovement : MonoBehaviour
     
     // dash vars
     private bool isDashing;
-    private bool canDash;
+    public bool canDash;
     private float canDashTimer, isDashingTimer = 1f;
     private bool isDashHanging;
     private bool groundDashCheck;
