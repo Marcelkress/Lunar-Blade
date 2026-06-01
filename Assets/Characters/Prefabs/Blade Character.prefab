@@ -194,7 +194,7 @@ MonoBehaviour:
       Data2: 1207741448
       Data3: -215535486
       Data4: -1252880350
-    Path: event:/Movement/Event_player_dash
+    Path: event:/Movement/Event_player_dash_01
   playerRun:
     Guid:
       Data1: -2072951488
@@ -202,6 +202,34 @@ MonoBehaviour:
       Data3: 2071131023
       Data4: 1907777842
     Path: event:/Movement/Event_player_footsteps_01
+  playerAttack_01:
+    Guid:
+      Data1: -1130963062
+      Data2: 1086342507
+      Data3: 194375083
+      Data4: -1576558277
+    Path: event:/Attack/Event_player_attack_01
+  playerAttack_02:
+    Guid:
+      Data1: -441556126
+      Data2: 1227516093
+      Data3: 311354776
+      Data4: 250196057
+    Path: event:/Attack/Event_player_attack_02
+  playerAttack_03:
+    Guid:
+      Data1: 940410459
+      Data2: 1265306100
+      Data3: 557563274
+      Data4: -716133016
+    Path: event:/Attack/Event_player_attack_03
+  playerAttack_04:
+    Guid:
+      Data1: 713555286
+      Data2: 1167505775
+      Data3: 336113282
+      Data4: -1955049106
+    Path: event:/Attack/Event_player_attack_04
 --- !u!1 &2921782785074893394
 GameObject:
   m_ObjectHideFlags: 0

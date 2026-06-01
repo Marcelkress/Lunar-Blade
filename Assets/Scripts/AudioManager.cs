@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        
         if (instance != null)
         {
             UnityEngine.Debug.LogError("DER ER MERE END ÉN AUDIOMANAGER I SCENEN!!!");
