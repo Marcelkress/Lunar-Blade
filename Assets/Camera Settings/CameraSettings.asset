@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a220f7ea4c962964f948af6cb24692b9, type: 3}
   m_Name: CameraSettings
   m_EditorClassIdentifier: Assembly-CSharp::CameraSettings
-  CharacterRadius: 1
+  CharacterRadius: 7
   CharacterWeight: 1

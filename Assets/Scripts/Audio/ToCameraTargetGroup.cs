@@ -1,7 +1,5 @@
-using Cinemachine;
+using Unity.Cinemachine;
 using UnityEngine;
-
-
 
 public class ToCameraTargetGroup : MonoBehaviour
 
@@ -10,7 +8,7 @@ public class ToCameraTargetGroup : MonoBehaviour
    [SerializeField] private CinemachineTargetGroup targetGroup;
     public CameraSettings cameraSettings;
     
-    void Start()
+    void Awake()
     {
         targetGroup = FindObjectOfType<CinemachineTargetGroup>();
         //Debug.Log(targetGroup);
