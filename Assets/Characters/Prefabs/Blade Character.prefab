@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 5942668239296941389}
   - component: {fileID: 6827324420459512691}
   - component: {fileID: -2064846177422353583}
+  - component: {fileID: 1461618792282492681}
   m_Layer: 6
   m_Name: Blade Character
   m_TagString: Untagged
@@ -879,6 +880,7 @@ MonoBehaviour:
   canMove: 1
   isGrounded: 0
   bumpedHead: 0
+  canDash: 0
   jumpPerformed:
     m_PersistentCalls:
       m_Calls: []
@@ -909,6 +911,7 @@ MonoBehaviour:
   specialAttackPressed: 0
   layerMask: 0
   playerID: 0
+  canReceiveInput: 0
 --- !u!114 &9065042703588726806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,6 +1254,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &1461618792282492681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6432461173240748510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752869216d55b644fafaf814c1c2aeb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  targetGroup: {fileID: 0}
+  cameraSettings: {fileID: 11400000, guid: 112e996c60637b94db909d1e1d3c9f09, type: 2}
 --- !u!1 &8673896908746226683
 GameObject:
   m_ObjectHideFlags: 0
