@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 6379347342951503249}
   - component: {fileID: 2433324104175437089}
   m_Layer: 0
-  m_Name: AnimManager
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
