@@ -59,7 +59,7 @@ public class InputManager : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveVector = context.ReadValue<Vector2>();
-        Debug.Log(moveVector);
+        //Debug.Log(moveVector);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -67,7 +67,7 @@ public class InputManager : MonoBehaviour
         if (context.started || context.performed)
         {
             //Debug.Log("Recognizing jump");
-            Debug.Log(Time.frameCount);
+            //Debug.Log(Time.frameCount);
             jumpWasPressed = true;
             jumpWasReleased = false;
         }
@@ -198,7 +198,7 @@ public class InputManager : MonoBehaviour
         
         if (specialOneWasPressed && specialTwoWasPressed)
         {
-            Debug.Log(Time.frameCount   );
+            //Debug.Log(Time.frameCount   );
             specialAttackPressed = true;
             StartCoroutine(ResetNextFrame(() => specialAttackPressed = false));
             specialOneWasPressed = false;
