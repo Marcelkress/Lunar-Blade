@@ -12,6 +12,13 @@ public class AudioAnimEvents : MonoBehaviour
     [SerializeField] private EventReference playerAttack_02;
     [SerializeField] private EventReference playerAttack_03;
     [SerializeField] private EventReference playerAttack_04;
+    [SerializeField] private EventReference reaperLightAttack;
+    [SerializeField] private EventReference reaperDoubleAttack;
+    [SerializeField] private EventReference reaperSurpriseAttackEnter;
+    [SerializeField] private EventReference reaperSurpriseAttackExit;
+    [SerializeField] private EventReference reaperSpecialAttack;
+
+
     private CharacterMovement movement;
     private void Start()
     {
@@ -52,5 +59,24 @@ public class AudioAnimEvents : MonoBehaviour
     {
         AudioManager.instance.PlayOneShot(playerAttack_04, this.transform.position);
     }
+    private void ReaperLightAttack()
+    {
+        AudioManager.instance.PlayOneShot(reaperLightAttack, this.transform.position);
+    }
+    private void ReaperDoubleAttack()
+    {
+        AudioManager.instance.PlayOneShot(reaperDoubleAttack, this.transform.position);
+    }
+    private void ReaperSurpriseAttackEnter()
+    {
+        AudioManager.instance.PlayOneShot(reaperSurpriseAttackEnter, this.transform.position);
+    }
+    private void ReaperSurpriseAttackExit()
+    {
+        AudioManager.instance.PlayOneShot(reaperSurpriseAttackExit, this.transform.position);
+    }
+    private void ReaperSpecialAttack()
+    {
+        AudioManager.instance.PlayOneShot(reaperSpecialAttack, this.transform.position);
+    }
 }
-
