@@ -30,21 +30,21 @@ AnimationClip:
       value: {fileID: 2170367987011908983, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
     - time: 0.21666667
       value: {fileID: 4445372978929928464, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.28333333
+    - time: 0.26666668
       value: {fileID: 5046150343476845083, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.33333334
+    - time: 0.31666666
       value: {fileID: 4612707142050032858, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.4
+    - time: 0.36666667
       value: {fileID: 2043715397035662985, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.45
+    - time: 0.41666666
       value: {fileID: -6411210585995459653, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.48333332
+    - time: 0.45
       value: {fileID: -2399274769894972389, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.55
+    - time: 0.51666665
       value: {fileID: -8620873646974724477, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.6166667
+    - time: 0.5833333
       value: {fileID: 1397877003049381756, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.6666667
+    - time: 0.6333333
       value: {fileID: 4394263211310074107, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
     attribute: m_Sprite
     path: 
@@ -86,7 +86,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.68333334
+    m_StopTime: 0.65
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -141,31 +141,31 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.36666667
+  - time: 0.45
     functionName: EnableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
-  - time: 0.41666666
+  - time: 0.55
+    functionName: UnlockMove
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5833333
     functionName: DisableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
-  - time: 0.43333334
+  - time: 0.6
     functionName: ClearHits
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
-    messageOptions: 0
-  - time: 0.46666667
-    functionName: UnlockMove
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
     messageOptions: 0
