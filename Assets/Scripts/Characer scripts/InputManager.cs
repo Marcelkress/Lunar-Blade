@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     public bool dashWasPressed;
     public bool attackOneWasPressed, attackTwoWasPressed,
         attackThreeWasPressed;
+    public bool attackOneWasReleased;
     public bool specialAttackPressed;
 
     private bool specialOneWasPressed, specialTwoWasPressed;
@@ -121,7 +122,6 @@ public class InputManager : MonoBehaviour
     
     public void OnAttackOne(InputAction.CallbackContext context)
     {
-
         if (context.performed)
         {
             attackOneWasPressed = true;
@@ -129,8 +129,10 @@ public class InputManager : MonoBehaviour
         else if(context.canceled)
         {
             attackOneWasPressed = false;
+            attackOneWasReleased = true;
         }
         StartCoroutine(ResetNextFrame(() => attackOneWasPressed = false));
+        StartCoroutine(ResetNextFrame(() => attackOneWasReleased = false));
     }
     
     public void OnAttackTwo(InputAction.CallbackContext context)

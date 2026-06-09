@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1964771125967956374}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.01, z: 0}
+  m_LocalPosition: {x: -0.394, y: 0.084, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -258,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 2855807515311144583}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.078, y: 0.036, z: 0}
+  m_LocalPosition: {x: -0.46199983, y: 0.11099981, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -434,6 +434,7 @@ MonoBehaviour:
   attackOneWasPressed: 0
   attackTwoWasPressed: 0
   attackThreeWasPressed: 0
+  attackOneWasReleased: 0
   specialAttackPressed: 0
   layerMask: 0
   playerID: 0
@@ -839,7 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785f97db215f74d30bcceb0c4c247dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
-  attackID: 2
+  attackID: 3
 --- !u!60 &2734589622909907321
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -943,7 +944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785f97db215f74d30bcceb0c4c247dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
-  attackID: 3
+  attackID: 1
 --- !u!60 &4703491161704244231
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1044,7 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785f97db215f74d30bcceb0c4c247dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
-  attackID: 1
+  attackID: 2
 --- !u!60 &2080733061756880542
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1237,7 +1238,7 @@ Transform:
   m_GameObject: {fileID: 6784589415173576487}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.269, y: 0.086, z: 0}
+  m_LocalPosition: {x: -0.653, y: 0.161, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1306,7 +1307,7 @@ Transform:
   m_GameObject: {fileID: 6933375346521241855}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.288, y: 0.078, z: 0}
+  m_LocalPosition: {x: -0.6719998, y: 0.15299982, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1346,7 +1347,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.25595713, y: -0.5168874}
+  m_Offset: {x: 0.24492383, y: -0.5101309}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1356,7 +1357,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.46228313, y: 0.07346487}
+  m_Size: {x: 0.44021654, y: 0.059951782}
   m_EdgeRadius: 0
 --- !u!1 &7813069047190178342
 GameObject:
@@ -1403,7 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785f97db215f74d30bcceb0c4c247dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
-  attackID: 1
+  attackID: 2
 --- !u!60 &60660498141822179
 PolygonCollider2D:
   m_ObjectHideFlags: 0

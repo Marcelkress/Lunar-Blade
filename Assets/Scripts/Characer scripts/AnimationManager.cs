@@ -74,6 +74,10 @@ public class AnimationManager : MonoBehaviour
             count = true;
             timer = 0;
         }
+        else if (inputManager.attackOneWasReleased)
+        {
+            anim.SetTrigger("Attack One Released");
+        }
     }
 
     private bool count;
