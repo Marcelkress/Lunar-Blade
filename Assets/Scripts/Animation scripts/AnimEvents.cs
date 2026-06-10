@@ -4,6 +4,7 @@ using UnityEngine;
 public class AnimEvents : MonoBehaviour
 {
     [SerializeField] private Collider2D[] damageColliders;
+    [SerializeField] private Collider2D healthCollider;
     
     public void LockMove()
     {
@@ -23,6 +24,14 @@ public class AnimEvents : MonoBehaviour
     public void EndStagger()
     {
         GetComponentInParent<CharacterMovement>().EndStagger();
+    }
+    public void DisableHealthCollider()
+    {
+        healthCollider.enabled = false;
+    }
+    public void EnableHealthCollider()
+    {
+        healthCollider.enabled = true;
     }
     
     public void EnableDamageCollider(int colliderID)

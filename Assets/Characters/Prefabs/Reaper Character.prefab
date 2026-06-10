@@ -135,6 +135,7 @@ MonoBehaviour:
   - {fileID: 2080733061756880542}
   - {fileID: 2734589622909907321}
   - {fileID: 3182349938988116717}
+  healthCollider: {fileID: 6347829480467742213}
 --- !u!114 &5988100197434898888
 MonoBehaviour:
   m_ObjectHideFlags: 0
