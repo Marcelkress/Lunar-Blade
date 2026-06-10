@@ -76,7 +76,7 @@ public class AnimationManager : MonoBehaviour
         }
         else if (inputManager.attackOneWasReleased)
         {
-            anim.SetTrigger("Attack One Released");
+            //anim.SetTrigger("Attack One Released");
         }
     }
 

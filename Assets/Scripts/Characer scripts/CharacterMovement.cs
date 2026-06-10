@@ -50,9 +50,6 @@ public class CharacterMovement : MonoBehaviour
     private bool isDashHanging;
     private bool groundDashCheck;
     
-    // Stagger vars
-    private bool isStaggered;
-    
     // Audio vars
     public UnityEvent jumpPerformed, doubleJumpPerformed; 
     
@@ -107,7 +104,6 @@ public class CharacterMovement : MonoBehaviour
         VerticalVelocity = 0;
         rb.simulated = false;
         moveVelocity = Vector2.zero;
-        isStaggered = true;
         canJump = false;
         canMove = false;
         canDash = false;
@@ -116,7 +112,6 @@ public class CharacterMovement : MonoBehaviour
     public void EndStagger()
     {
         rb.simulated = true;
-        isStaggered = false;
         canJump = true;
         canMove = true;
         canDash = true;
