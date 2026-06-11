@@ -29,24 +29,37 @@ public class CharacterSelectionManager : MonoBehaviour
         //inputManager.playerPrefab = selectorPrefab;
     }
 
-    // Hooked up to PlayerInputManager.onPlayerJoined in the Inspector
     public void OnPlayerJoined(PlayerInput selectorInput)
     {
         int index = selectorInput.playerIndex;
+        
+        if (index < 0 || index >= selectors.Length)
+        {
+            Debug.LogError($"Unexpected player index: {index}");
+            return;
+        }
+
+        // Don't overwrite if already joined (duplicate event guard)
+        if (selectors[index] != null) 
+            return;
+
         selectors[index] = selectorInput;
-        
-        
-        // Give the selector UI a reference back to this manager
+
         var ui = selectorInput.GetComponent<PlayerSelector>();
-        if (ui != null) ui.Init(index);
+        if (ui != null) 
+            ui.Init(index);
     }
     
     // Called by CharacterSelectorUI when a player confirms their pick
-    public void OnCharacterSelect(int playerIndex,int characterIndex)
+    public void OnCharacterSelect(int playerIndex, int characterIndex)
     {
+        // Ignore if this player already confirmed
+        if (selections[playerIndex] != -1) 
+            return;
+
         selections[playerIndex] = characterIndex;
         readyCount++;
-        
+
         if (readyCount == 2)
             SpawnSelectedCharacters();
     }
@@ -55,16 +68,24 @@ public class CharacterSelectionManager : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            InputDevice device = selectors[i].devices[0]; // capture the device
-            Destroy(selectors[i].gameObject);              // remove the selector
+            if (selections[i] < 0 || selections[i] >= characterPrefabs.Length)
+            {
+                Debug.LogError($"Player {i} has invalid selection: {selections[i]}");
+                return;
+            }
+        }
 
-            // Instantiate the chosen fighter and route the same device to it
+        for (int i = 0; i < 2; i++)
+        {
+            InputDevice device = selectors[i].devices[0];
+            Destroy(selectors[i].gameObject);
+
             PlayerInput fighter = PlayerInput.Instantiate(
                 characterPrefabs[selections[i]],
-                playerIndex:    i,
-                controlScheme:  null,           // auto-detect from device
+                playerIndex: i,
+                controlScheme: null,
                 splitScreenIndex: -1,
-                pairWithDevice: device          // <-- this is the key call
+                pairWithDevice: device
             );
 
             fighter.transform.position = spawnPoints[i].position;

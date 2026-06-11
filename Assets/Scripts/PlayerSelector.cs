@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -6,12 +7,17 @@ public class PlayerSelector : MonoBehaviour
 {
     private int _highlighted = 0;
     [SerializeField] private int characterCount = 2;
-    public Button[] characterButtons;
+    
+    public Image[] highlightedCharacterImages;
+    
     public int playerIndex;
     private int characterIndex;
 
+    private bool canChange;
+
     public void Init(int index)
     {
+        canChange = true;
         transform.SetParent(CharacterSelectUI.instance.transform);
         playerIndex = index;
         UpdateUI();
@@ -22,9 +28,25 @@ public class PlayerSelector : MonoBehaviour
     {
         float y = value.Get<Vector2>().y;
 
-        if (y > 0.5f)       _highlighted = (_highlighted + 1) % characterCount;
-        else if (y < -0.5f) _highlighted = (_highlighted - 1 + characterCount) % characterCount;
+        if ((y < -.5 || y > .5) && canChange)
+        {
+            canChange = false;
+            characterIndex += (int)y;
 
+            if (characterIndex >= characterCount)
+            {
+                characterIndex = 0;
+            }
+            else if (characterIndex < 0)
+            {
+                characterIndex = characterCount - 1;
+            }
+        }
+        else if (y == 0)
+        {
+            canChange = true;
+        }
+        
         UpdateUI();
     }
 
@@ -34,16 +56,24 @@ public class PlayerSelector : MonoBehaviour
         if (value.isPressed)
         {
             CharacterSelectionManager.Instance.OnCharacterSelect(playerIndex, characterIndex);
+            highlightedCharacterImages[characterIndex].DOColor(Color.white, 0.3f);
+            highlightedCharacterImages[characterIndex].rectTransform
+                .DOShakeAnchorPos(0.2f, 100, 10, 90);
         }
     }
 
     private void UpdateUI()
     {
-        for (int i = 0; i < characterButtons.Length; i++)
+        for (int i = 0; i < highlightedCharacterImages.Length; i++)
         {
-            characterButtons[i].interactable = (i == _highlighted);
+            if (i == characterIndex)
+            {
+                highlightedCharacterImages[i].DOFade(1, 0.2f);
+            }
+            else
+            {
+                highlightedCharacterImages[i].DOFade(.5f, 0.2f);
+            }
         }
-        
-        characterIndex = (characterIndex + 1) % characterCount;
     }
 }
