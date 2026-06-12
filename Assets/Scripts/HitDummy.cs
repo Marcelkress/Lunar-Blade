@@ -14,7 +14,7 @@ public class HitDummy : MonoBehaviour, IHittable
     {
         Debug.Log("OUCH! - Took " + damage + " damage");
         sprite.color = Color.red;
-        Invoke(nameof(ResetColor), .3f);
+        Invoke(nameof(ResetColor), .15f);
     }
 
     private void ResetColor()

@@ -16,7 +16,7 @@ public class CharacterMovement : MonoBehaviour
     // Movement
     [HideInInspector] public Vector2 moveVelocity;
     private bool isFacingRight;
-    [HideInInspector] public bool canMove;
+    public bool canMove;
     
     //Collision check
     private RaycastHit2D groundHit, headHit;
@@ -179,6 +179,17 @@ public class CharacterMovement : MonoBehaviour
         {
             isFacingRight = false;
             transform.Rotate(0, -180f, 0);
+        }
+    }
+
+    private float originalAirAcceleration;
+    private float currentAcceleration;
+
+    private void LerpAirAcceleration()
+    {
+        if(!isGrounded)
+        {
+            currentAcceleration = Mathf.Lerp(0, originalAirAcceleration, moveStats.airControlTime * Time.deltaTime);
         }
     }
 
@@ -402,6 +413,8 @@ public class CharacterMovement : MonoBehaviour
             else if (!_isFastFalling)
             {
                 VerticalVelocity += moveStats.gravity * moveStats.GravityOnReleaseMultiplier * Time.fixedDeltaTime;
+
+                // even fader fallin shi ri' her' cuh noamsay?
             }
             
             else if (VerticalVelocity < 0f)

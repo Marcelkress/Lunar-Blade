@@ -18,6 +18,7 @@ public class UnlockMove : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.gameObject.GetComponentInParent<CharacterMovement>().CanMove(true);
+        animator.gameObject.GetComponentInParent<CharacterMovement>().EndStagger();
     }
 
     // OnStateMove is called before OnStateMove is called on any state inside this state machine

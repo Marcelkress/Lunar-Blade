@@ -15,8 +15,8 @@ MonoBehaviour:
   maxWalkSpeed: 5
   groundAcceleration: 10
   groundDeceleration: 9.8
-  airAcceleration: 7.3
-  airDeceleration: 1.5
+  airAcceleration: 12.2
+  airDeceleration: 5.7
   maxRunSpeed: 10
   onlyRunning: 1
   groundLayer:
@@ -43,7 +43,7 @@ MonoBehaviour:
   dashAcceleration: 90
   maxHealth: 10
   specialAttackInputBuffer: 0.3
-  attackInputBuffer: 0.5
+  attackInputBuffer: 0.186
   attackDecelerationMultiplier: 12
   attackOneDmg: 1
   attackTwoDmg: 2

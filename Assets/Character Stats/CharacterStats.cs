@@ -53,7 +53,7 @@ public class CharacterStats : ScriptableObject
     
     [Header("Attack")] 
     public float specialAttackInputBuffer = 0.2f;
-    [Range(0.1f, 1f)]public float attackInputBuffer = 0.5f;
+    [Range(0f, 1f)]public float attackInputBuffer = 0.5f;
     [Range(0.1f, 20f)]public float attackDecelerationMultiplier = 0.2f;
 
     [Header("Combat")] 
