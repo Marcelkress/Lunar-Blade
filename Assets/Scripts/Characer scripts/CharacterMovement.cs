@@ -442,7 +442,7 @@ public class CharacterMovement : MonoBehaviour
         // clamp fall speed;
         VerticalVelocity = Mathf.Clamp(VerticalVelocity, -moveStats.MaxFallSpeed, 50f);
 
-        rb.linearVelocity = new Vector2(rb.angularVelocity, VerticalVelocity);
+        rb.linearVelocity = new Vector2(moveVelocity.x, VerticalVelocity);
     }
     
     #endregion
