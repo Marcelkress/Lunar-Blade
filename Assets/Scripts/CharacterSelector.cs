@@ -34,6 +34,7 @@ public class CharacterSelectionManager : MonoBehaviour
         Array.Fill(selections, -1);
         playerInputManager = GetComponent<PlayerInputManager>();
         playerInputManager.DisableJoining();
+        playerCountCanvas.SetActive(true);
 
         // Point PlayerInputManager at the selector prefab for now
         //inputManager.playerPrefab = selectorPrefab;
