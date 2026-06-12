@@ -8,25 +8,42 @@ public class CharacterSelectionManager : MonoBehaviour
     
     [Header("Prefabs")]
     [SerializeField] private GameObject[] characterPrefabs; // your fighter prefabs
-    //[SerializeField] private GameObject selectorPrefab;     // lightweight join/select prefab
 
     [Header("Spawn Points")]
     [SerializeField] private Transform[] spawnPoints;
 
+    [Header("Player")] 
+    public int playerCount;
+
+    [Header("UI")] 
+    public GameObject playerCountCanvas;
+    
     private PlayerInput[] selectors = new PlayerInput[2];
-    private int[] selections = new int[] { -1, -1 };       // chosen character index per player
+    private int[] selections; // = new int[] { -1, -1 };       // chosen character index per player
     private int readyCount = 0;
 
-    private PlayerInputManager inputManager;
+    private bool allSpawned = false;
+    private PlayerInputManager playerInputManager;
 
     void Awake()
     {
+        allSpawned = false;
         Instance = this;
-        inputManager = GetComponent<PlayerInputManager>();
         
+        selections = new int[playerCount];
+        Array.Fill(selections, -1);
+        playerInputManager = GetComponent<PlayerInputManager>();
+        playerInputManager.DisableJoining();
 
         // Point PlayerInputManager at the selector prefab for now
         //inputManager.playerPrefab = selectorPrefab;
+    }
+
+    public void ChoosePlayerCount(int count)
+    {
+        playerCount = count;
+        playerInputManager.EnableJoining();
+        playerCountCanvas.SetActive(false);
     }
 
     public void OnPlayerJoined(PlayerInput selectorInput)
@@ -50,7 +67,9 @@ public class CharacterSelectionManager : MonoBehaviour
             ui.Init(index);
     }
     
-    // Called by CharacterSelectorUI when a player confirms their pick
+    
+        #region Character Selection Functions
+    // Called by PlayerSelector when a player confirms their pick
     public void OnCharacterSelect(int playerIndex, int characterIndex)
     {
         // Ignore if this player already confirmed
@@ -60,22 +79,32 @@ public class CharacterSelectionManager : MonoBehaviour
         selections[playerIndex] = characterIndex;
         readyCount++;
 
-        if (readyCount == 2)
+        if (readyCount == playerCount)
+        {
             SpawnSelectedCharacters();
+            allSpawned = true;
+            playerInputManager.DisableJoining();
+        }
+    }
+
+    public void OnCharacterDeselected(int playerIndex)
+    {
+        selections[playerIndex] = -1;
+        readyCount--;
     }
 
     private void SpawnSelectedCharacters()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < playerCount; i++)
         {
-            if (selections[i] < 0 || selections[i] >= characterPrefabs.Length)
+            if (selections[i] < 0)
             {
                 Debug.LogError($"Player {i} has invalid selection: {selections[i]}");
                 return;
             }
         }
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < playerCount; i++)
         {
             InputDevice device = selectors[i].devices[0];
             Destroy(selectors[i].gameObject);
@@ -91,4 +120,6 @@ public class CharacterSelectionManager : MonoBehaviour
             fighter.transform.position = spawnPoints[i].position;
         }
     }
+    
+        #endregion
 }

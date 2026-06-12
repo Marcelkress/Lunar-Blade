@@ -1,4 +1,5 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -9,11 +10,15 @@ public class PlayerSelector : MonoBehaviour
     [SerializeField] private int characterCount = 2;
     
     public Image[] highlightedCharacterImages;
+    public TMP_Text[] selectedCharacterTexts;
+    
+    public TMP_Text playerID;
     
     public int playerIndex;
     private int characterIndex;
 
     private bool canChange;
+    private bool selected;
 
     public void Init(int index)
     {
@@ -21,11 +26,16 @@ public class PlayerSelector : MonoBehaviour
         transform.SetParent(CharacterSelectUI.instance.transform);
         playerIndex = index;
         UpdateUI();
+        playerID.text = "Player " + (playerIndex + 1).ToString();
     }
 
     // Matches Send Messages style
     public void OnNavigate(InputValue value)
     {
+        if (selected)
+            return;
+        
+        
         float y = value.Get<Vector2>().y;
 
         if ((y < -.5 || y > .5) && canChange)
@@ -52,27 +62,46 @@ public class PlayerSelector : MonoBehaviour
 
     public void OnSelect(InputValue value)
     {
-        Debug.Log("OnSelect");
         if (value.isPressed)
         {
             CharacterSelectionManager.Instance.OnCharacterSelect(playerIndex, characterIndex);
-            highlightedCharacterImages[characterIndex].DOColor(Color.white, 0.3f);
-            highlightedCharacterImages[characterIndex].rectTransform
-                .DOShakeAnchorPos(0.2f, 100, 10, 90);
+            selected = true;
+            UpdateUI();
         }
     }
 
+    public void OnDeselect(InputValue value)
+    {
+        CharacterSelectionManager.Instance.OnCharacterDeselected(playerIndex);
+        selected = false;
+        UpdateUI();
+    }
+
+
+
     private void UpdateUI()
     {
-        for (int i = 0; i < highlightedCharacterImages.Length; i++)
+        if (selected)
         {
-            if (i == characterIndex)
+            selectedCharacterTexts[characterIndex].enabled = true;
+            highlightedCharacterImages[characterIndex].DOColor(Color.white, 0.3f);
+            highlightedCharacterImages[characterIndex].rectTransform
+                .DOShakeAnchorPos(0.2f, 50, 100, 90);
+        }
+        else
+        {
+            selectedCharacterTexts[characterIndex].enabled = false;
+            
+            for (int i = 0; i < highlightedCharacterImages.Length; i++)
             {
-                highlightedCharacterImages[i].DOFade(1, 0.2f);
-            }
-            else
-            {
-                highlightedCharacterImages[i].DOFade(.5f, 0.2f);
+                if (i == characterIndex)
+                {
+                    highlightedCharacterImages[i].DOFade(1, 0.2f);
+                }
+                else
+                {
+                    highlightedCharacterImages[i].DOFade(.5f, 0.2f);
+                }
             }
         }
     }
