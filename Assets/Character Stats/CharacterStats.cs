@@ -8,8 +8,10 @@ public class CharacterStats : ScriptableObject
     [Range(1f, 100f)] public float maxWalkSpeed = 12f;
     [Range(0.2f, 50f)] public float groundAcceleration = 5f;
     [Range(.2f, 50f)] public float groundDeceleration = 20f;
+    
+    [Header("Air Control")]
     [Range(.2f, 50f)] public float airAcceleration = 5f;
-    [Range(.2f, 50f)] public float airDeceleration = 5f;
+    [Range(.2f, 2f)]public float airControlTime = 0.2f;
     
     [Header("Run")]
     [Range(1f, 100f)] public float maxRunSpeed = 20f;

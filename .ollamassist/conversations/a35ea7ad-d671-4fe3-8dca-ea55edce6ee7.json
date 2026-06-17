@@ -1,0 +1,15 @@
+{
+  "id" : "a35ea7ad-d671-4fe3-8dca-ea55edce6ee7",
+  "title" : "Is this the correct way to Lerp this float from the original...",
+  "createdAt" : 1781449093306,
+  "updatedAt" : 1781449216821,
+  "messages" : [ {
+    "role" : "USER",
+    "content" : "Is this the correct way to Lerp this float from the original to 0 over aircontroltime seconds?",
+    "timestamp" : 1781449096880
+  }, {
+    "role" : "ASSISTANT",
+    "content" : "- **Reasoning:** The provided documentation shows `Mathf.Lerp(originalAirAcceleration, 0, moveStats.airControlTime * Time.deltaTime)`. This is incorrect because Lerp's third parameter requires a fraction (0-1), not a time value. The documentation pattern needs correction.\n\n- **Solution:** Track elapsed time and use a proper fraction for Lerp:\n\n```csharp\nprivate float airControlTimer = 0f;\n\nprivate void LerpAirAcceleration()\n{\n    if(!isGrounded)\n    {\n        airControlTimer += Time.deltaTime;\n        float lerpFactor = Mathf.Clamp01(airControlTimer / moveStats.airControlTime);\n        currentAirAcceleration = Mathf.Lerp(originalAirAcceleration, 0, lerpFactor);\n    }\n}\n```\n\n- **Justification:** Based on Unity documentation, `Mathf.Lerp(a, b, t)` requires `t` as a fraction between 0 and 1. The current code multiplies `airControlTime * Time.deltaTime`, which doesn't produce a valid fraction. The corrected approach divides elapsed time by total duration, clamped to 0-1.",
+    "timestamp" : 1781449216821
+  } ]
+}

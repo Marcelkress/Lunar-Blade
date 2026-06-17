@@ -18,7 +18,7 @@ public class AnimationManager : MonoBehaviour
         movement = GetComponent<CharacterMovement>();
         inputManager = GetComponent<InputManager>();
         health = GetComponentInChildren<PlayerHealth>();
-        health.TakeHitEvent.AddListener(TakeHitAnim);
+        health.TakeHitStaggerEvent.AddListener(TakeHitAnim);
     }
 
     // Update is called once per frame

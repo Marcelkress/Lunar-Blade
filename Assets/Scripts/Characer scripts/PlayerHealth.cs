@@ -10,7 +10,8 @@ public class PlayerHealth : MonoBehaviour, IHittable
     private int currentHealth;
     private bool invulnerable;
     
-    public UnityEvent TakeHitEvent;
+    public UnityEvent TakeHitStaggerEvent;
+    public GameObject healthCanvas;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,9 +19,11 @@ public class PlayerHealth : MonoBehaviour, IHittable
         invulnerable = false;
         maxHealth = stats.maxHealth;
         currentHealth = maxHealth;
+        GameObject _healthCanvas = Instantiate(healthCanvas);
+        _healthCanvas.GetComponentInChildren<PlayerHealthBar>().Init(this.transform);
     }
 
-    public void TakeHit(int damage)
+    public void TakeHit(int damage, bool staggerAttack)
     {
         Debug.Log("hit detected on Player " + GetComponentInParent<InputManager>().playerID);
         
@@ -33,7 +36,11 @@ public class PlayerHealth : MonoBehaviour, IHittable
         currentHealth -= damage;
         UpdateHealthUI();
         invulnerable = true;
-        TakeHitEvent.Invoke();
+
+        if (staggerAttack)
+        {
+            TakeHitStaggerEvent.Invoke();
+        }
 
         if (currentHealth <= 0)
         {

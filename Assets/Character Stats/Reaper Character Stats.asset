@@ -15,8 +15,8 @@ MonoBehaviour:
   maxWalkSpeed: 5
   groundAcceleration: 16.4
   groundDeceleration: 16.4
-  airAcceleration: 0.2
-  airDeceleration: 15.5
+  airAcceleration: 26.4
+  airControlTime: 0.897
   maxRunSpeed: 10
   onlyRunning: 1
   groundLayer:

@@ -169,6 +169,7 @@ MonoBehaviour:
   - {fileID: 788515726093819152}
   - {fileID: 836003716624493065}
   - {fileID: 88050146510000408}
+  healthCollider: {fileID: 0}
 --- !u!114 &2433324104175437089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +231,41 @@ MonoBehaviour:
       Data3: 336113282
       Data4: -1955049106
     Path: event:/Attack/Event_player_attack_04
+  reaperLightAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  reaperDoubleAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  reaperSurpriseAttackEnter:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  reaperSurpriseAttackExit:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  reaperSpecialAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &2921782785074893394
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
   attackID: 4
+  staggerEnemyOnHit: 1
 --- !u!60 &88050146510000408
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -493,6 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
   attackID: 2
+  staggerEnemyOnHit: 1
 --- !u!60 &788515726093819152
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -574,7 +612,7 @@ Transform:
   m_GameObject: {fileID: 5898845477389648640}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.367, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -630,9 +668,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   stats: {fileID: 11400000, guid: 609077e73e9f04138a534a268ba5f0ea, type: 2}
-  TakeHitEvent:
+  TakeHitStaggerEvent:
     m_PersistentCalls:
       m_Calls: []
+  healthCanvas: {fileID: 4356194755105428156, guid: d8a66e090b5c34d8e9efa2e107191428, type: 3}
 --- !u!1 &6007615877362919506
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
   attackID: 3
+  staggerEnemyOnHit: 1
 --- !u!60 &836003716624493065
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -908,6 +948,7 @@ MonoBehaviour:
   attackOneWasPressed: 0
   attackTwoWasPressed: 0
   attackThreeWasPressed: 0
+  attackOneWasReleased: 0
   specialAttackPressed: 0
   layerMask: 0
   playerID: 0
@@ -1081,6 +1122,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 29215a62-46d3-43a1-a1bc-9f790e58a046
     m_ActionName: 'Player/Special Attack Binding Two[/DualShock4GamepadHID/rightShoulder]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1ae72446-1a2b-443b-a368-628c9e4da507
+    m_ActionName: 'UI/Navigate[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 693ce8e7-4cc1-4a03-9aec-3f75dad23359
+    m_ActionName: 'UI/Select[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 29b9e3a5-d6bf-4c49-8687-0faed65e55aa
+    m_ActionName: 'UI/Deselect[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1314,6 +1367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
   attackID: 1
+  staggerEnemyOnHit: 1
 --- !u!60 &5305240922826231227
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -59,6 +59,7 @@ public class CharacterMovement : MonoBehaviour
 
         inputManager = GetComponent<InputManager>();
         rb = GetComponent<Rigidbody2D>();
+        originalAirAcceleration = moveStats.airAcceleration;
     }
     
     private void Update()
@@ -66,6 +67,7 @@ public class CharacterMovement : MonoBehaviour
         CountTimers();
         JumpChecks();
         DashCheck();
+        LerpAirAcceleration();
     }
     
     private void FixedUpdate()
@@ -80,7 +82,7 @@ public class CharacterMovement : MonoBehaviour
         }
         else
         {
-            Move(moveStats.airAcceleration, moveStats.airDeceleration, inputManager.moveVector);
+            Move(currentAirAcceleration, currentAirAcceleration, inputManager.moveVector);
         }
         
         // IMPORTANT:
@@ -115,6 +117,25 @@ public class CharacterMovement : MonoBehaviour
         canJump = true;
         canMove = true;
         canDash = true;
+    }
+    
+    private float originalAirAcceleration;
+    private float currentAirAcceleration;
+    private float airControlTimer;
+
+    private void LerpAirAcceleration()
+    {
+        if(!isGrounded)
+        {
+            airControlTimer += Time.deltaTime;
+            float lerpFactor = Mathf.Clamp01(airControlTimer / moveStats.airControlTime);
+            currentAirAcceleration = Mathf.Lerp(originalAirAcceleration, 0, lerpFactor);
+        }
+        else
+        {
+            currentAirAcceleration = originalAirAcceleration;
+            airControlTimer = 0;
+        }   
     }
     
     #region  Move
@@ -179,17 +200,6 @@ public class CharacterMovement : MonoBehaviour
         {
             isFacingRight = false;
             transform.Rotate(0, -180f, 0);
-        }
-    }
-
-    private float originalAirAcceleration;
-    private float currentAcceleration;
-
-    private void LerpAirAcceleration()
-    {
-        if(!isGrounded)
-        {
-            currentAcceleration = Mathf.Lerp(0, originalAirAcceleration, moveStats.airControlTime * Time.deltaTime);
         }
     }
 

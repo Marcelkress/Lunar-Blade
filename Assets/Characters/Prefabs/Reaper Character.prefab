@@ -315,9 +315,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   stats: {fileID: 11400000, guid: 173fa7fb4d2a5446f9f24be3ee9cec7f, type: 2}
-  TakeHitEvent:
+  TakeHitStaggerEvent:
     m_PersistentCalls:
       m_Calls: []
+  healthCanvas: {fileID: 4356194755105428156, guid: d8a66e090b5c34d8e9efa2e107191428, type: 3}
 --- !u!1 &3048778114713400946
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +610,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 29215a62-46d3-43a1-a1bc-9f790e58a046
     m_ActionName: 'Player/Special Attack Binding Two[/DualShock4GamepadHID/rightShoulder]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1ae72446-1a2b-443b-a368-628c9e4da507
+    m_ActionName: 'UI/Navigate[/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID/dpad/right,/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/leftStick/right,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 693ce8e7-4cc1-4a03-9aec-3f75dad23359
+    m_ActionName: 'UI/Select[/DualShock4GamepadHID/buttonSouth,/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 29b9e3a5-d6bf-4c49-8687-0faed65e55aa
+    m_ActionName: 'UI/Deselect[/DualShock4GamepadHID/buttonEast,/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -842,6 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
   attackID: 3
+  staggerEnemyOnHit: 1
 --- !u!60 &2734589622909907321
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -946,6 +960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
   attackID: 1
+  staggerEnemyOnHit: 1
 --- !u!60 &4703491161704244231
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1047,6 +1062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
   attackID: 2
+  staggerEnemyOnHit: 1
 --- !u!60 &2080733061756880542
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1153,6 +1169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
   attackID: 4
+  staggerEnemyOnHit: 1
 --- !u!60 &3182349938988116717
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1406,6 +1423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
   attackID: 2
+  staggerEnemyOnHit: 0
 --- !u!60 &60660498141822179
 PolygonCollider2D:
   m_ObjectHideFlags: 0
