@@ -52,24 +52,23 @@ public class CharacterStats : ScriptableObject
 
     [Header("Health")] 
     public int maxHealth;
+    public int maxLives = 3;
     public float respawnWaitTime = 2f;
-
     
-    [Header("Attack")] 
+    [Header("Attack buffers")] 
     public float specialAttackInputBuffer = 0.2f;
     [Range(0f, 1f)]public float attackInputBuffer = 0.5f;
-    [Range(0.1f, 20f)]public float attackDecelerationMultiplier = 0.2f;
 
-    [Header("Combat")] 
+    [Header("Attack damage")]
     public int attackOneDmg = 1;
     public int attackTwoDmg = 2, attackThreeDmg = 3;
     public int specialAttackDmg = 4;
+    
+    [Header("Combat time")] 
     [Range(0.01f, 1)] public float takeHitStaggerTime = 0.2f;
     [Range(0.01f, 1)] public float invulnerabilityTimeAfterHit = 0.2f;
+    [Range(0.1f, 20f)]public float attackDecelerationMultiplier = 0.2f;
     
-    
-    [Header ("Debug" )]
-    public bool DebugShowIsGroundedBox; public bool DebugShowHeadBumpBox;
     
     public float gravity { get; private set; }
     public float initialJumpVelocity { get; private set; }

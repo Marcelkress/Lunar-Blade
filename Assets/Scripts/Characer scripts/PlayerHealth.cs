@@ -13,7 +13,6 @@ public class PlayerHealth : MonoBehaviour, IHittable
     [Header("Refs")]
     public GameObject healthBar;
 
-
     [Header("Events")] 
     public UnityEvent TakeHitStaggerEvent,
         takeHitEvent,
@@ -24,20 +23,26 @@ public class PlayerHealth : MonoBehaviour, IHittable
     private int maxHealth;
     private int currentHealth;
     private bool invulnerable;
-    private InputManager inputManager;
+    private int maxLives;
+    private int currentLives;
+    private CharacterMovement movement;
 
     private Vector3 startPos;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        inputManager = GetComponentInParent<InputManager>();
+        maxLives = stats.maxLives;
+        currentLives = maxLives;
         startPos = transform.position;
-        invulnerable = false;
         maxHealth = stats.maxHealth;
         currentHealth = maxHealth;
+        invulnerable = false;
+        
+        movement = GetComponentInParent<CharacterMovement>();
+        
         GameObject _healthCanvas = Instantiate(healthBar);
-        _healthCanvas.GetComponentInChildren<PlayerHealthBar>().Init(this, characterIcon);
+        _healthCanvas.GetComponentInChildren<PlayerHealthBar>().Init(this, characterIcon, maxLives);
     }
 
     public void TakeHit(int damage, bool staggerAttack)
@@ -62,6 +67,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
         if (currentHealth <= 0)
         {
             Die();
+            return;
         }
 
         StartCoroutine(ResetInvulnerability());
@@ -82,17 +88,25 @@ public class PlayerHealth : MonoBehaviour, IHittable
     {
         DeathEvent.Invoke();
         invulnerable = true;
-        inputManager.canReceiveInput = false;
+        currentLives--;
+        movement.StartStagger();
+
+        if (currentLives <= 0)
+        {
+            Debug.Log("Dead, all lives used");
+            return;
+        }
+        
         StartCoroutine(Respawn());
     }
 
     private IEnumerator Respawn()
     {
         yield return new WaitForSeconds(stats.respawnWaitTime);
+        currentHealth = maxHealth;
+        movement.transform.position = startPos;
+        movement.EndStagger();
         RespawnEvent.Invoke();
-        
-        inputManager.transform.position = startPos;
-        inputManager.canReceiveInput = true;
         
         yield return new WaitForSeconds(stats.respawnWaitTime / 2);
         invulnerable = false;
