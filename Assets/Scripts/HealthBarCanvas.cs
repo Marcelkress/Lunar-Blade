@@ -1,11 +1,19 @@
+using System;
 using UnityEngine;
 
 public class HealthBarCanvas : MonoBehaviour
 {
-    public RectTransform[] healthBarPositions;
+    public static HealthBarCanvas instance;
 
-    public void PlaceHealthBar()
+    private void Awake()
     {
-        
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

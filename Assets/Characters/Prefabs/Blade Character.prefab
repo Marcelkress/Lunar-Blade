@@ -668,10 +668,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   stats: {fileID: 11400000, guid: 609077e73e9f04138a534a268ba5f0ea, type: 2}
+  characterIcon: {fileID: 4723107735738678597, guid: d9a37f497a12d4e7491bc1b4a31895da, type: 3}
+  healthBar: {fileID: 6892664336840044592, guid: 9f844fa7a7ab94dcd8eff572dde6ea4b, type: 3}
   TakeHitStaggerEvent:
     m_PersistentCalls:
       m_Calls: []
-  healthCanvas: {fileID: 4356194755105428156, guid: d8a66e090b5c34d8e9efa2e107191428, type: 3}
+  takeHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6007615877362919506
 GameObject:
   m_ObjectHideFlags: 0

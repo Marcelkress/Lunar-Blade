@@ -2,25 +2,42 @@ using System.Collections;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour, IHittable
 {
+    [Header("Character")]
     public CharacterStats stats;
+    public Sprite characterIcon;
+
+    [Header("Refs")]
+    public GameObject healthBar;
+
+
+    [Header("Events")] 
+    public UnityEvent TakeHitStaggerEvent,
+        takeHitEvent,
+        RespawnEvent,
+        DeathEvent;
+
+    
     private int maxHealth;
     private int currentHealth;
     private bool invulnerable;
-    
-    public UnityEvent TakeHitStaggerEvent;
-    public GameObject healthCanvas;
+    private InputManager inputManager;
+
+    private Vector3 startPos;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        inputManager = GetComponentInParent<InputManager>();
+        startPos = transform.position;
         invulnerable = false;
         maxHealth = stats.maxHealth;
         currentHealth = maxHealth;
-        GameObject _healthCanvas = Instantiate(healthCanvas);
-        _healthCanvas.GetComponentInChildren<PlayerHealthBar>().Init(this.transform);
+        GameObject _healthCanvas = Instantiate(healthBar);
+        _healthCanvas.GetComponentInChildren<PlayerHealthBar>().Init(this, characterIcon);
     }
 
     public void TakeHit(int damage, bool staggerAttack)
@@ -34,7 +51,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
         }
         
         currentHealth -= damage;
-        UpdateHealthUI();
+        takeHitEvent?.Invoke();
         invulnerable = true;
 
         if (staggerAttack)
@@ -50,6 +67,11 @@ public class PlayerHealth : MonoBehaviour, IHittable
         StartCoroutine(ResetInvulnerability());
     }
 
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
     private IEnumerator ResetInvulnerability()
     {
         yield return new WaitForSeconds(stats.invulnerabilityTimeAfterHit);
@@ -58,11 +80,22 @@ public class PlayerHealth : MonoBehaviour, IHittable
 
     private void Die()
     {
-        Debug.Log("Player dead");
+        DeathEvent.Invoke();
+        invulnerable = true;
+        inputManager.canReceiveInput = false;
+        StartCoroutine(Respawn());
     }
 
-    private void UpdateHealthUI()
+    private IEnumerator Respawn()
     {
-        // TODO implement
+        yield return new WaitForSeconds(stats.respawnWaitTime);
+        RespawnEvent.Invoke();
+        
+        inputManager.transform.position = startPos;
+        inputManager.canReceiveInput = true;
+        
+        yield return new WaitForSeconds(stats.respawnWaitTime / 2);
+        invulnerable = false;
     }
 }
+    

@@ -41,7 +41,7 @@ MonoBehaviour:
   dashDuration: 0.2
   betweenDashInterval: 0.28
   dashAcceleration: 90
-  maxHealth: 10
+  maxHealth: 12
   specialAttackInputBuffer: 0.3
   attackInputBuffer: 0.5
   attackDecelerationMultiplier: 12

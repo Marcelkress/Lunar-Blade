@@ -52,6 +52,8 @@ public class CharacterStats : ScriptableObject
 
     [Header("Health")] 
     public int maxHealth;
+    public float respawnWaitTime = 2f;
+
     
     [Header("Attack")] 
     public float specialAttackInputBuffer = 0.2f;

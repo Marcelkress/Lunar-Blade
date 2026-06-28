@@ -18,7 +18,10 @@ public class AnimationManager : MonoBehaviour
         movement = GetComponent<CharacterMovement>();
         inputManager = GetComponent<InputManager>();
         health = GetComponentInChildren<PlayerHealth>();
+        
         health.TakeHitStaggerEvent.AddListener(TakeHitAnim);
+        health.DeathEvent.AddListener(DeathAnim);
+        health.RespawnEvent.AddListener(Respawn);
     }
 
     // Update is called once per frame
@@ -33,6 +36,17 @@ public class AnimationManager : MonoBehaviour
         {
             anim.SetTrigger("Dash");
         }
+    }
+
+    private void Respawn()
+    {
+        anim.SetBool("Dead", false);
+        anim.SetTrigger("Respawn");
+    }
+
+    private void DeathAnim()
+    {
+        anim.SetBool("Dead", true);
     }
 
     private void TakeHitAnim()
