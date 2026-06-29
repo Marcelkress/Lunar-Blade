@@ -9,19 +9,19 @@ public class LockInput : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         ip = animator.gameObject.GetComponentInParent<InputManager>();
-        ip.canReceiveInput = false;
+        ip.LockInput(true);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        ip.canReceiveInput = false;
+        ip.LockInput(true);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       ip.canReceiveInput = true; 
+        ip.LockInput(false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2359163070150305676}
   - component: {fileID: 5988100197434898888}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Sprite renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,8 +81,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1809272547
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4723107735738678597, guid: 8b6f79353bbde49a59b65af95e860226, type: 3}
@@ -316,7 +316,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   stats: {fileID: 11400000, guid: 173fa7fb4d2a5446f9f24be3ee9cec7f, type: 2}
   characterIcon: {fileID: 4723107735738678597, guid: 8b6f79353bbde49a59b65af95e860226, type: 3}
+  fadeBounceTime: 0.2
+  fadeAlphaVal: 0.2
   healthBar: {fileID: 6892664336840044592, guid: 9f844fa7a7ab94dcd8eff572dde6ea4b, type: 3}
+  spriteRenderer: {fileID: 6581229869867410519}
   TakeHitStaggerEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -348,6 +351,7 @@ GameObject:
   - component: {fileID: 4480276450178610092}
   - component: {fileID: 3389559572446464157}
   - component: {fileID: 2582195436581348884}
+  - component: {fileID: 1402651790669898062}
   m_Layer: 6
   m_Name: Reaper Character
   m_TagString: Untagged
@@ -450,7 +454,6 @@ MonoBehaviour:
   specialAttackPressed: 0
   layerMask: 0
   playerID: 0
-  canReceiveInput: 0
 --- !u!114 &6311077083648359767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,6 +822,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   targetGroup: {fileID: 0}
   cameraSettings: {fileID: 11400000, guid: 112e996c60637b94db909d1e1d3c9f09, type: 2}
+--- !u!114 &1402651790669898062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048778114713400946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8f42e21881448a28c11b427c878708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &3096478530076130186
 GameObject:
   m_ObjectHideFlags: 0

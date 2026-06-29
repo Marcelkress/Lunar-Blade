@@ -26,7 +26,7 @@ MonoBehaviour:
   headDetectionRayLength: 0.02
   headWidth: 0.488
   debugShowGroundedBox: 0
-  JumpHeight: 5
+  JumpHeight: 5.1
   JumpHeightCompensationFactor: 1.054
   TimeTillJumpApex: 0.3
   GravityOnReleaseMultiplier: 0.5
@@ -46,10 +46,10 @@ MonoBehaviour:
   respawnWaitTime: 2
   specialAttackInputBuffer: 0.3
   attackInputBuffer: 0.186
-  attackOneDmg: 1
-  attackTwoDmg: 2
-  attackThreeDmg: 3
-  specialAttackDmg: 4
+  attackOneDmg: 2
+  attackTwoDmg: 3
+  attackThreeDmg: 2
+  specialAttackDmg: 6
   takeHitStaggerTime: 0.2
   invulnerabilityTimeAfterHit: 0.2
   attackDecelerationMultiplier: 12

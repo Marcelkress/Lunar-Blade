@@ -64,10 +64,14 @@ public class CharacterStats : ScriptableObject
     public int attackTwoDmg = 2, attackThreeDmg = 3;
     public int specialAttackDmg = 4;
     
-    [Header("Combat time")] 
+    [Header("Combat timers")] 
     [Range(0.01f, 1)] public float takeHitStaggerTime = 0.2f;
     [Range(0.01f, 1)] public float invulnerabilityTimeAfterHit = 0.2f;
     [Range(0.1f, 20f)]public float attackDecelerationMultiplier = 0.2f;
+
+    [Header("Lunar Charge")] 
+    public int requiredHitsToCharge = 3;
+    
     
     
     public float gravity { get; private set; }

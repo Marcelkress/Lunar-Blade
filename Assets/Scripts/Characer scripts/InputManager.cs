@@ -21,9 +21,11 @@ public class InputManager : MonoBehaviour
     public static int playerCount = 0;
     public int layerMask;
     public int playerID;
+    
+    private AbilityChargeManager abilityChargeManager; 
 
     // God vars
-    public bool canReceiveInput;
+    private bool canReceiveInput;
 
     private void Awake()
     {
@@ -49,6 +51,7 @@ public class InputManager : MonoBehaviour
     private void Start()
     {
         movement = GetComponent<CharacterMovement>();
+        abilityChargeManager = GetComponentInChildren<AbilityChargeManager>();
     }
 
     private void Update()
@@ -56,7 +59,13 @@ public class InputManager : MonoBehaviour
        SpecialAttackBuffer();
     }
 
+    public void LockInput(bool lockInput)
+    {
+        canReceiveInput = !lockInput;
+    }
+
     #region Movement
+    
     public void OnMove(InputAction.CallbackContext context)
     {
         moveVector = context.ReadValue<Vector2>();
@@ -85,6 +94,8 @@ public class InputManager : MonoBehaviour
     {
         if(!canReceiveInput)
             return;
+        
+        Debug.Log("Dash");
         
         if (context.performed)
         {
@@ -197,15 +208,20 @@ public class InputManager : MonoBehaviour
                 specialTwoWasPressed = false;
             }
         }
-        
-        if (specialOneWasPressed && specialTwoWasPressed)
+
+        // We can only perform ability if we are able to consume a charge
+        if (abilityChargeManager.ConsumeCharge())
         {
-            //Debug.Log(Time.frameCount   );
-            specialAttackPressed = true;
-            StartCoroutine(ResetNextFrame(() => specialAttackPressed = false));
-            specialOneWasPressed = false;
-            specialTwoWasPressed = false;
+            if (specialOneWasPressed && specialTwoWasPressed)
+            {
+                //Debug.Log(Time.frameCount   );
+                specialAttackPressed = true;
+                StartCoroutine(ResetNextFrame(() => specialAttackPressed = false));
+                specialOneWasPressed = false;
+                specialTwoWasPressed = false;
+            }
         }
+        
     }
     
     #endregion

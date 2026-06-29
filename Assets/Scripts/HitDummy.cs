@@ -10,11 +10,12 @@ public class HitDummy : MonoBehaviour, IHittable
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    public void TakeHit(int damage, bool staggerAttack)
+    public bool TakeHit(int damage, bool staggerAttack)
     {
         Debug.Log("OUCH! - Took " + damage + " damage");
         sprite.color = Color.red;
         Invoke(nameof(ResetColor), .15f);
+        return true;
     }
 
     private void ResetColor()

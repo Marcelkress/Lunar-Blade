@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 6379347342951503249}
   - component: {fileID: 2433324104175437089}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Sprite renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,8 +116,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1809272547
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4723107735738678597, guid: d9a37f497a12d4e7491bc1b4a31895da, type: 3}
@@ -669,7 +669,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   stats: {fileID: 11400000, guid: 609077e73e9f04138a534a268ba5f0ea, type: 2}
   characterIcon: {fileID: 4723107735738678597, guid: d9a37f497a12d4e7491bc1b4a31895da, type: 3}
+  fadeBounceTime: 0.2
+  fadeAlphaVal: 0.2
   healthBar: {fileID: 6892664336840044592, guid: 9f844fa7a7ab94dcd8eff572dde6ea4b, type: 3}
+  spriteRenderer: {fileID: 1091382104284952818}
   TakeHitStaggerEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -962,7 +965,6 @@ MonoBehaviour:
   specialAttackPressed: 0
   layerMask: 0
   playerID: 0
-  canReceiveInput: 0
 --- !u!114 &9065042703588726806
 MonoBehaviour:
   m_ObjectHideFlags: 0

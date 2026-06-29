@@ -8,6 +8,8 @@ public class AttackHitDetection : MonoBehaviour
     private CharacterStats stats;
     [SerializeField] private int attackID;
     public bool staggerEnemyOnHit = true;
+    
+    private AbilityChargeManager abilityChargeManager;
 
     private void Start()
     {
@@ -16,7 +18,8 @@ public class AttackHitDetection : MonoBehaviour
         alreadyHit = new List<Collider2D>();
 
         var myCollider = GetComponent<Collider2D>();
-
+        abilityChargeManager = GetComponentInParent<AbilityChargeManager>();
+        
         var ownerColliders = owner.GetComponentsInChildren<Collider2D>();
         foreach (var c in ownerColliders)
         {
@@ -55,8 +58,12 @@ public class AttackHitDetection : MonoBehaviour
                     dmg = 1;
                     break;
             }
+
+            if (hit.TakeHit(dmg, staggerEnemyOnHit))
+            {
+                abilityChargeManager.SuccessfulHit();
+            }
             
-            hit.TakeHit(dmg, staggerEnemyOnHit);
             alreadyHit.Add(otherCol);
         }
     }
@@ -72,5 +79,5 @@ public class AttackHitDetection : MonoBehaviour
 /// </summary>
 public interface IHittable
 {
-    public void TakeHit(int damage, bool staggerAttack);
+    public bool TakeHit(int damage, bool staggerAttack);
 }

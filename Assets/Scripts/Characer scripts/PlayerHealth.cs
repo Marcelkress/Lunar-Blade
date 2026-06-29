@@ -1,17 +1,22 @@
 using System.Collections;
+using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour, IHittable
 {
-    [Header("Character")]
+    [Header("STUFF")]
     public CharacterStats stats;
     public Sprite characterIcon;
+    public float fadeBounceTime = 0.2f, fadeAlphaVal = 0.5f;
 
     [Header("Refs")]
     public GameObject healthBar;
+    public SpriteRenderer spriteRenderer;
 
     [Header("Events")] 
     public UnityEvent TakeHitStaggerEvent,
@@ -25,8 +30,10 @@ public class PlayerHealth : MonoBehaviour, IHittable
     private bool invulnerable;
     private int maxLives;
     private int currentLives;
+    
+    
+    private InputManager input;
     private CharacterMovement movement;
-
     private Vector3 startPos;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,20 +46,21 @@ public class PlayerHealth : MonoBehaviour, IHittable
         currentHealth = maxHealth;
         invulnerable = false;
         
+        input = GetComponentInParent<InputManager>();
         movement = GetComponentInParent<CharacterMovement>();
         
         GameObject _healthCanvas = Instantiate(healthBar);
         _healthCanvas.GetComponentInChildren<PlayerHealthBar>().Init(this, characterIcon, maxLives);
     }
 
-    public void TakeHit(int damage, bool staggerAttack)
+    public bool TakeHit(int damage, bool staggerAttack)
     {
         Debug.Log("hit detected on Player " + GetComponentInParent<InputManager>().playerID);
         
         if (invulnerable)
         {
             Debug.Log("Within i-frames");
-            return;
+            return false;
         }
         
         currentHealth -= damage;
@@ -67,10 +75,11 @@ public class PlayerHealth : MonoBehaviour, IHittable
         if (currentHealth <= 0)
         {
             Die();
-            return;
+            return true;
         }
 
         StartCoroutine(ResetInvulnerability());
+        return true;
     }
 
     public int GetCurrentHealth()
@@ -89,7 +98,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
         DeathEvent.Invoke();
         invulnerable = true;
         currentLives--;
-        movement.StartStagger();
+        input.LockInput(true);
 
         if (currentLives <= 0)
         {
@@ -104,12 +113,28 @@ public class PlayerHealth : MonoBehaviour, IHittable
     {
         yield return new WaitForSeconds(stats.respawnWaitTime);
         currentHealth = maxHealth;
-        movement.transform.position = startPos;
-        movement.EndStagger();
+        input.transform.position = startPos;
+        input.LockInput(false);
         RespawnEvent.Invoke();
+        StartCoroutine(FadeBounce());
+        
+        movement.EndStagger();
         
         yield return new WaitForSeconds(stats.respawnWaitTime / 2);
         invulnerable = false;
+    }
+
+    private IEnumerator FadeBounce()
+    {
+        while (invulnerable)
+        {
+            spriteRenderer.DOFade(fadeAlphaVal, fadeBounceTime);
+            yield return new WaitForSeconds(fadeBounceTime);
+            spriteRenderer.DOFade(1, fadeBounceTime);
+            yield return new WaitForSeconds(fadeBounceTime);
+        }
+        
+        spriteRenderer.DOFade(1, fadeBounceTime);
     }
 }
     
