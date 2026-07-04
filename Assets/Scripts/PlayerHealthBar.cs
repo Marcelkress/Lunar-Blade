@@ -36,7 +36,7 @@ public class PlayerHealthBar : MonoBehaviour
 
         lives = new Image[_maxLives];
         lifeIndex = _maxLives - 1;
-        for (int i = 0; i < _maxLives; i++)
+        for (int i = 0; i < _maxLives - 1; i++)
         {
             GameObject lifeObj = Instantiate(lifeUnit_Prefab, lifeUnit_Parent);
             lives[i] = lifeObj.GetComponent<Image>();

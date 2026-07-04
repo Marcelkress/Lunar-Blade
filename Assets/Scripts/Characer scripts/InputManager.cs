@@ -67,13 +67,16 @@ public class InputManager : MonoBehaviour
     #region Movement
     
     public void OnMove(InputAction.CallbackContext context)
-    {
+    {if(!canReceiveInput)
+            return;
         moveVector = context.ReadValue<Vector2>();
         //Debug.Log(moveVector);
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if(!canReceiveInput)
+            return;
         if (context.started || context.performed)
         {
             //Debug.Log("Recognizing jump");
@@ -121,7 +124,8 @@ public class InputManager : MonoBehaviour
     }
 
     public void OnRun(InputAction.CallbackContext context)
-    {
+    {if(!canReceiveInput)
+            return;
         runIsHeld = context.performed;
     }
 
@@ -132,7 +136,8 @@ public class InputManager : MonoBehaviour
     #region Attack
     
     public void OnAttackOne(InputAction.CallbackContext context)
-    {
+    {if(!canReceiveInput)
+            return;
         if (context.performed)
         {
             attackOneWasPressed = true;
@@ -147,7 +152,8 @@ public class InputManager : MonoBehaviour
     }
     
     public void OnAttackTwo(InputAction.CallbackContext context)
-    {
+    {if(!canReceiveInput)
+            return;
         if (context.performed)
         {
             attackTwoWasPressed = true;
@@ -160,7 +166,8 @@ public class InputManager : MonoBehaviour
     }
     
     public void OnAttackThree(InputAction.CallbackContext context)
-    {
+    {if(!canReceiveInput)
+            return;
         if (context.performed)
         {
             attackThreeWasPressed = true;
@@ -173,7 +180,8 @@ public class InputManager : MonoBehaviour
     }
     
     public void OnSpecialAttackBindingOne(InputAction.CallbackContext context)
-    {
+    {if(!canReceiveInput)
+            return;
         if (context.performed)
         {
             specialOneWasPressed = true;
@@ -182,7 +190,8 @@ public class InputManager : MonoBehaviour
     }
 
     public void OnSpecialAttackBindingTwo(InputAction.CallbackContext context)
-    {
+    {if(!canReceiveInput)
+            return;
         if (context.performed)
         {
             specialTwoWasPressed = true;
