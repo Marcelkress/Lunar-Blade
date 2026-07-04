@@ -53,3 +53,4 @@ MonoBehaviour:
   takeHitStaggerTime: 0.2
   invulnerabilityTimeAfterHit: 0.2
   attackDecelerationMultiplier: 12
+  requiredHitsToCharge: 5

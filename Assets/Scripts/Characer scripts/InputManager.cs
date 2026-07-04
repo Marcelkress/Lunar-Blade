@@ -210,18 +210,17 @@ public class InputManager : MonoBehaviour
         }
 
         // We can only perform ability if we are able to consume a charge
-        if (abilityChargeManager.ConsumeCharge())
+
+        if (specialOneWasPressed && specialTwoWasPressed)
         {
-            if (specialOneWasPressed && specialTwoWasPressed)
+            if (abilityChargeManager.hasCharge)
             {
-                //Debug.Log(Time.frameCount   );
                 specialAttackPressed = true;
                 StartCoroutine(ResetNextFrame(() => specialAttackPressed = false));
                 specialOneWasPressed = false;
                 specialTwoWasPressed = false;
             }
         }
-        
     }
     
     #endregion

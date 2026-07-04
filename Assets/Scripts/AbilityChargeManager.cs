@@ -4,8 +4,10 @@ public class AbilityChargeManager : MonoBehaviour
 {
     public CharacterStats stats;
     
-    private bool hasCharge;
-    private int requiredHits, currentHits;
+    public bool hasCharge;
+    public int requiredHits, currentHits;
+    
+    private AbilityChargeUI UI;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,12 +15,17 @@ public class AbilityChargeManager : MonoBehaviour
         requiredHits = stats.requiredHitsToCharge;
         currentHits = 0;
         hasCharge = false;
+
+        UI = GetComponentInParent<PlayerUIManager>().abilityChargeUI;
+        UI.Init(requiredHits, currentHits);
     }
 
     public void SuccessfulHit()
     {
         currentHits++;
-
+        Debug.Log($"[{gameObject.name}] SuccessfulHit called. currentHits={currentHits}/{requiredHits}, instanceID={GetInstanceID()}");
+        UI.UpdateUI(currentHits);
+    
         if (currentHits >= requiredHits)
         {
             hasCharge = true;
@@ -30,6 +37,8 @@ public class AbilityChargeManager : MonoBehaviour
         if (hasCharge)
         {
             hasCharge = false;
+            currentHits = 0;
+            UI.UpdateUI(currentHits);
             return true;
         }
         

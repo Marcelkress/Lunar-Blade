@@ -18,9 +18,8 @@ public class PlayerHealth : MonoBehaviour, IHittable
     public GameObject healthBar;
     public SpriteRenderer spriteRenderer;
 
-    [Header("Events")] 
-    public UnityEvent TakeHitStaggerEvent,
-        takeHitEvent,
+    [Header("Events")] public UnityEvent TakeHitStaggerEvent;
+    public UnityEvent takeHitEvent,
         RespawnEvent,
         DeathEvent;
 
@@ -35,6 +34,8 @@ public class PlayerHealth : MonoBehaviour, IHittable
     private InputManager input;
     private CharacterMovement movement;
     private Vector3 startPos;
+
+    private PlayerHealthBar UI;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,9 +49,9 @@ public class PlayerHealth : MonoBehaviour, IHittable
         
         input = GetComponentInParent<InputManager>();
         movement = GetComponentInParent<CharacterMovement>();
-        
-        GameObject _healthCanvas = Instantiate(healthBar);
-        _healthCanvas.GetComponentInChildren<PlayerHealthBar>().Init(this, characterIcon, maxLives);
+
+        UI = GetComponentInParent<PlayerUIManager>().playerHealthBar;
+        UI.Init(this, characterIcon, maxLives);
     }
 
     public bool TakeHit(int damage, bool staggerAttack)

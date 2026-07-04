@@ -117,7 +117,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1809272547
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4723107735738678597, guid: d9a37f497a12d4e7491bc1b4a31895da, type: 3}
@@ -169,7 +169,7 @@ MonoBehaviour:
   - {fileID: 788515726093819152}
   - {fileID: 836003716624493065}
   - {fileID: 88050146510000408}
-  healthCollider: {fileID: 0}
+  healthCollider: {fileID: 8966914666875100972}
 --- !u!114 &2433324104175437089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,6 +804,8 @@ GameObject:
   - component: {fileID: 6827324420459512691}
   - component: {fileID: -2064846177422353583}
   - component: {fileID: 1461618792282492681}
+  - component: {fileID: -4101739983961881109}
+  - component: {fileID: 2335711085167500212}
   m_Layer: 6
   m_Name: Blade Character
   m_TagString: Untagged
@@ -1333,6 +1335,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   targetGroup: {fileID: 0}
   cameraSettings: {fileID: 11400000, guid: 112e996c60637b94db909d1e1d3c9f09, type: 2}
+--- !u!114 &-4101739983961881109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6432461173240748510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8f42e21881448a28c11b427c878708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityChargeManager
+  stats: {fileID: 11400000, guid: 609077e73e9f04138a534a268ba5f0ea, type: 2}
+  hasCharge: 0
+  requiredHits: 0
+  currentHits: 0
+--- !u!114 &2335711085167500212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6432461173240748510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f75077f3c69141619c5c53ea3101842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerUIManager
+  playerUIPrefab: {fileID: 6892664336840044592, guid: 9f844fa7a7ab94dcd8eff572dde6ea4b, type: 3}
+  playerUI: {fileID: 0}
+  playerHealthBar: {fileID: 0}
+  abilityChargeUI: {fileID: 0}
 --- !u!1 &8673896908746226683
 GameObject:
   m_ObjectHideFlags: 0

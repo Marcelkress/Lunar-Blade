@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 3389559572446464157}
   - component: {fileID: 2582195436581348884}
   - component: {fileID: 1402651790669898062}
+  - component: {fileID: 6519644433880257459}
   m_Layer: 6
   m_Name: Reaper Character
   m_TagString: Untagged
@@ -834,6 +835,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f8f42e21881448a28c11b427c878708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  stats: {fileID: 11400000, guid: 173fa7fb4d2a5446f9f24be3ee9cec7f, type: 2}
+--- !u!114 &6519644433880257459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048778114713400946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f75077f3c69141619c5c53ea3101842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerUIManager
+  playerUIPrefab: {fileID: 6892664336840044592, guid: 9f844fa7a7ab94dcd8eff572dde6ea4b, type: 3}
+  playerUI: {fileID: 0}
+  playerHealthBar: {fileID: 0}
+  abilityChargeUI: {fileID: 0}
 --- !u!1 &3096478530076130186
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,24 +6,33 @@ public class AnimEvents : MonoBehaviour
     [SerializeField] private Collider2D[] damageColliders;
     [SerializeField] private Collider2D healthCollider;
     
+    private CharacterMovement characterMovement;
+    private AbilityChargeManager chargeManager;
+
+    private void Start()
+    {
+        characterMovement = GetComponentInParent<CharacterMovement>();
+        chargeManager = GetComponentInParent<AbilityChargeManager>();
+    }
+
     public void LockMove()
     {
-        GetComponentInParent<CharacterMovement>().CanMove(false);
+        characterMovement.CanMove(false);
     }
     
     public void UnlockMove()
     {
-        GetComponentInParent<CharacterMovement>().CanMove(true);
+        characterMovement.CanMove(true);
     }
 
     public void StartStagger()
     {
-        GetComponentInParent<CharacterMovement>().StartStagger();
+        characterMovement.StartStagger();
     }
 
     public void EndStagger()
     {
-        GetComponentInParent<CharacterMovement>().EndStagger();
+        characterMovement.EndStagger();
     }
     public void DisableHealthCollider()
     {
@@ -48,6 +57,11 @@ public class AnimEvents : MonoBehaviour
     public void ClearHits(int colliderID)
     {
         damageColliders[colliderID - 1].gameObject.GetComponent<AttackHitDetection>().ClearHits();
+    }
+
+    private void ConsumeCharge()
+    {
+        chargeManager.ConsumeCharge();
     }
     
 }

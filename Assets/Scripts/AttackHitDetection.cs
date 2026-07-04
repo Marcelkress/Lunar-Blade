@@ -59,7 +59,7 @@ public class AttackHitDetection : MonoBehaviour
                     break;
             }
 
-            if (hit.TakeHit(dmg, staggerEnemyOnHit))
+            if (hit.TakeHit(dmg, staggerEnemyOnHit) &&attackID != 4) 
             {
                 abilityChargeManager.SuccessfulHit();
             }

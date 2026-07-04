@@ -12,7 +12,6 @@ public class HitDummy : MonoBehaviour, IHittable
 
     public bool TakeHit(int damage, bool staggerAttack)
     {
-        Debug.Log("OUCH! - Took " + damage + " damage");
         sprite.color = Color.red;
         Invoke(nameof(ResetColor), .15f);
         return true;
