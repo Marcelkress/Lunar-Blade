@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AttackID
+{
+    AttackOne = 1,
+    AttackTwo = 2,
+    AttackThree = 3,
+    SpecialAttack = 4
+}
+    
 public class AttackHitDetection : MonoBehaviour
 {
     private List<Collider2D> alreadyHit;
     private CharacterStats stats;
-    [SerializeField] private int attackID;
+    [SerializeField] private AttackID attackID;
     public bool staggerEnemyOnHit = true;
     
     private AbilityChargeManager abilityChargeManager;
@@ -32,26 +40,27 @@ public class AttackHitDetection : MonoBehaviour
     {
         if (otherCol.gameObject.TryGetComponent(out IHittable hit))
         {
+            // If we have already hit the collider we ignore it
             foreach (var alrHit in alreadyHit)
             {
                 if (alrHit == otherCol)
                     return;
             }
-
+            
+            // Assign damage based on attack type
             int dmg;
-
             switch (attackID)
             {
-                case 1:
+                case AttackID.AttackOne:
                     dmg = stats.attackOneDmg;
                     break;
-                case 2:
+                case AttackID.AttackTwo:
                     dmg = stats.attackTwoDmg;
                     break;
-                case 3:
+                case AttackID.AttackThree:
                     dmg = stats.attackThreeDmg;
                     break;
-                case 4:
+                case AttackID.SpecialAttack:
                     dmg = stats.specialAttackDmg;
                     break;
                 default:
@@ -59,16 +68,18 @@ public class AttackHitDetection : MonoBehaviour
                     break;
             }
 
-            if (hit.TakeHit(dmg, staggerEnemyOnHit, attackID == 4)) 
-            {
-                if (attackID != 4)
+            // Applying damage
+            if (hit.TakeHit(dmg, staggerEnemyOnHit, attackID == AttackID.SpecialAttack)) 
+            { 
+                // Slowdown time effect if a special attack is hit 
+                if (attackID == AttackID.SpecialAttack)
+                {
+                    TimeManager.instance.SlowDown();   
+                }
+                // Charge special attack if we hit a normal attack
+                else 
                 {
                     abilityChargeManager.SuccessfulHit();
-                    TimeManager.instance.SlowDownBrief();
-                }
-                else
-                {
-                    TimeManager.instance.SlowDownSpecialAttack();   
                 }
 
             }

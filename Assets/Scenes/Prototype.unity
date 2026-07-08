@@ -14077,10 +14077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eedf385d4b5c4994baf60c2020eb1c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
-  timeScaleBrief: 0.4
-  timeScaleLonger: 0.2
-  briefTimeScaleDuration: 0.05
-  longerTimeScaleDuration: 0.1
+  defaultSlowDownTimeScale: 0.3
+  defaultSlowDownDuration: 0.2
 --- !u!4 &527845345
 Transform:
   m_ObjectHideFlags: 0

@@ -4,9 +4,8 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager instance;
-
-    public float timeScaleBrief, timeScaleLonger,  
-        briefTimeScaleDuration, longerTimeScaleDuration;
+    
+    public float defaultSlowDownTimeScale, defaultSlowDownDuration;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -21,17 +20,15 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    public void SlowDownBrief()
+    public void SlowDown()
     {
-        StartCoroutine(SlowDown(timeScaleBrief, briefTimeScaleDuration));
+        StartCoroutine(SlowDown(defaultSlowDownTimeScale, defaultSlowDownDuration));
     }
 
-    public void SlowDownSpecialAttack()
+    public void SlowDown(float duration)
     {
-        StartCoroutine(SlowDown(timeScaleLonger, longerTimeScaleDuration));
+        StartCoroutine(SlowDown(defaultSlowDownTimeScale, duration));
     }
-
-    private float current;
 
     private IEnumerator SlowDown(float targetTimeScale, float duration)
     {
