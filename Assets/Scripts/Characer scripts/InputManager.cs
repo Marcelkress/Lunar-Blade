@@ -25,7 +25,7 @@ public class InputManager : MonoBehaviour
     private AbilityChargeManager abilityChargeManager; 
 
     // God vars
-    private bool canReceiveInput;
+    public bool canReceiveInput { get; private set; }
 
     private void Awake()
     {
@@ -67,10 +67,8 @@ public class InputManager : MonoBehaviour
     #region Movement
     
     public void OnMove(InputAction.CallbackContext context)
-    {if(!canReceiveInput)
-            return;
+    {
         moveVector = context.ReadValue<Vector2>();
-        //Debug.Log(moveVector);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -98,7 +96,7 @@ public class InputManager : MonoBehaviour
         if(!canReceiveInput)
             return;
         
-        Debug.Log("Dash");
+        //Debug.Log("Dash");
         
         if (context.performed)
         {

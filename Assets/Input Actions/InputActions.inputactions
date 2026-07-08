@@ -410,6 +410,17 @@
                 },
                 {
                     "name": "",
+                    "id": "59c95ccb-03b3-460f-a159-6f8b1cef31d4",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "85b2efbd-43ba-4e9d-8e0a-6970b5b282dc",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",

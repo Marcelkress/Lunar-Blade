@@ -23,7 +23,9 @@ public class AbilityChargeManager : MonoBehaviour
     public void SuccessfulHit()
     {
         currentHits++;
-        Debug.Log($"[{gameObject.name}] SuccessfulHit called. currentHits={currentHits}/{requiredHits}, instanceID={GetInstanceID()}");
+        
+        // Debug.Log($"[{gameObject.name}] SuccessfulHit called. currentHits={currentHits}/{requiredHits}, instanceID={GetInstanceID()}");
+        
         UI.UpdateUI(currentHits);
     
         if (currentHits >= requiredHits)

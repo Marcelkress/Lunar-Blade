@@ -56,11 +56,11 @@ public class PlayerHealth : MonoBehaviour, IHittable
 
     public bool TakeHit(int damage, bool staggerAttack)
     {
-        Debug.Log("hit detected on Player " + GetComponentInParent<InputManager>().playerID);
+        //Debug.Log("hit detected on Player " + GetComponentInParent<InputManager>().playerID);
         
         if (invulnerable)
         {
-            Debug.Log("Within i-frames");
+            //Debug.Log("Within i-frames");
             return false;
         }
         
@@ -101,9 +101,9 @@ public class PlayerHealth : MonoBehaviour, IHittable
         currentLives--;
         input.LockInput(true);
 
-        if (currentLives <= 0)
+        if (currentLives < 0)
         {
-            Debug.Log("Dead, all lives used");
+            //Debug.Log("Dead, all lives used");
             return;
         }
         

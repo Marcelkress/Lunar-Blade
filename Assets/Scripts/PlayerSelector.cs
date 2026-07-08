@@ -10,6 +10,8 @@ public class PlayerSelector : MonoBehaviour
     [SerializeField] private int characterCount = 2;
     
     public Image[] highlightedCharacterImages;
+    public Color highlightedColor, normalColor;
+    
     public TMP_Text[] selectedCharacterTexts;
     
     public TMP_Text playerID;
@@ -34,7 +36,6 @@ public class PlayerSelector : MonoBehaviour
     {
         if (selected)
             return;
-        
         
         float y = value.Get<Vector2>().y;
 
@@ -84,7 +85,6 @@ public class PlayerSelector : MonoBehaviour
         if (selected)
         {
             selectedCharacterTexts[characterIndex].enabled = true;
-            highlightedCharacterImages[characterIndex].DOColor(Color.white, 0.3f);
             highlightedCharacterImages[characterIndex].rectTransform
                 .DOShakeAnchorPos(0.2f, 50, 100, 90);
         }
@@ -96,11 +96,11 @@ public class PlayerSelector : MonoBehaviour
             {
                 if (i == characterIndex)
                 {
-                    highlightedCharacterImages[i].DOFade(1, 0.2f);
+                    highlightedCharacterImages[i].DOColor(highlightedColor, 0.3f);
                 }
                 else
                 {
-                    highlightedCharacterImages[i].DOFade(.5f, 0.2f);
+                    highlightedCharacterImages[i].DOColor(normalColor, 0.3f);
                 }
             }
         }

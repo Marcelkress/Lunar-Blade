@@ -42,7 +42,7 @@ MonoBehaviour:
   betweenDashInterval: 0.28
   dashAcceleration: 90
   maxHealth: 12
-  maxLives: 3
+  maxLives: 4
   respawnWaitTime: 2
   specialAttackInputBuffer: 0.3
   attackInputBuffer: 0.5
@@ -53,3 +53,4 @@ MonoBehaviour:
   takeHitStaggerTime: 0.2
   invulnerabilityTimeAfterHit: 0.2
   attackDecelerationMultiplier: 12
+  requiredHitsToCharge: 3

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,15 +13,18 @@ public class CharacterSelectionManager : MonoBehaviour
     [Header("Spawn Points")]
     [SerializeField] private Transform[] spawnPoints;
 
-    [Header("Player")] 
+    [Header("Settings")] 
     public int playerCount;
+    public float waitToSpawnTime;
 
     [Header("UI")] 
     public GameObject playerCountCanvas;
+    public GameObject startingText;
     
     private PlayerInput[] selectors = new PlayerInput[2];
     private int[] selections; // = new int[] { -1, -1 };       // chosen character index per player
     private int readyCount = 0;
+    private bool allPlayersReady;
 
     private bool allSpawned = false;
     private PlayerInputManager playerInputManager;
@@ -29,12 +33,14 @@ public class CharacterSelectionManager : MonoBehaviour
     {
         allSpawned = false;
         Instance = this;
+        allPlayersReady = false;
         
         selections = new int[playerCount];
         Array.Fill(selections, -1);
         playerInputManager = GetComponent<PlayerInputManager>();
         playerInputManager.DisableJoining();
         playerCountCanvas.SetActive(true);
+        startingText.SetActive(false);
 
         // Point PlayerInputManager at the selector prefab for now
         //inputManager.playerPrefab = selectorPrefab;
@@ -82,16 +88,31 @@ public class CharacterSelectionManager : MonoBehaviour
 
         if (readyCount == playerCount)
         {
+            allPlayersReady = true;
+            startingText.SetActive(true);
+            StartCoroutine(WaitToSpawn());
+        }
+    }
+
+    private IEnumerator WaitToSpawn()
+    {
+        yield return new WaitForSeconds(waitToSpawnTime);
+
+        if (allPlayersReady)
+        {
+            startingText.SetActive(false);
             SpawnSelectedCharacters();
             allSpawned = true;
             playerInputManager.DisableJoining();
-        }
+        } 
     }
 
     public void OnCharacterDeselected(int playerIndex)
     {
         selections[playerIndex] = -1;
         readyCount--;
+        allPlayersReady = false;
+        startingText.SetActive(false);
     }
 
     private void SpawnSelectedCharacters()

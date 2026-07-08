@@ -836,6 +836,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   stats: {fileID: 11400000, guid: 173fa7fb4d2a5446f9f24be3ee9cec7f, type: 2}
+  hasCharge: 0
+  requiredHits: 0
+  currentHits: 0
 --- !u!114 &6519644433880257459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1105,7 +1108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
   attackID: 2
-  staggerEnemyOnHit: 1
+  staggerEnemyOnHit: 0
 --- !u!60 &2080733061756880542
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1259,19 +1262,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.5790391, y: 0.13730477}
-      - {x: 0.5602489, y: 0.33397377}
-      - {x: 0.48459652, y: 0.44506046}
-      - {x: 0.20362756, y: 0.432056}
-      - {x: -0.043210942, y: 0.3116007}
-      - {x: -0.13441575, y: 0.12001759}
-      - {x: -0.21520601, y: 0.08239908}
-      - {x: -0.34111464, y: 0.34416974}
-      - {x: -0.3640432, y: 0.30219358}
+    - - {x: 0.6003534, y: 0.13527483}
+      - {x: 0.61911696, y: 0.28424034}
+      - {x: 0.49576116, y: 0.45825502}
+      - {x: 0.19550781, y: 0.45946014}
+      - {x: -0.06757009, y: 0.33900478}
+      - {x: -0.11513135, y: 0.28748736}
+      - {x: -0.21520601, y: 0.24783894}
+      - {x: -0.3390847, y: 0.36548406}
+      - {x: -0.3904324, y: 0.30016366}
       - {x: -0.2980475, y: 0.030938137}
       - {x: -0.21733499, y: -0.08839742}
-      - {x: 0.40277293, y: -0.07720448}
-      - {x: 0.5075718, y: 0.049801335}
+      - {x: 0.40378797, y: -0.081264354}
+      - {x: 0.5167066, y: 0.033561848}
   m_UseDelaunayMesh: 1
 --- !u!1 &6784589415173576487
 GameObject:
@@ -1466,7 +1469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
   attackID: 2
-  staggerEnemyOnHit: 0
+  staggerEnemyOnHit: 1
 --- !u!60 &60660498141822179
 PolygonCollider2D:
   m_ObjectHideFlags: 0
