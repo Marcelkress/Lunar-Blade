@@ -59,9 +59,18 @@ public class AttackHitDetection : MonoBehaviour
                     break;
             }
 
-            if (hit.TakeHit(dmg, staggerEnemyOnHit) &&attackID != 4) 
+            if (hit.TakeHit(dmg, staggerEnemyOnHit, attackID == 4)) 
             {
-                abilityChargeManager.SuccessfulHit();
+                if (attackID != 4)
+                {
+                    abilityChargeManager.SuccessfulHit();
+                    TimeManager.instance.SlowDownBrief();
+                }
+                else
+                {
+                    TimeManager.instance.SlowDownSpecialAttack();   
+                }
+
             }
             
             alreadyHit.Add(otherCol);
@@ -79,5 +88,5 @@ public class AttackHitDetection : MonoBehaviour
 /// </summary>
 public interface IHittable
 {
-    public bool TakeHit(int damage, bool staggerAttack);
+    public bool TakeHit(int damage, bool staggerAttack, bool specialAttack);
 }

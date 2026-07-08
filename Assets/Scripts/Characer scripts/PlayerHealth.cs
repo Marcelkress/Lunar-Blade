@@ -54,7 +54,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
         UI.Init(this, characterIcon, maxLives);
     }
 
-    public bool TakeHit(int damage, bool staggerAttack)
+    public bool TakeHit(int damage, bool staggerAttack, bool specialAttack)
     {
         //Debug.Log("hit detected on Player " + GetComponentInParent<InputManager>().playerID);
         
@@ -65,6 +65,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
         }
         
         currentHealth -= damage;
+        
         takeHitEvent?.Invoke();
         invulnerable = true;
 
