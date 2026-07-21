@@ -40,19 +40,19 @@ AnimationClip:
       value: {fileID: -3358540281099599955, guid: 1368cf1fa23fa428d97a5c3436b60474, type: 3}
     - time: 0.15
       value: {fileID: 4317965184171774520, guid: 1368cf1fa23fa428d97a5c3436b60474, type: 3}
-    - time: 0.23333333
+    - time: 0.16666667
       value: {fileID: 940728540632478728, guid: 1368cf1fa23fa428d97a5c3436b60474, type: 3}
-    - time: 0.26666668
+    - time: 0.2
       value: {fileID: -8619204105755475156, guid: 1368cf1fa23fa428d97a5c3436b60474, type: 3}
-    - time: 0.35
+    - time: 0.26666668
       value: {fileID: -1964442717818679545, guid: 1368cf1fa23fa428d97a5c3436b60474, type: 3}
-    - time: 0.41666666
+    - time: 0.33333334
       value: {fileID: 7987122563101148468, guid: 1368cf1fa23fa428d97a5c3436b60474, type: 3}
-    - time: 0.48333332
+    - time: 0.4
       value: {fileID: -474755912230288316, guid: 1368cf1fa23fa428d97a5c3436b60474, type: 3}
-    - time: 0.5833333
+    - time: 0.5
       value: {fileID: 4534114741750591853, guid: 1368cf1fa23fa428d97a5c3436b60474, type: 3}
-    - time: 0.6666667
+    - time: 0.5833333
       value: {fileID: 587383424047711535, guid: 1368cf1fa23fa428d97a5c3436b60474, type: 3}
     attribute: m_Sprite
     path: 
@@ -98,7 +98,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.68333334
+    m_StopTime: 0.59999996
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -125,21 +125,21 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.2
+  - time: 0.11666667
     functionName: LockMove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.26666668
+  - time: 0.2
     functionName: EnableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.43333334
+  - time: 0.33333334
     functionName: DisableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}

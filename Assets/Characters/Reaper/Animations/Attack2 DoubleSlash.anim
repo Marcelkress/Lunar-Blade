@@ -22,29 +22,29 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -1719473810929531854, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.05
+    - time: 0.033333335
       value: {fileID: 5668251652845628574, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.11666667
+    - time: 0.06666667
       value: {fileID: -2600267979508819856, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.15
+    - time: 0.083333336
       value: {fileID: 2170367987011908983, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.21666667
+    - time: 0.15
       value: {fileID: 4445372978929928464, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.26666668
+    - time: 0.2
       value: {fileID: 5046150343476845083, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.31666666
+    - time: 0.23333333
       value: {fileID: 4612707142050032858, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.36666667
+    - time: 0.26666668
       value: {fileID: 2043715397035662985, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.41666666
+    - time: 0.3
       value: {fileID: -6411210585995459653, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.45
+    - time: 0.33333334
       value: {fileID: -2399274769894972389, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.51666665
+    - time: 0.4
       value: {fileID: -8620873646974724477, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.6
+    - time: 0.45
       value: {fileID: 1397877003049381756, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.75
+    - time: 0.53333336
       value: {fileID: 4394263211310074107, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
     attribute: m_Sprite
     path: 
@@ -86,7 +86,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.76666665
+    m_StopTime: 0.55
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -113,56 +113,56 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.083333336
+  - time: 0.05
     functionName: LockMove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.15
+  - time: 0.083333336
     functionName: EnableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.26666668
+  - time: 0.21666667
     functionName: DisableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.31666666
+  - time: 0.25
     functionName: ClearHits
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.45
+  - time: 0.33333334
     functionName: EnableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
-  - time: 0.55
+  - time: 0.41666666
     functionName: UnlockMove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5833333
+  - time: 0.45
     functionName: DisableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
-  - time: 0.6
+  - time: 0.46666667
     functionName: ClearHits
     data: 
     objectReferenceParameter: {fileID: 0}

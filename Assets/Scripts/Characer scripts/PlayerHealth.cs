@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
         
         if (invulnerable)
         {
-            //Debug.Log("Within i-frames");
+            Debug.Log("Within i-frames");
             return false;
         }
         

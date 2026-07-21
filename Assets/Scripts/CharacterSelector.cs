@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class CharacterSelectionManager : MonoBehaviour
@@ -20,6 +21,7 @@ public class CharacterSelectionManager : MonoBehaviour
     [Header("UI")] 
     public GameObject playerCountCanvas;
     public GameObject startingText;
+    public GameObject firstSelectedUIButton;
     
     private PlayerInput[] selectors = new PlayerInput[2];
     private int[] selections; // = new int[] { -1, -1 };       // chosen character index per player
@@ -39,11 +41,16 @@ public class CharacterSelectionManager : MonoBehaviour
         Array.Fill(selections, -1);
         playerInputManager = GetComponent<PlayerInputManager>();
         playerInputManager.DisableJoining();
-        playerCountCanvas.SetActive(true);
         startingText.SetActive(false);
 
         // Point PlayerInputManager at the selector prefab for now
         //inputManager.playerPrefab = selectorPrefab;
+    }
+
+    public void EnableChoosePlayers()
+    {
+        playerCountCanvas.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(firstSelectedUIButton);
     }
 
     public void ChoosePlayerCount(int count)
@@ -70,8 +77,14 @@ public class CharacterSelectionManager : MonoBehaviour
         selectors[index] = selectorInput;
 
         var ui = selectorInput.GetComponent<PlayerSelector>();
+        
         if (ui != null) 
             ui.Init(index);
+
+        if (playerInputManager.playerCount > playerCount)
+        {
+            playerInputManager.DisableJoining();
+        }
     }
     
     
@@ -141,6 +154,8 @@ public class CharacterSelectionManager : MonoBehaviour
 
             fighter.transform.position = spawnPoints[i].position;
         }
+        
+        MatchManager.instance.StartMatchCount();
     }
     
         #endregion
