@@ -15259,6 +15259,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &348443250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348443251}
+  m_Layer: 0
+  m_Name: Spawnpoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &348443251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348443250}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.25, y: -0.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &366427090
 GameObject:
   m_ObjectHideFlags: 0
@@ -16152,9 +16183,11 @@ MonoBehaviour:
   characterPrefabs:
   - {fileID: 6432461173240748510, guid: 01e65fe1040074b39bee3069082d6179, type: 3}
   - {fileID: 3048778114713400946, guid: dfdc09b384823472cb0f0adb9c2a393b, type: 3}
+  - {fileID: 148659617038121618, guid: 9c567a8b72ca245c39ffe2b52a6eb568, type: 3}
   spawnPoints:
   - {fileID: 1911222931}
   - {fileID: 199294870}
+  - {fileID: 348443251}
   playerCount: 2
   waitToSpawnTime: 1.5
   playerCountCanvas: {fileID: 1422395962}
@@ -23861,7 +23894,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030517578, y: -487.00003}
+  m_AnchoredPosition: {x: -803, y: -490}
   m_SizeDelta: {x: 287.1307, y: 72.3435}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1927585217
@@ -24872,6 +24905,7 @@ SceneRoots:
   - {fileID: 1009328544}
   - {fileID: 1911222931}
   - {fileID: 199294870}
+  - {fileID: 348443251}
   - {fileID: 236798498}
   - {fileID: 1989440889}
   - {fileID: 527845345}

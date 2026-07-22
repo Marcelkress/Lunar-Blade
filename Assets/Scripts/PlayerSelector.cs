@@ -1,5 +1,6 @@
 using DG.Tweening;
 using TMPro;
+using UnityEditor.ShaderGraph.Drawing;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -31,7 +32,6 @@ public class PlayerSelector : MonoBehaviour
         playerID.text = "Player " + (playerIndex + 1).ToString();
     }
 
-    // Matches Send Messages style
     public void OnNavigate(InputValue value)
     {
         if (selected)
@@ -42,15 +42,23 @@ public class PlayerSelector : MonoBehaviour
         if ((y < -.5 || y > .5) && canChange)
         {
             canChange = false;
-            characterIndex += (int)y;
 
+            if (Mathf.Sign(y) == 1)       // stick pushed UP
+            {
+                characterIndex--;          // move to previous (upward) image
+            }
+            else                            // stick pushed DOWN
+            {
+                characterIndex++;          // move to next (downward) image
+            }
+            
             if (characterIndex >= characterCount)
             {
                 characterIndex = 0;
             }
             else if (characterIndex < 0)
             {
-                characterIndex = characterCount - 1;
+                characterIndex = characterCount - 1; // fix off-by-one here too
             }
         }
         else if (y == 0)
