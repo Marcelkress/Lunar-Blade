@@ -22,23 +22,23 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -1719473810929531854, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.033333335
+    - time: 0.016666668
       value: {fileID: 5668251652845628574, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.06666667
+    - time: 0.033333335
       value: {fileID: -2600267979508819856, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.083333336
+    - time: 0.06666667
       value: {fileID: 2170367987011908983, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.15
+    - time: 0.11666667
       value: {fileID: 4445372978929928464, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.2
+    - time: 0.21666667
       value: {fileID: 5046150343476845083, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.23333333
+    - time: 0.25
       value: {fileID: 4612707142050032858, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.26666668
+    - time: 0.28333333
       value: {fileID: 2043715397035662985, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.3
+    - time: 0.31666666
       value: {fileID: -6411210585995459653, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
-    - time: 0.33333334
+    - time: 0.35
       value: {fileID: -2399274769894972389, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
     - time: 0.4
       value: {fileID: -8620873646974724477, guid: 5e3715d84337e44acb4c783a8ebdd78e, type: 3}
@@ -113,14 +113,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.05
+  - time: 0.016666668
     functionName: LockMove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.083333336
+  - time: 0.06666667
     functionName: EnableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -141,7 +141,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.33333334
+  - time: 0.35
     functionName: EnableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}

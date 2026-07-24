@@ -38,9 +38,9 @@ public class PlayerHealth : MonoBehaviour, IHittable
     private PlayerHealthBar UI;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Init(int _maxLives)
     {
-        maxLives = stats.maxLives;
+        maxLives = _maxLives;
         currentLives = maxLives;
         startPos = transform.position;
         maxHealth = stats.maxHealth;
@@ -53,6 +53,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
         UI = GetComponentInParent<PlayerUIManager>().playerHealthBar;
         UI.Init(this, characterIcon, maxLives);
     }
+    
 
     public bool TakeHit(int damage, bool staggerAttack, bool specialAttack)
     {

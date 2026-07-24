@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -29,6 +30,7 @@ public class CharacterSelectionManager : MonoBehaviour
     private bool allPlayersReady;
 
     private bool allSpawned = false;
+    private int lifeCount;
     private PlayerInputManager playerInputManager;
 
     void Awake()
@@ -47,8 +49,9 @@ public class CharacterSelectionManager : MonoBehaviour
         //inputManager.playerPrefab = selectorPrefab;
     }
 
-    public void EnableChoosePlayers()
+    public void EnableChoosePlayers(int _lifeCount)
     {
+        lifeCount = _lifeCount;
         playerCountCanvas.SetActive(true);
         EventSystem.current.SetSelectedGameObject(firstSelectedUIButton);
     }
@@ -153,9 +156,8 @@ public class CharacterSelectionManager : MonoBehaviour
             );
 
             fighter.transform.position = spawnPoints[i].position;
+            fighter.GetComponentInChildren<PlayerHealth>().Init(lifeCount);
         }
-        
-        MatchManager.instance.StartMatchCount();
     }
     
         #endregion

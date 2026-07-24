@@ -130,10 +130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimEvents
   damageColliders:
-  - {fileID: 4703491161704244231}
+  - {fileID: 2734589622909907321}
   - {fileID: 60660498141822179}
   - {fileID: 2080733061756880542}
-  - {fileID: 2734589622909907321}
+  - {fileID: 4703491161704244231}
   - {fileID: 3182349938988116717}
   healthCollider: {fileID: 6347829480467742213}
 --- !u!114 &5988100197434898888
@@ -867,7 +867,7 @@ GameObject:
   - component: {fileID: 4416919617307800373}
   - component: {fileID: 2734589622909907321}
   m_Layer: 0
-  m_Name: 3 - Slash Attack Collider
+  m_Name: 1 - Slash Attack Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785f97db215f74d30bcceb0c4c247dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
-  attackID: 3
+  attackID: 1
   staggerEnemyOnHit: 1
 --- !u!60 &2734589622909907321
 PolygonCollider2D:
@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 9070563522511836007}
   - component: {fileID: 4703491161704244231}
   m_Layer: 0
-  m_Name: 1 - Jump Attack Collider
+  m_Name: 3 - Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785f97db215f74d30bcceb0c4c247dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitDetection
-  attackID: 1
+  attackID: 3
   staggerEnemyOnHit: 1
 --- !u!60 &4703491161704244231
 PolygonCollider2D:
@@ -1553,10 +1553,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3155532104717791485}
+  - {fileID: 3084701236250781279}
   - {fileID: 6605289165075514897}
   - {fileID: 2718275740717560338}
-  - {fileID: 3084701236250781279}
+  - {fileID: 3155532104717791485}
   - {fileID: 3591885428040730623}
   m_Father: {fileID: 1427450498642836018}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

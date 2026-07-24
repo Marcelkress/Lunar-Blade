@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class MainMenuUI : MonoBehaviour
     public GameObject mainFirstSelectedButton;
     public GameObject mapFirstSelectedButton;
     
-    [Header("Animation")] public float animationDuration;
+    [Header("Animation")] 
+    public float animationDuration;
 
     public void GoToMapPanel()
     {
@@ -31,9 +33,9 @@ public class MainMenuUI : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(mainFirstSelectedButton);
     }
 
-    public void StartMatch()
+    public void StartMatch(string sceneName)
     {
-        
+        SceneManager.LoadScene(sceneName);
     }
 
     private void DoPanelPosition(RectTransform panel, RectTransform target)
