@@ -23,10 +23,8 @@ public class CharacterSelectionManager : MonoBehaviour
     public MatchSettings matchSettings;
 
     [Header("UI")] 
-    public GameObject playerCountCanvas;
     public TMP_Text playerCountDisplay;
     public GameObject startingText;
-    public GameObject firstSelectedUIButton;
     
     private PlayerInput[] selectors = new PlayerInput[2];
     private int[] selections; // = new int[] { -1, -1 };       // chosen character index per player
@@ -76,14 +74,11 @@ public class CharacterSelectionManager : MonoBehaviour
     public void EnableChoosePlayers(int _lifeCount)
     {
         lifeCount = _lifeCount;
-        playerCountCanvas.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(firstSelectedUIButton);
     }
 
     public void ChoosePlayerCount()
     {
         playerInputManager.EnableJoining();
-        playerCountCanvas.SetActive(false);
     }
 
     public void OnPlayerJoined(PlayerInput selectorInput)
@@ -165,23 +160,39 @@ public class CharacterSelectionManager : MonoBehaviour
             }
         }
 
+        // Capture all devices BEFORE touching any selector
+        InputDevice[] devices = new InputDevice[playerCount];
         for (int i = 0; i < playerCount; i++)
         {
-            InputDevice device = selectors[i].devices[0];
-            Destroy(selectors[i].gameObject);
+            if (selectors[i] == null || selectors[i].devices.Count == 0)
+            {
+                Debug.LogError($"Player {i} selector has no paired device — aborting spawn.");
+                return;
+            }
+            devices[i] = selectors[i].devices[0];
+        }
 
+        // Now destroy all selectors
+        for (int i = 0; i < playerCount; i++)
+        {
+            Destroy(selectors[i].gameObject);
+        }
+
+        // Now instantiate all fighters using the captured devices
+        for (int i = 0; i < playerCount; i++)
+        {
             PlayerInput fighter = PlayerInput.Instantiate(
                 characterPrefabs[selections[i]],
                 playerIndex: i,
                 controlScheme: null,
                 splitScreenIndex: -1,
-                pairWithDevice: device
+                pairWithDevice: devices[i]
             );
 
             fighter.transform.position = spawnPoints[i].position;
             PlayerHealth health = fighter.GetComponentInChildren<PlayerHealth>();
             health.Init(lifeCount);
-            MatchManager.instance.SetPlayerReferences(playerCount, health, i);
+            MatchManager.instance.StartingMatch(playerCount, health, i);
         }
     }
     

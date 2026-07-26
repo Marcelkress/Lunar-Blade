@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,16 +8,25 @@ using UnityEngine.SceneManagement;
 
 public class MatchManager : MonoBehaviour
 {
-    [Header("Settings")] 
-    public int defaultMatchLives = 5;
-    public int maxAllowedLives = 10;
+    [Header("UI Panels")]
+    public RectTransform lifeCountPanel;
+    public RectTransform playerCountPanel;
+    public RectTransform winPanel;
+    public float animationDuration = 0.5f;
     
-    [Header("UI Elements")] 
-    public GameObject lifecountCanvas;
-    public GameObject winCanvas;
+    [Header("UI References")] 
     public TMP_Text lifeCountDisplay;
     public TMP_Text playerWinText;
     public GameObject mainMenuButton;
+    public GameObject tintImage;
+
+    [Header("First selected buttons")]
+    public GameObject lifeCountButton;
+    public GameObject playerCountButton;
+    
+    [Header("UI Panel Positions")] 
+    public RectTransform mainPosition;
+    public RectTransform rightPosition, leftPosition;
     
     [Header("References")] 
     public CharacterSelectionManager characterSelectionManager;
@@ -45,11 +55,17 @@ public class MatchManager : MonoBehaviour
     
     private void Start()
     {
-        lifecountCanvas.SetActive(true);
-        winCanvas.SetActive(false);
+        tintImage.SetActive(true);
+        DoPanelPosition(lifeCountPanel, mainPosition);
+        EventSystem.current.SetSelectedGameObject(lifeCountButton);
         lifeCount = matchSettings.defaultMatchLives;
         lifeCountDisplay.text = lifeCount.ToString();
         startedMatch = false;
+    }
+    
+    private void DoPanelPosition(RectTransform panel, RectTransform target)
+    {
+        panel.DOAnchorPos(target.anchoredPosition, animationDuration);
     }
 
     public void IncreaseLifeCount()
@@ -74,17 +90,25 @@ public class MatchManager : MonoBehaviour
 
     public void SetMatchLives()
     {
+        DoPanelPosition(lifeCountPanel, leftPosition);
+        DoPanelPosition(playerCountPanel, mainPosition);
+        EventSystem.current.SetSelectedGameObject(playerCountButton);
         characterSelectionManager.EnableChoosePlayers(lifeCount);
-        lifecountCanvas.SetActive(false);   
     }
 
-    public void SetPlayerReferences(int playerCount, PlayerHealth player, int i)
+    public void PlayerCountSet()
+    {
+        DoPanelPosition(playerCountPanel, leftPosition);
+    }
+
+    public void StartingMatch(int playerCount, PlayerHealth player, int i)
     {
         if(players == null)
             players = new PlayerHealth[playerCount];
         
         players[i] = player;
         player.PermadeathEvent.AddListener(WinCheck);
+        tintImage.SetActive(false);
     }
     
     private void WinCheck()
@@ -98,7 +122,8 @@ public class MatchManager : MonoBehaviour
             {
                 if (player.GetCurrentHealth() > 0)
                 {
-                    winCanvas.SetActive(true);
+                    tintImage.SetActive(true);
+                    DoPanelPosition(winPanel, mainPosition);
                     EventSystem.current.SetSelectedGameObject(mainMenuButton);
                     player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("UI");
                     playerWinText.text = "Player " + player.GetComponentInParent<InputManager>().playerID + " wins!";

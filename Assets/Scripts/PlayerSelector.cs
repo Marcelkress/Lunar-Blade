@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using TMPro;
 using UnityEditor.ShaderGraph.Drawing;
@@ -30,6 +31,8 @@ public class PlayerSelector : MonoBehaviour
         playerIndex = index;
         UpdateUI();
         playerID.text = "Player " + (playerIndex + 1).ToString();
+        RectTransform rectTransform = transform.GetComponent<RectTransform>();
+        rectTransform.localScale = Vector3.one;
     }
 
     public void OnNavigate(InputValue value)

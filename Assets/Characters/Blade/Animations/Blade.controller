@@ -81,7 +81,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpinAttack (Attack one)
+  m_Name: SpinAttack (Attack three)
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -193,7 +193,7 @@ AnimatorTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Attack One
+    m_ConditionEvent: Attack Three
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7405371220417403229}
@@ -378,7 +378,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Attack Three
+    m_ConditionEvent: Attack One
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5674227331476002336}
@@ -607,7 +607,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Attack One
+    m_ConditionEvent: Attack Three
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7405371220417403229}
@@ -996,7 +996,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Attack One
+    m_ConditionEvent: Attack Three
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7405371220417403229}
@@ -1334,7 +1334,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ThrustAttack (Attack three)
+  m_Name: ThrustAttack (Attack one)
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1447,7 +1447,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Attack Three
+    m_ConditionEvent: Attack One
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5674227331476002336}
@@ -1598,7 +1598,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Attack One
+    m_ConditionEvent: Attack Three
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7405371220417403229}
@@ -1674,13 +1674,14 @@ AnimatorStateMachine:
     m_Position: {x: 540, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7405371220417403229}
-    m_Position: {x: 380, y: 140, z: 0}
+    m_Position: {x: 370, y: 140, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions:
   - {fileID: -5980220449795732716}
   - {fileID: -282946276646577313}
   - {fileID: -4641505400208807594}
+  - {fileID: 8567297385472880817}
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours:
   - {fileID: 2750412776700802003}
@@ -1698,7 +1699,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Attack Three
+    m_ConditionEvent: Attack One
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5674227331476002336}
@@ -1714,6 +1715,23 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1109 &8567297385472880817
+AnimatorTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Attack One
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 5674227331476002336}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 1
 --- !u!1102 &8633387332318466815
 AnimatorState:
   serializedVersion: 6
