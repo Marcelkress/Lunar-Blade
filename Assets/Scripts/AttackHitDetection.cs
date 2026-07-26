@@ -79,6 +79,7 @@ public class AttackHitDetection : MonoBehaviour
                 // Charge special attack if we hit a normal attack
                 else 
                 {
+                    //TimeManager.instance.TimeStop();
                     abilityChargeManager.SuccessfulHit();
                 }
 

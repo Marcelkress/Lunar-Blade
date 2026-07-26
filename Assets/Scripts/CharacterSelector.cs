@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,11 +17,14 @@ public class CharacterSelectionManager : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
 
     [Header("Settings")] 
-    public int playerCount;
+    public int playerCount = 2;
+    public int maxPlayerCount = 4;
     public float waitToSpawnTime;
+    public MatchSettings matchSettings;
 
     [Header("UI")] 
     public GameObject playerCountCanvas;
+    public TMP_Text playerCountDisplay;
     public GameObject startingText;
     public GameObject firstSelectedUIButton;
     
@@ -49,6 +53,26 @@ public class CharacterSelectionManager : MonoBehaviour
         //inputManager.playerPrefab = selectorPrefab;
     }
 
+    public void IncreasePlayerCount()
+    {
+        playerCount++;
+        if(playerCount > matchSettings.maxPlayerCount)
+        {
+            playerCount = matchSettings.maxPlayerCount;
+        }
+        playerCountDisplay.text = playerCount.ToString();
+    }
+
+    public void DecreasePlayerCount()
+    {
+        playerCount--;
+        if(playerCount < 2)
+        {
+            playerCount = 2;
+        }
+        playerCountDisplay.text = playerCount.ToString();
+    }
+
     public void EnableChoosePlayers(int _lifeCount)
     {
         lifeCount = _lifeCount;
@@ -56,9 +80,8 @@ public class CharacterSelectionManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(firstSelectedUIButton);
     }
 
-    public void ChoosePlayerCount(int count)
+    public void ChoosePlayerCount()
     {
-        playerCount = count;
         playerInputManager.EnableJoining();
         playerCountCanvas.SetActive(false);
     }
@@ -156,7 +179,9 @@ public class CharacterSelectionManager : MonoBehaviour
             );
 
             fighter.transform.position = spawnPoints[i].position;
-            fighter.GetComponentInChildren<PlayerHealth>().Init(lifeCount);
+            PlayerHealth health = fighter.GetComponentInChildren<PlayerHealth>();
+            health.Init(lifeCount);
+            MatchManager.instance.SetPlayerReferences(playerCount, health, i);
         }
     }
     

@@ -21,8 +21,8 @@ public class PlayerHealth : MonoBehaviour, IHittable
     [Header("Events")] public UnityEvent TakeHitStaggerEvent;
     public UnityEvent takeHitEvent,
         RespawnEvent,
-        DeathEvent;
-
+        DeathEvent,
+        PermadeathEvent;
     
     private int maxHealth;
     private int currentHealth;
@@ -105,7 +105,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
 
         if (currentLives < 0)
         {
-            //Debug.Log("Dead, all lives used");
+            PermadeathEvent.Invoke();
             return;
         }
         

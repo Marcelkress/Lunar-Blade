@@ -25,6 +25,11 @@ public class TimeManager : MonoBehaviour
         StartCoroutine(SlowDown(defaultSlowDownTimeScale, defaultSlowDownDuration));
     }
 
+    public void TimeStop()
+    {
+        StartCoroutine(SlowDown(0, .1f));
+    }
+
     public void SlowDown(float duration)
     {
         StartCoroutine(SlowDown(defaultSlowDownTimeScale, duration));
