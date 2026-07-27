@@ -35,9 +35,10 @@ public class OrbChargerThing : MonoBehaviour, IHittable
         }
     }
 
-    public bool TakeHit(int damage, bool staggerAttack, bool specialAttack)
+    public bool TakeHit(int damage, bool staggerAttack, out bool deflected, bool specialAttack)
     {
-        if (canBeHit)
+        deflected = false;
+        if (canBeHit &&!specialAttack)
         {
             hitCount++;
             anim.SetTrigger("Hit");

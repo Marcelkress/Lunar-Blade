@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class HitDummy : MonoBehaviour, IHittable
+public class HitDummy : MonoBehaviour//, IHittable
 {
     private SpriteRenderer sprite;
     public bool debug;

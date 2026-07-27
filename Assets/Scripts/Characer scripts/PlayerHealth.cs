@@ -30,14 +30,13 @@ public class PlayerHealth : MonoBehaviour, IHittable
     private int maxLives;
     private int currentLives;
     
-    
+    private DeflectAbility deflectAbility;
     private InputManager input;
     private CharacterMovement movement;
     private Vector3 startPos;
 
     private PlayerHealthBar UI;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Init(int _maxLives)
     {
         maxLives = _maxLives;
@@ -49,22 +48,31 @@ public class PlayerHealth : MonoBehaviour, IHittable
         
         input = GetComponentInParent<InputManager>();
         movement = GetComponentInParent<CharacterMovement>();
-
+        deflectAbility = GetComponent<DeflectAbility>();
+        
         UI = GetComponentInParent<PlayerUIManager>().playerHealthBar;
         UI.Init(this, characterIcon, maxLives);
     }
     
 
-    public bool TakeHit(int damage, bool staggerAttack, bool specialAttack)
+    public bool TakeHit(int damage, bool staggerAttack, out bool deflected, bool specialAttack)
     {
         //Debug.Log("hit detected on Player " + GetComponentInParent<InputManager>().playerID);
+        deflected = false;
         
         if (invulnerable)
         {
-            Debug.Log("Within i-frames");
+            Debug.Log("Invulnerable");
             return false;
         }
-        
+
+        if (deflectAbility.IsDeflecting() && !specialAttack)
+        {
+            // Do something else
+            deflected = true;
+            return false;
+        }
+
         currentHealth -= damage;
         
         takeHitEvent?.Invoke();

@@ -69,7 +69,7 @@ public class AttackHitDetection : MonoBehaviour
             }
 
             // Applying damage
-            if (hit.TakeHit(dmg, staggerEnemyOnHit, attackID == AttackID.SpecialAttack)) 
+            if (hit.TakeHit(dmg, staggerEnemyOnHit, out bool deflected, attackID == AttackID.SpecialAttack)) 
             { 
                 // Slowdown time effect if a special attack is hit 
                 if (attackID == AttackID.SpecialAttack)
@@ -100,5 +100,5 @@ public class AttackHitDetection : MonoBehaviour
 /// </summary>
 public interface IHittable
 {
-    public bool TakeHit(int damage, bool staggerAttack, bool specialAttack);
+    public bool TakeHit(int damage, bool staggerAttack, out bool deflected, bool specialAttack);
 }

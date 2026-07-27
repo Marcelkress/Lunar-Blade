@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public GameObject IDDisplayPrefab;
-    public GameObject IDDisplayInstance;
+    [HideInInspector] public GameObject IDDisplayInstance;
     
     private CharacterMovement movement;
     public Vector2 moveVector;
@@ -18,6 +18,7 @@ public class InputManager : MonoBehaviour
         attackThreeWasPressed;
     public bool attackThreeWasReleased;
     public bool specialAttackPressed;
+    public bool deflectPressed;
 
     private bool specialOneWasPressed, specialTwoWasPressed;
     private float specialOneTimer, specialTwoTimer;
@@ -253,13 +254,31 @@ public class InputManager : MonoBehaviour
             }
         }
     }
-
-    private void OnDestroy()
+    
+    public void OnDeflect (InputAction.CallbackContext context)
     {
-        Destroy(IDDisplayInstance);
+        if (!canReceiveInput)
+        {
+            return;
+        }
+        if (context.performed)
+        {
+            deflectPressed = true;
+        }
+        else if(context.canceled)
+        {
+            deflectPressed = false;
+        }
+        StartCoroutine(ResetNextFrame(() => deflectPressed = false));
     }
 
     #endregion
+    
+    private void OnDestroy()
+    {
+        playerCount = 0;
+        Destroy(IDDisplayInstance);
+    }
     
     /// <summary>
     /// Routine that executes action after one frame

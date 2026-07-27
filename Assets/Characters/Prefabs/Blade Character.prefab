@@ -596,6 +596,7 @@ GameObject:
   - component: {fileID: 3816029440322773455}
   - component: {fileID: 8966914666875100972}
   - component: {fileID: 7253966229856700377}
+  - component: {fileID: 2083289996715403272}
   m_Layer: 6
   m_Name: Hitbox and health
   m_TagString: Untagged
@@ -688,6 +689,21 @@ MonoBehaviour:
   PermadeathEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2083289996715403272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5898845477389648640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c060d2b2a144501a4cce6e367df31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeflectAbility
+  currentlyDeflecting: 0
+  deflectTime: 0.2
+  cooldownTime: 0.8
 --- !u!1 &6007615877362919506
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,6 +974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
   IDDisplayPrefab: {fileID: 3104777129848169104, guid: ae413756e2be44f6fb3148160e138f94, type: 3}
+  IDDisplayInstance: {fileID: 0}
   moveVector: {x: 0, y: 0}
   jumpWasPressed: 0
   jumpIsHeld: 0
@@ -969,6 +986,7 @@ MonoBehaviour:
   attackThreeWasPressed: 0
   attackThreeWasReleased: 0
   specialAttackPressed: 0
+  deflectPressed: 0
   layerMask: 0
   playerID: 0
 --- !u!114 &9065042703588726806
@@ -1028,22 +1046,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ef31808d-90b4-453a-830c-61cf974f5a6c
     m_ActionName: 'Player/Jump[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2904856280885241742}
-        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: OnRun
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f845a9bf-2f49-419d-8f8b-667db3e6159c
-    m_ActionName: 'Player/Run[/Keyboard/leftShift]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2904856280885241742}
@@ -1152,6 +1154,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 29b9e3a5-d6bf-4c49-8687-0faed65e55aa
     m_ActionName: 'UI/Deselect[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9fafe3f1-9622-4496-a47a-1c8d6c72160a
+    m_ActionName: 'Player/Deflect[/DualSenseGamepadHID/leftTrigger,/DualShock4GamepadHID/leftTrigger,/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

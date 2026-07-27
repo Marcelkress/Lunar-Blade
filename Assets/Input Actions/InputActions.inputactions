@@ -25,15 +25,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Run",
-                    "type": "Button",
-                    "id": "f845a9bf-2f49-419d-8f8b-667db3e6159c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Dash",
                     "type": "Button",
                     "id": "b7914e0e-06cd-4989-8333-a9742b758c69",
@@ -82,6 +73,15 @@
                     "name": "Special Attack Binding Two",
                     "type": "Button",
                     "id": "29215a62-46d3-43a1-a1bc-9f790e58a046",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Deflect",
+                    "type": "Button",
+                    "id": "9fafe3f1-9622-4496-a47a-1c8d6c72160a",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -421,28 +421,6 @@
                 },
                 {
                     "name": "",
-                    "id": "85b2efbd-43ba-4e9d-8e0a-6970b5b282dc",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Run",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "13ac59e5-615c-4102-9a4f-eaa2087cf35a",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Run",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "57936e71-69b0-4607-be86-910ee79f2505",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
@@ -636,6 +614,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Special Attack Binding Two",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "575b6f25-a86e-48c3-ab40-86d161cdfa66",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Deflect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b0f1ef8-e145-4ac3-b869-d9ba7914f6c9",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Deflect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

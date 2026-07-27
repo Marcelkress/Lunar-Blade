@@ -7,6 +7,7 @@ public class MainMenuUI : MonoBehaviour
 {
     [Header("Panels")] public RectTransform mainPanel;
     public RectTransform mapPanel;
+    public RectTransform settingsPanel;
 
     [Header("Panel Positions")] public RectTransform mainPosition;
     public RectTransform rightPosition;
@@ -15,6 +16,7 @@ public class MainMenuUI : MonoBehaviour
     [Header("Panel first selected buttons")]
     public GameObject mainFirstSelectedButton;
     public GameObject mapFirstSelectedButton;
+    public GameObject settingsFirstSelectedButton;
     
     [Header("Animation")] 
     public float animationDuration;
@@ -30,7 +32,15 @@ public class MainMenuUI : MonoBehaviour
     {
         DoPanelPosition(mainPanel, mainPosition);
         DoPanelPosition(mapPanel, rightPosition);
+        DoPanelPosition(settingsPanel, rightPosition);
         EventSystem.current.SetSelectedGameObject(mainFirstSelectedButton);
+    }
+
+    public void GoToSettingsPanel()
+    {
+        DoPanelPosition(settingsPanel, mainPosition);
+        DoPanelPosition(mainPanel, leftPosition);
+        EventSystem.current.SetSelectedGameObject(settingsFirstSelectedButton);
     }
 
     public void StartMatch(string sceneName)
