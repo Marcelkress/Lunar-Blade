@@ -4,7 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MatchManager : MonoBehaviour
 {
@@ -12,13 +14,14 @@ public class MatchManager : MonoBehaviour
     public RectTransform lifeCountPanel;
     public RectTransform playerCountPanel;
     public RectTransform winPanel;
+    public RectTransform characterSelectionPanel;
     public float animationDuration = 0.5f;
-    
-    [Header("UI References")] 
+
+    [Header("UI References")] public GameObject masterCanvas;
     public TMP_Text lifeCountDisplay;
     public TMP_Text playerWinText;
     public GameObject mainMenuButton;
-    public GameObject tintImage;
+    public Image tintImage;
 
     [Header("First selected buttons")]
     public GameObject lifeCountButton;
@@ -32,6 +35,11 @@ public class MatchManager : MonoBehaviour
     public CharacterSelectionManager characterSelectionManager;
     
     [Header("Match settings")]public MatchSettings matchSettings;
+    
+    [Header("UI Input")]
+    [SerializeField] private InputActionAsset uiActionsTemplate; // assign the SAME asset you use elsewhere, in the Inspector
+    private InputActionAsset uiActionsInstance;
+    private InputSystemUIInputModule uiModule;
     
     private bool startedMatch;
     private int lifeCount;
@@ -51,11 +59,17 @@ public class MatchManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        masterCanvas.SetActive(true);
+        
+        uiModule = EventSystem.current.GetComponent<InputSystemUIInputModule>();
+        uiActionsInstance = Instantiate(uiActionsTemplate); 
+        uiModule.actionsAsset = uiActionsInstance;
+        uiActionsInstance.Enable();
     }
     
     private void Start()
     {
-        tintImage.SetActive(true);
+        tintImage.enabled = true;
         DoPanelPosition(lifeCountPanel, mainPosition);
         EventSystem.current.SetSelectedGameObject(lifeCountButton);
         lifeCount = matchSettings.defaultMatchLives;
@@ -93,12 +107,13 @@ public class MatchManager : MonoBehaviour
         DoPanelPosition(lifeCountPanel, leftPosition);
         DoPanelPosition(playerCountPanel, mainPosition);
         EventSystem.current.SetSelectedGameObject(playerCountButton);
-        characterSelectionManager.EnableChoosePlayers(lifeCount);
+        characterSelectionManager.SetLifeCount(lifeCount);
     }
 
     public void PlayerCountSet()
     {
         DoPanelPosition(playerCountPanel, leftPosition);
+        DoPanelPosition(characterSelectionPanel, mainPosition);
     }
 
     public void StartingMatch(int playerCount, PlayerHealth player, int i)
@@ -108,7 +123,8 @@ public class MatchManager : MonoBehaviour
         
         players[i] = player;
         player.PermadeathEvent.AddListener(WinCheck);
-        tintImage.SetActive(false);
+        DoPanelPosition(characterSelectionPanel, leftPosition);
+        tintImage.enabled = false;
     }
     
     private void WinCheck()
@@ -117,12 +133,11 @@ public class MatchManager : MonoBehaviour
         
         if (deadPlayerCount >= players.Length - 1) // If only one player is left they have won
         {
-            Debug.Log("Player wins!");
             foreach (var player in players)
             {
                 if (player.GetCurrentHealth() > 0)
                 {
-                    tintImage.SetActive(true);
+                    tintImage.enabled = true;
                     DoPanelPosition(winPanel, mainPosition);
                     EventSystem.current.SetSelectedGameObject(mainMenuButton);
                     player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("UI");
@@ -135,7 +150,25 @@ public class MatchManager : MonoBehaviour
 
     public void ReplayMatch()
     {
-        // Auto choose everything
+        DoPanelPosition(winPanel, rightPosition);
+        
+        foreach (var player in players)
+        {
+            Destroy(player.GetComponentInParent<PlayerUIManager>().playerUI.gameObject);
+            Destroy(player.GetComponentInParent<PlayerInput>().gameObject);
+        }
+
+        players = null;
+
+        InputManager.playerCount = 0;
+        uiActionsInstance.Enable();
+        deadPlayerCount = 0;
+        characterSelectionManager.Reset();
+        DoPanelPosition(lifeCountPanel, mainPosition);
+        EventSystem.current.SetSelectedGameObject(lifeCountButton);
+        lifeCount = matchSettings.defaultMatchLives;
+        lifeCountDisplay.text = lifeCount.ToString();
+        startedMatch = false;
     }
 
     public void GoToMainMenu()

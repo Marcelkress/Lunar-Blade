@@ -17,7 +17,8 @@ public class PlayerHealthBar : MonoBehaviour
     public void Init(PlayerHealth _playerHealth, Sprite _characterSprite, int _maxLives)
     {
         transform.SetParent(HealthBarCanvas.instance.transform);
-        
+        RectTransform rectTransform = transform.GetComponent<RectTransform>();
+        rectTransform.localScale = Vector3.one;
         // Set references
         healthSlider = GetComponentInChildren<Slider>();
         playerHealth = _playerHealth;

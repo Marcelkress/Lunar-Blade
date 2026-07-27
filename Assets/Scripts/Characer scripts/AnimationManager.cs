@@ -88,7 +88,7 @@ public class AnimationManager : MonoBehaviour
             count = true;
             timer = 0;
         }
-        else if (inputManager.attackOneWasReleased)
+        else if (inputManager.attackThreeWasReleased)
         {
             //anim.SetTrigger("Attack One Released");
         }

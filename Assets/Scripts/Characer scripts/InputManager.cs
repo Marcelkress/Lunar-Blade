@@ -1,10 +1,14 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    public GameObject IDDisplayPrefab;
+    public GameObject IDDisplayInstance;
+    
     private CharacterMovement movement;
     public Vector2 moveVector;
     public bool jumpWasPressed, jumpIsHeld, jumpWasReleased;
@@ -12,7 +16,7 @@ public class InputManager : MonoBehaviour
     public bool dashWasPressed;
     public bool attackOneWasPressed, attackTwoWasPressed,
         attackThreeWasPressed;
-    public bool attackOneWasReleased;
+    public bool attackThreeWasReleased;
     public bool specialAttackPressed;
 
     private bool specialOneWasPressed, specialTwoWasPressed;
@@ -46,6 +50,23 @@ public class InputManager : MonoBehaviour
             layerMask = layer;
             gameObject.layer = layer;
         }
+        else if (playerCount == 3)
+        {
+            playerID = 3;
+            int layer = LayerMask.NameToLayer("Player 3");
+            layerMask = layer;
+            gameObject.layer = layer;
+        }
+        else if (playerCount == 4)
+        {
+            playerID = 4;
+            int layer = LayerMask.NameToLayer("Player 4");
+            layerMask = layer;
+            gameObject.layer = layer;
+        }
+        
+        IDDisplayInstance = Instantiate(IDDisplayPrefab);
+        IDDisplayInstance.GetComponent<playerIDCanvas>().Init(this.transform, playerID);
     }
 
     private void Start()
@@ -134,8 +155,11 @@ public class InputManager : MonoBehaviour
     #region Attack
     
     public void OnAttackOne(InputAction.CallbackContext context)
-    {if(!canReceiveInput)
+    {
+        if (!canReceiveInput)
+        {
             return;
+        }
         if (context.performed)
         {
             attackOneWasPressed = true;
@@ -143,10 +167,8 @@ public class InputManager : MonoBehaviour
         else if(context.canceled)
         {
             attackOneWasPressed = false;
-            attackOneWasReleased = true;
         }
         StartCoroutine(ResetNextFrame(() => attackOneWasPressed = false));
-        StartCoroutine(ResetNextFrame(() => attackOneWasReleased = false));
     }
     
     public void OnAttackTwo(InputAction.CallbackContext context)
@@ -173,8 +195,10 @@ public class InputManager : MonoBehaviour
         else if(context.canceled)
         {
             attackThreeWasPressed = false;
+            attackThreeWasReleased = true;
         }
         StartCoroutine(ResetNextFrame(() => attackThreeWasPressed = false));
+        StartCoroutine(ResetNextFrame(() => attackThreeWasReleased = false));
     }
     
     public void OnSpecialAttackBindingOne(InputAction.CallbackContext context)
@@ -229,7 +253,12 @@ public class InputManager : MonoBehaviour
             }
         }
     }
-    
+
+    private void OnDestroy()
+    {
+        Destroy(IDDisplayInstance);
+    }
+
     #endregion
     
     /// <summary>

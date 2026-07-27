@@ -1,24 +1,29 @@
+using TMPro;
 using UnityEngine;
 
-public class SurpriseAttackWaitBehavior : StateMachineBehaviour
+public class HidePlayerID : StateMachineBehaviour
 {
-    private InputManager inputManager;
+    public bool hide;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        inputManager = animator.GetComponentInParent<InputManager>();
-        //animator.ResetTrigger("Attack One Released");
+        TMP_Text text = animator.transform.GetComponentInParent<InputManager>().IDDisplayInstance.GetComponentInChildren<TMP_Text>();
+
+        if (hide)
+        {
+            text.enabled = false;
+        }
+        else if (!hide)
+        {
+            text.enabled = true;
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if (inputManager.attackThreeWasReleased)
-        {
-            Debug.Log("Released");
-            animator.SetTrigger("Attack One Released");
-        }
-    }
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

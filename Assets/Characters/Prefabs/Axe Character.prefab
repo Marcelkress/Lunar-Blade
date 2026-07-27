@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba7ed386b58c429684fcbd0ee9d8af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
+  IDDisplayPrefab: {fileID: 3104777129848169104, guid: ae413756e2be44f6fb3148160e138f94, type: 3}
   moveVector: {x: 0, y: 0}
   jumpWasPressed: 0
   jumpIsHeld: 0
@@ -257,7 +258,7 @@ MonoBehaviour:
   attackOneWasPressed: 0
   attackTwoWasPressed: 0
   attackThreeWasPressed: 0
-  attackOneWasReleased: 0
+  attackThreeWasReleased: 0
   specialAttackPressed: 0
   layerMask: 0
   playerID: 0
@@ -1406,6 +1407,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   DeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  PermadeathEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &7793262377579960101

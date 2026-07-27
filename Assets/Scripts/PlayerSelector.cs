@@ -76,6 +76,7 @@ public class PlayerSelector : MonoBehaviour
     {
         if (value.isPressed)
         {
+//            Debug.Log($"OnSelect fired for playerIndex={playerIndex}, characterIndex={characterIndex}");
             CharacterSelectionManager.Instance.OnCharacterSelect(playerIndex, characterIndex);
             selected = true;
             UpdateUI();
@@ -84,6 +85,12 @@ public class PlayerSelector : MonoBehaviour
 
     public void OnDeselect(InputValue value)
     {
+        if (!value.isPressed) 
+            return;
+    
+        if (!selected) 
+            return; 
+    
         CharacterSelectionManager.Instance.OnCharacterDeselected(playerIndex);
         selected = false;
         UpdateUI();
