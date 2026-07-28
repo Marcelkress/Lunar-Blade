@@ -1,34 +1,42 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DeflectAbility : MonoBehaviour
 {
     private PlayerHealth health;
     private InputManager inputManager;
     private bool deflectPressed, canDeflect;
+    private CharacterStats stats;
+    private CharacterMovement movement;
     public bool currentlyDeflecting;
     
-    [Header("Deflection settings")] 
-    public float deflectTime = 0.2f;
-    public float cooldownTime = 0.8f;
+    private float deflectTime = 0.2f;
+    private float cooldownTime = 0.8f;
 
     private float deflectionTimer;
     private float cooldownTimer;
+
+    public UnityEvent deflectEvent;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        movement = GetComponentInParent<CharacterMovement>();
+        stats = movement.moveStats;
         inputManager = GetComponentInParent<InputManager>();
         canDeflect = true;
+        deflectTime = stats.deflectTime;
+        cooldownTime = stats.deflectCoolDownTime;   
     }
     
     void Update()
     {
         deflectPressed = inputManager.deflectPressed;
 
-        if (canDeflect && !currentlyDeflecting && deflectPressed)
+        if (canDeflect && !currentlyDeflecting && deflectPressed && movement.isGrounded)
         {
-            Debug.Log("Deflect");
+            deflectEvent?.Invoke();
             deflectionTimer = deflectTime;
             cooldownTimer = cooldownTime + deflectTime;
         }

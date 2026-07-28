@@ -1155,7 +1155,19 @@ MonoBehaviour:
     m_ActionId: 29b9e3a5-d6bf-4c49-8687-0faed65e55aa
     m_ActionName: 'UI/Deselect[/Keyboard/escape]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2904856280885241742}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnDeflect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9fafe3f1-9622-4496-a47a-1c8d6c72160a
     m_ActionName: 'Player/Deflect[/DualSenseGamepadHID/leftTrigger,/DualShock4GamepadHID/leftTrigger,/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0

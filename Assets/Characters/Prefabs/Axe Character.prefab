@@ -1417,6 +1417,9 @@ MonoBehaviour:
   currentlyDeflecting: 0
   deflectTime: 0.2
   cooldownTime: 0.8
+  deflectEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7793262377579960101
 GameObject:
   m_ObjectHideFlags: 0

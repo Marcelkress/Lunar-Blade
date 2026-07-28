@@ -7,6 +7,7 @@ public class AnimationManager : MonoBehaviour
     private CharacterMovement movement;
     private InputManager inputManager;
     private PlayerHealth health;
+    private DeflectAbility deflectAbility;
     
     private bool isGrounded, moving;
     private float velocityY;
@@ -14,14 +15,16 @@ public class AnimationManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        deflectAbility = GetComponentInChildren<DeflectAbility>();
         anim = GetComponentInChildren<Animator>();
         movement = GetComponent<CharacterMovement>();
         inputManager = GetComponent<InputManager>();
         health = GetComponentInChildren<PlayerHealth>();
         
-        health.TakeHitStaggerEvent.AddListener(TakeHitAnim);
+        health.TakeHitStaggerEvent.AddListener(StaggerAnim);
         health.DeathEvent.AddListener(DeathAnim);
         health.RespawnEvent.AddListener(Respawn);
+        deflectAbility.deflectEvent.AddListener(Deflect);
     }
 
     // Update is called once per frame
@@ -44,14 +47,19 @@ public class AnimationManager : MonoBehaviour
         anim.SetTrigger("Respawn");
     }
 
+    private void Deflect()
+    {
+        anim.SetTrigger("Deflect");
+    }
+
     private void DeathAnim()
     {
         anim.SetBool("Dead", true);
     }
 
-    private void TakeHitAnim()
+    public void StaggerAnim()
     {
-        anim.SetTrigger("Take Hit");
+        anim.SetTrigger("Stagger");
     }
 
     private void AttackAnimations()

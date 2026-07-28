@@ -54,3 +54,5 @@ MonoBehaviour:
   invulnerabilityTimeAfterHit: 0.2
   attackDecelerationMultiplier: 12
   requiredHitsToCharge: 3
+  deflectTime: 0.4
+  deflectCoolDownTime: 0.8

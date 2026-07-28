@@ -1,6 +1,7 @@
     using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum AttackID
 {
@@ -18,10 +19,12 @@ public class AttackHitDetection : MonoBehaviour
     public bool staggerEnemyOnHit = true;
     
     private AbilityChargeManager abilityChargeManager;
-
+    private AnimationManager animationManager;
+    
     private void Start()
     {
         var owner = GetComponentInParent<CharacterMovement>();
+        animationManager = GetComponentInParent<AnimationManager>();
         stats = owner.moveStats;
         alreadyHit = new List<Collider2D>();
 
@@ -76,16 +79,17 @@ public class AttackHitDetection : MonoBehaviour
                 {
                     TimeManager.instance.SlowDown();   
                 }
-                // Charge special attack if we hit a normal attack
-                else 
+                // Charge special attack if we hit a normal attack 
+                else
                 {
-                    //TimeManager.instance.TimeStop();
                     abilityChargeManager.SuccessfulHit();
                 }
-
+                alreadyHit.Add(otherCol);
             }
-            
-            alreadyHit.Add(otherCol);
+            else if (deflected)
+            {
+                animationManager.StaggerAnim();
+            }
         }
     }
 
