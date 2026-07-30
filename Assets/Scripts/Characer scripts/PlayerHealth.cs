@@ -62,7 +62,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
         
         if (invulnerable)
         {
-            Debug.Log("Invulnerable");
+            // Debug.Log("Invulnerable");
             return false;
         }
 

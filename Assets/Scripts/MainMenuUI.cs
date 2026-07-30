@@ -1,10 +1,13 @@
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
+    public string matchSceneName;
+    
     [Header("Panels")] public RectTransform mainPanel;
     public RectTransform mapPanel;
     public RectTransform settingsPanel;
@@ -43,13 +46,23 @@ public class MainMenuUI : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(settingsFirstSelectedButton);
     }
 
-    public void StartMatch(string sceneName)
+    public void StartMatch()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(matchSceneName);
     }
 
     private void DoPanelPosition(RectTransform panel, RectTransform target)
     {
         panel.DOAnchorPos(target.anchoredPosition, animationDuration);
+    }
+
+    public void LoadCavesArena()
+    {
+        ArenaLoader.instance.LoadArena(ArenaLoader.Arenas.Caves);
+    }
+    
+    public void LoadForestArena()
+    {
+        ArenaLoader.instance.LoadArena(ArenaLoader.Arenas.Forest);
     }
 }

@@ -26,7 +26,7 @@ public class AbilityChargeUI : MonoBehaviour
     public void UpdateUI(int currentHits)
     {
         chargeSlider.DOValue(currentHits, 0.2f);
-        chargeIndicator.DOColor(GetColor(currentHits),  0.2f);
+        chargeIndicator.DOColor(GetColor(currentHits),  0.8f);
     }
     
     private Color GetColor(float val)

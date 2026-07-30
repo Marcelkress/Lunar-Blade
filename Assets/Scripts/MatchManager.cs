@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
@@ -38,6 +39,13 @@ public class MatchManager : MonoBehaviour
     
     [Header("UI Input")]
     [SerializeField] private InputActionAsset uiActionsTemplate; // assign the SAME asset you use elsewhere, in the Inspector
+
+    [Header("Audio Events")] 
+    public UnityEvent matchStartEvent;
+    public UnityEvent playerWinEvent;
+
+    
+    
     private InputActionAsset uiActionsInstance;
     private InputSystemUIInputModule uiModule;
     
@@ -60,6 +68,7 @@ public class MatchManager : MonoBehaviour
             Destroy(gameObject);
         }
         masterCanvas.SetActive(true);
+        ArenaLoader.instance.LoadArena(ArenaLoader.Arenas.Caves);
         
         uiModule = EventSystem.current.GetComponent<InputSystemUIInputModule>();
         uiActionsInstance = Instantiate(uiActionsTemplate); 
@@ -174,6 +183,7 @@ public class MatchManager : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        ArenaLoader.instance.UnLoadArena();
     }
     
 }
