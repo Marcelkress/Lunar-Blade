@@ -15,7 +15,7 @@ public class SurpriseAttackWaitBehavior : StateMachineBehaviour
     {
         if (inputManager.attackThreeWasReleased)
         {
-            Debug.Log("Released");
+            //Debug.Log("Released");
             animator.SetTrigger("Attack One Released");
         }
     }

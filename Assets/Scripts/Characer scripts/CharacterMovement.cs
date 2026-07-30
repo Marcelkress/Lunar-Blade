@@ -500,10 +500,13 @@ public class CharacterMovement : MonoBehaviour
     #endregion
     
     # region Dash
+
+    // private float storedVelocity;
     private void DashCheck()
     {
         if (inputManager.dashWasPressed && canDash && groundDashCheck)
         {
+            //storedVelocity = rb.linearVelocity.x;
             isDashingTimer = 0;
         }
     }

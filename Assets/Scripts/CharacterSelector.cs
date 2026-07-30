@@ -143,7 +143,7 @@ public class CharacterSelectionManager : MonoBehaviour
         selections[playerIndex] = characterIndex;
         readyCount++;
 
-        Debug.Log($"playerCount={playerCount}, selections=[{string.Join(",", selections)}]");
+        // Debug.Log($"playerCount={playerCount}, selections=[{string.Join(",", selections)}]");
         
         if (AllSelected())
         {
