@@ -1663,8 +1663,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSelector
   characterPrefabs:
   - {fileID: 6432461173240748510, guid: 01e65fe1040074b39bee3069082d6179, type: 3}
-  - {fileID: 3048778114713400946, guid: dfdc09b384823472cb0f0adb9c2a393b, type: 3}
   - {fileID: 148659617038121618, guid: 9c567a8b72ca245c39ffe2b52a6eb568, type: 3}
+  - {fileID: 3048778114713400946, guid: dfdc09b384823472cb0f0adb9c2a393b, type: 3}
+  - {fileID: 4665585378770905653, guid: 0a590adeeaccb4f25865f7274c927f0f, type: 3}
   spawnPoints:
   - {fileID: 1911222931}
   - {fileID: 199294870}
@@ -3337,7 +3338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3266946648514845570, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7051814459371287819, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3379,9 +3380,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7478742357951375560, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[9].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478742357951375560, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[99].m_Data
+      value: 
+      objectReference: {fileID: 312278729, guid: 7683b8ec8c5764f78a26c92c7cc3a7f0, type: 3}
+    - target: {fileID: 7478742357951375560, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[121].m_Data
+      value: 
+      objectReference: {fileID: 2117378690, guid: 7683b8ec8c5764f78a26c92c7cc3a7f0, type: 3}
+    - target: {fileID: 7478742357951375560, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[371].m_Data
+      value: 
+      objectReference: {fileID: 1391106392, guid: 7683b8ec8c5764f78a26c92c7cc3a7f0, type: 3}
+    - target: {fileID: 7478742357951375560, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[9].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478742357951375560, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[371].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478742357951375560, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
+      propertyPath: m_Tiles.Array.data[25].second.m_TileSpriteIndex
+      value: 371
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478742357951375560, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
+      propertyPath: m_Tiles.Array.data[33].second.m_TileSpriteIndex
+      value: 121
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478742357951375560, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
+      propertyPath: m_Tiles.Array.data[105].second.m_TileSpriteIndex
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 8519571398408953792, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8655490173562513531, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
       propertyPath: m_Name
@@ -3558,7 +3595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eb80d8e62d9d145bb50fb783c0f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineTargetGroup
-  PositionMode: 0
+  PositionMode: 1
   RotationMode: 0
   UpdateMethod: 2
   Targets: []
@@ -3588,7 +3625,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1014118107}
   - component: {fileID: 1014118106}
-  - component: {fileID: 1014118108}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -3623,19 +3659,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1014118108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1014118105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffd80f0f7a76ebe4eb1507317db585b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  musicEventPath: event:/Music/Track_01
 --- !u!114 &1016299235 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
@@ -4169,12 +4192,12 @@ MonoBehaviour:
   FramingMode: 2
   FramingSize: 1
   CenterOffset: {x: 0, y: 0}
-  Damping: 1.42
+  Damping: 1.9
   SizeAdjustment: 2
   LateralAdjustment: 0
   FovRange: {x: 1, y: 100}
   DollyRange: {x: -100, y: 100}
-  OrthoSizeRange: {x: 8, y: 1000}
+  OrthoSizeRange: {x: 8, y: 15}
 --- !u!114 &1368267723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4227,7 +4250,7 @@ Transform:
   m_GameObject: {fileID: 1368267719}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -0.0000009536743, y: 0.0000009536743, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4290,10 +4313,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineConfiner2D
   BoundingShape2D: {fileID: 1941437016}
   Damping: 0.5
-  SlowingDistance: 5
+  SlowingDistance: 0
   OversizeWindow:
-    Enabled: 0
-    MaxWindowSize: 0
+    Enabled: 1
+    MaxWindowSize: 15
     Padding: 0
   m_LegacyMaxWindowSize: -2
 --- !u!1 &1378963677
@@ -4528,7 +4551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1920.0001, y: 0}
+  m_AnchoredPosition: {x: 1920, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1461156066
@@ -5156,7 +5179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 164}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 674.49, y: 168.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1744368520
@@ -6127,13 +6150,13 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 450, y: 1080}
+  m_CellSize: {x: 960, y: 540}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
-  m_ConstraintCount: 4
+  m_ConstraintCount: 2
 --- !u!19719996 &2118640643 stripped
 TilemapCollider2D:
   m_CorrespondingSourceObject: {fileID: 6576912079576653744, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}

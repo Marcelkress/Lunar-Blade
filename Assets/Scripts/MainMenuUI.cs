@@ -65,4 +65,9 @@ public class MainMenuUI : MonoBehaviour
     {
         ArenaLoader.instance.LoadArena(ArenaLoader.Arenas.Forest);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

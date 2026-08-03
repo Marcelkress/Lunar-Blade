@@ -51,7 +51,8 @@ public class CharacterMovement : MonoBehaviour
     private bool groundDashCheck;
     
     // Audio vars
-    public UnityEvent jumpPerformed, doubleJumpPerformed; 
+    public UnityEvent jumpPerformedEvent, doubleJumpPerformedEvent, landedEvent, beganRunEvent;
+    private bool landed, ran;
     
     private void Awake()
     {
@@ -169,13 +170,20 @@ public class CharacterMovement : MonoBehaviour
 
             moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
 
+            if (!ran)
+            {
+                beganRunEvent.Invoke();
+                ran = true;
+            }
+            
             rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
         }
         else if(moveInput == Vector2.zero)
         {
             moveVelocity = Vector2.Lerp(moveVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
-
             rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
+            
+            ran = false;
         }
     }
 
@@ -313,7 +321,7 @@ public class CharacterMovement : MonoBehaviour
         {
             //Debug.Log("Normal jump");
             InitiateJump(1);
-            jumpPerformed.Invoke();
+            jumpPerformedEvent.Invoke();
 
             if (jumpReleasedDuringBuffer)
             {
@@ -328,7 +336,7 @@ public class CharacterMovement : MonoBehaviour
             //Debug.Log("Double jump");
             _isFastFalling = false;
             InitiateJump(1);
-            doubleJumpPerformed.Invoke();
+            doubleJumpPerformedEvent.Invoke();
         }
         
         // Initiate jump after coyote time
@@ -336,7 +344,7 @@ public class CharacterMovement : MonoBehaviour
         {
             //Debug.Log("Coyote jump");
             InitiateJump(2);
-            jumpPerformed.Invoke();
+            jumpPerformedEvent.Invoke();
             _isFastFalling = false;
         }
         

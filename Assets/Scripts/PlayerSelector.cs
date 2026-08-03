@@ -1,7 +1,5 @@
-using System;
 using DG.Tweening;
 using TMPro;
-using UnityEditor.ShaderGraph.Drawing;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -9,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerSelector : MonoBehaviour
 {
     private int _highlighted = 0;
-    [SerializeField] private int characterCount = 2;
+    private int characterCount = 2;
     
     public Image[] highlightedCharacterImages;
     public Color highlightedColor, normalColor;
@@ -33,6 +31,8 @@ public class PlayerSelector : MonoBehaviour
         playerID.text = "Player " + (playerIndex + 1).ToString();
         RectTransform rectTransform = transform.GetComponent<RectTransform>();
         rectTransform.localScale = Vector3.one;
+        
+        characterCount = highlightedCharacterImages.Length - 1;
     }
 
     public void OnNavigate(InputValue value)
@@ -41,6 +41,7 @@ public class PlayerSelector : MonoBehaviour
             return;
         
         float y = value.Get<Vector2>().y;
+        float x = value.Get<Vector2>().x;
 
         if ((y < -.5 || y > .5) && canChange)
         {
@@ -48,23 +49,56 @@ public class PlayerSelector : MonoBehaviour
 
             if (Mathf.Sign(y) == 1)       // stick pushed UP
             {
-                characterIndex--;          // move to previous (upward) image
+                characterIndex -= 2;
+                
+                if (characterIndex < 0)
+                {
+                    characterIndex += 2;
+                }
             }
             else                            // stick pushed DOWN
             {
-                characterIndex++;          // move to next (downward) image
+                characterIndex += 2;
+                
+                if (characterIndex > characterCount)
+                {
+                    characterIndex -= 2;
+                }
             }
             
-            if (characterIndex >= characterCount)
-            {
-                characterIndex = 0;
-            }
-            else if (characterIndex < 0)
-            {
-                characterIndex = characterCount - 1; // fix off-by-one here too
-            }
+         
+            
         }
         else if (y == 0)
+        {
+            canChange = true;
+        }
+        
+        if ((x < -.5 || x > .5) && canChange)
+        {
+            canChange = false;
+
+            if (Mathf.Sign(x) == 1)       // stick pushed RIGHT
+            {
+                characterIndex++;         
+                
+                if (characterIndex > characterCount)
+                {
+                    characterIndex--;
+                }
+            }
+            else                            // stick pushed LEFT
+            {
+                characterIndex--;   
+                
+                if (characterIndex < 0)
+                {
+                    characterIndex++;
+                }
+            }
+            
+        }
+        else if (x == 0)
         {
             canChange = true;
         }

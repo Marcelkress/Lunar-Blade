@@ -3,7 +3,7 @@ using UnityEngine;
 public class ArenaLoader : MonoBehaviour
 {
     public float loadMapWaitTime;
-    public GameObject cavesArena, forestArena, toBeMadeArena;
+    public GameObject cavesArena, forestArena;
     
     public static ArenaLoader instance;
 
@@ -11,7 +11,6 @@ public class ArenaLoader : MonoBehaviour
     {
         Caves,
         Forest,
-        ToBeMade
     }
 
     private bool arenaAlreadyLoaded;
@@ -31,9 +30,8 @@ public class ArenaLoader : MonoBehaviour
         
         DontDestroyOnLoad(gameObject);
         
-        cavesArena?.SetActive(false);
-        forestArena?.SetActive(false);
-        toBeMadeArena?.SetActive(false);
+        if (cavesArena == null) cavesArena?.SetActive(false);
+        if (forestArena != null) forestArena?.SetActive(false);
         
         arenaAlreadyLoaded = false;
     }
@@ -52,9 +50,6 @@ public class ArenaLoader : MonoBehaviour
             case Arenas.Forest:
                 activeArena = forestArena;
                 break;
-            case Arenas.ToBeMade:
-                activeArena = toBeMadeArena;
-                break;
             default:
                 activeArena = cavesArena;
                 break;
@@ -72,7 +67,7 @@ public class ArenaLoader : MonoBehaviour
     // Called from win screen button
     public void UnLoadArena()
     {
-        Destroy(activeArena);
+        activeArena.SetActive(false);
         activeArena = null;
         arenaAlreadyLoaded = false;
     }

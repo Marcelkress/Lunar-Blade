@@ -23,8 +23,8 @@ public class AudioAnimEvents : MonoBehaviour
     private void Start()
     {
         movement = GetComponentInParent<CharacterMovement>();
-        movement.jumpPerformed.AddListener(JumpSound);
-        movement.doubleJumpPerformed.AddListener(DoubleJumpSound);
+        movement.jumpPerformedEvent.AddListener(JumpSound);
+        movement.doubleJumpPerformedEvent.AddListener(DoubleJumpSound);
     }
     private void JumpSound()
     {

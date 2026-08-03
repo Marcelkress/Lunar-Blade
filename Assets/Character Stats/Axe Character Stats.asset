@@ -41,11 +41,11 @@ MonoBehaviour:
   dashDuration: 0.2
   betweenDashInterval: 0.28
   dashAcceleration: 90
-  maxHealth: 15
+  maxHealth: 25
   maxLives: 4
   respawnWaitTime: 2
   specialAttackInputBuffer: 0.3
-  attackInputBuffer: 0.186
+  attackInputBuffer: 0.802
   attackOneDmg: 3
   attackTwoDmg: 3
   attackThreeDmg: 3

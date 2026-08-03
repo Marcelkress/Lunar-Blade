@@ -41,11 +41,11 @@ MonoBehaviour:
   dashDuration: 0.2
   betweenDashInterval: 0.28
   dashAcceleration: 90
-  maxHealth: 12
+  maxHealth: 20
   maxLives: 4
   respawnWaitTime: 2
   specialAttackInputBuffer: 0.3
-  attackInputBuffer: 0.5
+  attackInputBuffer: 0.802
   attackOneDmg: 4
   attackTwoDmg: 2
   attackThreeDmg: 3
@@ -54,3 +54,5 @@ MonoBehaviour:
   invulnerabilityTimeAfterHit: 0.2
   attackDecelerationMultiplier: 12
   requiredHitsToCharge: 3
+  deflectTime: 0.4
+  deflectCoolDownTime: 0.8
