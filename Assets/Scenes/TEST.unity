@@ -464,7 +464,7 @@ MonoBehaviour:
   reaper: {fileID: 3048778114713400946, guid: dfdc09b384823472cb0f0adb9c2a393b, type: 3}
   axe: {fileID: 148659617038121618, guid: 9c567a8b72ca245c39ffe2b52a6eb568, type: 3}
   twinblade: {fileID: 4665585378770905653, guid: 0a590adeeaccb4f25865f7274c927f0f, type: 3}
-  character: 3
+  character: 0
 --- !u!4 &1199378437
 Transform:
   m_ObjectHideFlags: 0
