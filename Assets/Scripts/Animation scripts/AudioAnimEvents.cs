@@ -18,6 +18,14 @@ public class AudioAnimEvents : MonoBehaviour
     [SerializeField] private EventReference reaperSurpriseAttackExit;
     [SerializeField] private EventReference reaperSpecialAttack;
 
+    [SerializeField] private EventReference twinbladeLightAttack;
+    [SerializeField] private EventReference twinbladeDoubleAttack;
+    [SerializeField] private EventReference twinbladeSmokeAttackIn;
+    [SerializeField] private EventReference twinbladeSmokeAttackOut;
+    [SerializeField] private EventReference twinbladeSpecialAttack;
+
+    
+
 
     private CharacterMovement movement;
     private void Start()
@@ -59,6 +67,8 @@ public class AudioAnimEvents : MonoBehaviour
     {
         AudioManager.instance.PlayOneShot(playerAttack_04, this.transform.position);
     }
+
+    // REAPER
     private void ReaperLightAttack()
     {
         AudioManager.instance.PlayOneShot(reaperLightAttack, this.transform.position);
@@ -78,5 +88,28 @@ public class AudioAnimEvents : MonoBehaviour
     private void ReaperSpecialAttack()
     {
         AudioManager.instance.PlayOneShot(reaperSpecialAttack, this.transform.position);
+    }
+
+    // TWINBLADE
+
+     private void TwinbladeLightAttack()
+    {
+        AudioManager.instance.PlayOneShot(twinbladeLightAttack, this.transform.position);
+    }
+    private void TwinbladeDoubleAttack()
+    {
+        AudioManager.instance.PlayOneShot(twinbladeDoubleAttack, this.transform.position);
+    }
+    private void TwinbladeSmokeAttackIn()
+    {
+        AudioManager.instance.PlayOneShot(twinbladeSmokeAttackIn, this.transform.position);
+    }
+    private void TwinbladeSmokeAttackOut()
+    {
+        AudioManager.instance.PlayOneShot(twinbladeSmokeAttackOut, this.transform.position);
+    }
+    private void TwinbladeSpecialAttack()
+    {
+        AudioManager.instance.PlayOneShot(twinbladeSpecialAttack, this.transform.position);
     }
 }
