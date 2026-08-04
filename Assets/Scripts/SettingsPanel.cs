@@ -1,14 +1,43 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingsPanel : MonoBehaviour
 {
     private bool enableVsync;
     private bool fullscreenToggle;
+
+    private float musicVolume, ambientVolume, characterVolume;
     
+    [Header("Display things")]
     public TMP_Text vSyncText;
     public TMP_Text fullscreenText;
+
+    [Header("Audio things")] 
+    public Slider musicSlider;
+    public Slider ambientSlider, characterSlider;
     
+    public void OnEnter()
+    {
+        vSyncText.text = QualitySettings.vSyncCount == 1 ? "On" : "Off";
+        fullscreenText.text = Screen.fullScreen ? "On" : "Off";
+        musicSlider.value = musicVolume;
+        ambientSlider.value = ambientVolume;
+        characterSlider.value = characterVolume;
+    }
+
+    #region AudioSettings
+
+    public void ChangeMusicVolume(float volume)
+    {
+        musicVolume = volume;
+    }
+
+    #endregion
+    
+    
+    #region  DisplaySettings
+
     public void ToggleVsync()
     {
         if (enableVsync)
@@ -24,7 +53,7 @@ public class SettingsPanel : MonoBehaviour
             enableVsync = true;
         }
     }
-
+    
     public void ToggleFullscreen()
     {
         if (fullscreenToggle)
@@ -56,4 +85,6 @@ public class SettingsPanel : MonoBehaviour
                 break;
         }
     }
+    
+    #endregion
 }
