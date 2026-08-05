@@ -7,7 +7,7 @@ public class SettingsPanel : MonoBehaviour
     private bool enableVsync;
     private bool fullscreenToggle;
 
-    private float musicVolume, ambientVolume, characterVolume;
+    private float musicVolume = 10, ambientVolume = 10, characterVolume = 10;
     
     [Header("Display things")]
     public TMP_Text vSyncText;
@@ -21,6 +21,8 @@ public class SettingsPanel : MonoBehaviour
     {
         vSyncText.text = QualitySettings.vSyncCount == 1 ? "On" : "Off";
         fullscreenText.text = Screen.fullScreen ? "On" : "Off";
+        
+        // ABSALON her skal vi hente FMOD volumer og sette slider til de rigtige values
         musicSlider.value = musicVolume;
         ambientSlider.value = ambientVolume;
         characterSlider.value = characterVolume;
@@ -30,7 +32,20 @@ public class SettingsPanel : MonoBehaviour
 
     public void ChangeMusicVolume(float volume)
     {
+        // SET FMOD VOL
         musicVolume = volume;
+    }
+
+    public void ChangeAmbientVolume(float volume)
+    {
+        // SET FMOD VOL
+        ambientVolume = volume;
+    }
+
+    public void ChangeCharacterVolume(float volume)
+    {
+        // SET FMOD VOL
+        characterVolume = volume;
     }
 
     #endregion

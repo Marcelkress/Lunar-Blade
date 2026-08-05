@@ -43,8 +43,6 @@ public class MatchManager : MonoBehaviour
     [Header("Audio Events")] 
     public UnityEvent matchStartEvent;
     public UnityEvent playerWinEvent;
-
-    
     
     private InputActionAsset uiActionsInstance;
     private InputSystemUIInputModule uiModule;

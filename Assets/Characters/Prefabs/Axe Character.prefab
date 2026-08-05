@@ -229,10 +229,16 @@ MonoBehaviour:
   isGrounded: 0
   bumpedHead: 0
   canDash: 0
-  jumpPerformed:
+  jumpPerformedEvent:
     m_PersistentCalls:
       m_Calls: []
-  doubleJumpPerformed:
+  doubleJumpPerformedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  landedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  beganRunEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &8568232498893576538
@@ -747,10 +753,10 @@ PolygonCollider2D:
     - - {x: 0.34640527, y: 0.1375097}
       - {x: 0.25207657, y: 0.15756565}
       - {x: 0.04296969, y: 0.112072356}
-      - {x: -0.077212304, y: 0.10102732}
-      - {x: -0.14539504, y: 0.07242295}
-      - {x: -0.29025292, y: 0.00045774924}
-      - {x: -0.20204823, y: -0.07917353}
+      - {x: -0.064432666, y: 0.11125102}
+      - {x: -0.06786546, y: 0.10224204}
+      - {x: 0.01475355, y: 0.020905083}
+      - {x: -0.01120618, y: -0.08002555}
       - {x: 0.32725397, y: -0.08572402}
       - {x: 0.44131944, y: 0.077837154}
   m_UseDelaunayMesh: 1
@@ -852,10 +858,10 @@ PolygonCollider2D:
       - {x: 0.38982877, y: 0.35610214}
       - {x: 0.13003439, y: 0.35973284}
       - {x: -0.031683322, y: 0.35290775}
-      - {x: -0.12027808, y: 0.17152151}
-      - {x: -0.16977575, y: 0.101869136}
-      - {x: -0.20850039, y: 0.033258952}
-      - {x: -0.20945987, y: -0.04558111}
+      - {x: -0.17650831, y: 0.20560044}
+      - {x: -0.23367375, y: 0.11890859}
+      - {x: -0.25791484, y: 0.047742482}
+      - {x: -0.24865064, y: -0.061768536}
       - {x: -0.040009454, y: 0.032499358}
       - {x: 0.07703492, y: 0.042114172}
       - {x: 0.103178814, y: -0.07320739}
@@ -1025,11 +1031,11 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0.4254936, y: 0.060695387}
-      - {x: -0.10027041, y: 0.10883877}
+      - {x: -0.027852677, y: 0.10543081}
       - {x: 0.11652404, y: 0.03876955}
-      - {x: -0.28239033, y: 0.01346668}
-      - {x: -0.23192795, y: -0.05111533}
-      - {x: -0.1347773, y: -0.07906208}
+      - {x: -0.03276214, y: 0.0015390767}
+      - {x: -0.037678093, y: -0.059635058}
+      - {x: -0.023168787, y: -0.08161801}
       - {x: 0.35062772, y: -0.085502386}
       - {x: 0.3952653, y: -0.02736772}
   m_UseDelaunayMesh: 1
@@ -1298,6 +1304,41 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  twinbladeLightAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  twinbladeDoubleAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  twinbladeSmokeAttackIn:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  twinbladeSmokeAttackOut:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  twinbladeSpecialAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &3922122818354222105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,8 +1456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeflectAbility
   currentlyDeflecting: 0
-  deflectTime: 0.2
-  cooldownTime: 0.8
   deflectEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1515,7 +1554,7 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.2286198, y: 0.31220695}
       - {x: -0.06626051, y: 0.26449835}
-      - {x: -0.21814221, y: -0.035895113}
+      - {x: -0.024744228, y: 0.12257193}
       - {x: -0.0205152, y: 0.11586616}
       - {x: 0.11370313, y: 0.081243746}
       - {x: 0.10479054, y: -0.079111315}
