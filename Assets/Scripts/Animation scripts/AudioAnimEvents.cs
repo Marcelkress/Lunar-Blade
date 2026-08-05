@@ -17,7 +17,6 @@ public class AudioAnimEvents : MonoBehaviour
     [SerializeField] private EventReference reaperSurpriseAttackEnter;
     [SerializeField] private EventReference reaperSurpriseAttackExit;
     [SerializeField] private EventReference reaperSpecialAttack;
-
     [SerializeField] private EventReference twinbladeLightAttack;
     [SerializeField] private EventReference twinbladeDoubleAttack;
     [SerializeField] private EventReference twinbladeSmokeAttackIn;
