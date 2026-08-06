@@ -918,6 +918,34 @@ MonoBehaviour:
       Data3: -935296075
       Data4: 1387339656
     Path: event:/Attack/Twinblade/twinbladeSpecialAttack
+  axemanLightAttack:
+    Guid:
+      Data1: 186631690
+      Data2: 1214606567
+      Data3: -937853531
+      Data4: 483099938
+    Path: event:/Attack/Axeman/axemanLightAttack
+  axemanMediumAttack:
+    Guid:
+      Data1: -692862934
+      Data2: 1297110861
+      Data3: 662776962
+      Data4: -1022670799
+    Path: event:/Attack/Axeman/axemanMediumAttack
+  axemanDoubleAttack:
+    Guid:
+      Data1: 515926827
+      Data2: 1158522553
+      Data3: 1026477503
+      Data4: 2128520070
+    Path: event:/Attack/Axeman/axemanDoubleAttack
+  axemanSpecialAttack:
+    Guid:
+      Data1: -772842879
+      Data2: 1196374833
+      Data3: 1042088321
+      Data4: 249670401
+    Path: event:/Attack/Axeman/axemanSpecialAttack
 --- !u!1 &4665585378770905653
 GameObject:
   m_ObjectHideFlags: 0

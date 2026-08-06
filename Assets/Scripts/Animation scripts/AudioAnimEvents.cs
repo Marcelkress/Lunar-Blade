@@ -22,6 +22,11 @@ public class AudioAnimEvents : MonoBehaviour
     [SerializeField] private EventReference twinbladeSmokeAttackIn;
     [SerializeField] private EventReference twinbladeSmokeAttackOut;
     [SerializeField] private EventReference twinbladeSpecialAttack;
+    [SerializeField] private EventReference axemanLightAttack;
+    [SerializeField] private EventReference axemanMediumAttack;
+    [SerializeField] private EventReference axemanDoubleAttack;
+    [SerializeField] private EventReference axemanSpecialAttack;
+  
 
     
 
@@ -110,5 +115,24 @@ public class AudioAnimEvents : MonoBehaviour
     private void TwinbladeSpecialAttack()
     {
         AudioManager.instance.PlayOneShot(twinbladeSpecialAttack, this.transform.position);
+    }
+
+    //AXEMAN
+
+    private void AxemanLightAttack()
+    {
+        AudioManager.instance.PlayOneShot(axemanLightAttack, this.transform.position);
+    }
+    private void AxemanMediumAttack()
+    {
+        AudioManager.instance.PlayOneShot(axemanMediumAttack, this.transform.position);
+    }
+    private void AxemanDoubleAttack()
+    {
+        AudioManager.instance.PlayOneShot(axemanDoubleAttack, this.transform.position);
+    }
+    private void AxemanSpecialAttack()
+    {
+        AudioManager.instance.PlayOneShot(axemanSpecialAttack, this.transform.position);
     }
 }
