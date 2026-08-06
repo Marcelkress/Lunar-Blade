@@ -65,9 +65,7 @@ public class PlayerSelector : MonoBehaviour
                     characterIndex -= 2;
                 }
             }
-            
-         
-            
+            UpdateUI();
         }
         else if (y == 0)
         {
@@ -96,14 +94,12 @@ public class PlayerSelector : MonoBehaviour
                     characterIndex++;
                 }
             }
-            
+            UpdateUI();
         }
         else if (x == 0)
         {
             canChange = true;
         }
-        
-        UpdateUI();
     }
 
     public void OnSelect(InputValue value)
@@ -136,6 +132,9 @@ public class PlayerSelector : MonoBehaviour
     {
         if (selected)
         {
+            AudioManager.instance.PlayButtonOnClicked();
+            
+            
             selectedCharacterTexts[characterIndex].enabled = true;
             highlightedCharacterImages[characterIndex].rectTransform
                 .DOShakeAnchorPos(0.2f, 50, 100, 90);
@@ -143,6 +142,9 @@ public class PlayerSelector : MonoBehaviour
         else
         {
             selectedCharacterTexts[characterIndex].enabled = false;
+            
+            AudioManager.instance.PlayButtonOnHovered();
+            Debug.Log("Hover sound");
             
             for (int i = 0; i < highlightedCharacterImages.Length; i++)
             {

@@ -9,10 +9,11 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        
         if (instance != null)
         {
             UnityEngine.Debug.LogError("DER ER MERE END ÉN AUDIOMANAGER I SCENEN!!!");
+            Destroy(this.gameObject);
+            return;
         }
         instance = this;
     }
@@ -24,11 +25,11 @@ public class AudioManager : MonoBehaviour
  [SerializeField] private EventReference UI_onButtonClicked;
  [SerializeField] private EventReference UI_onButtonClickedFailure;
 
- public void playButtonOnHovered()
+    public void PlayButtonOnHovered()
     {
         AudioManager.instance.PlayOneShot(UI_onButtonHovered, this.transform.position);
     }
-    public void playButtonOnClicked()
+    public void PlayButtonOnClicked()
     {
         AudioManager.instance.PlayOneShot(UI_onButtonClicked, this.transform.position);
     }
