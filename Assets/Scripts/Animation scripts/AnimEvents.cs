@@ -8,11 +8,9 @@ public class AnimEvents : MonoBehaviour
     
     private CharacterMovement characterMovement;
     private AbilityChargeManager chargeManager;
-    private ParticleSystem particles;
 
     private void Start()
     {
-        particles = GetComponentInParent<ParticleSystem>();
         characterMovement = GetComponentInParent<CharacterMovement>();
         chargeManager = GetComponentInParent<AbilityChargeManager>();
     }
@@ -65,10 +63,4 @@ public class AnimEvents : MonoBehaviour
     {
         chargeManager.ConsumeCharge();
     }
-
-    public void PlayParticle()
-    {
-        particles.Play();
-    }
-    
 }
