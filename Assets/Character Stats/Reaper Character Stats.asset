@@ -17,7 +17,7 @@ MonoBehaviour:
   groundDeceleration: 16.4
   airAcceleration: 26.4
   airControlTime: 0.897
-  maxRunSpeed: 10
+  maxRunSpeed: 11
   onlyRunning: 1
   groundLayer:
     serializedVersion: 2
@@ -42,11 +42,11 @@ MonoBehaviour:
   betweenDashInterval: 0.28
   dashAcceleration: 90
   maxHealth: 20
-  maxLives: 4
+  maxLives: 8
   respawnWaitTime: 2
   specialAttackInputBuffer: 0.3
   attackInputBuffer: 0.802
-  attackOneDmg: 4
+  attackOneDmg: 2
   attackTwoDmg: 2
   attackThreeDmg: 3
   specialAttackDmg: 6
