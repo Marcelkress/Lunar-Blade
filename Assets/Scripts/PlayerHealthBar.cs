@@ -25,10 +25,10 @@ public class PlayerHealthBar : MonoBehaviour
         characterIcon.sprite = _characterSprite;
 
         // Assign listeners
-        playerHealth.takeHitNoStaggerEvent.AddListener(UpdateBar);
+        playerHealth.UIEvent.AddListener(UpdateBar);
         playerHealth.DeathEvent.AddListener(UpdateBar);
-        playerHealth.RespawnEvent.AddListener(ResetHealthBar);
         playerHealth.DeathEvent.AddListener(UpdateLives);
+        playerHealth.RespawnEvent.AddListener(ResetHealthBar);
         
         // Set values
         healthSlider.maxValue = playerHealth.stats.maxHealth;

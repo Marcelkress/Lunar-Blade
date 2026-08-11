@@ -144,14 +144,23 @@ public class MatchManager : MonoBehaviour
             {
                 if (player.GetCurrentHealth() > 0)
                 {
-                    tintImage.enabled = true;
-                    DoPanelPosition(winPanel, mainPosition);
-                    EventSystem.current.SetSelectedGameObject(mainMenuButton);
-                    player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("UI");
-                    playerWinText.text = "Player " + player.GetComponentInParent<InputManager>().playerID + " wins!";
+                    Invoke(nameof(MatchEnd), matchSettings.winPanelWaitTime);
                     return;
                 }
             }
+        }
+    }
+
+    private void MatchEnd()
+    {
+        tintImage.enabled = true;
+        DoPanelPosition(winPanel, mainPosition);
+        EventSystem.current.SetSelectedGameObject(mainMenuButton);
+        
+        foreach (var player in players)
+        {
+            player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("UI");
+            playerWinText.text = "Player " + player.GetComponentInParent<InputManager>().playerID + " wins!";
         }
     }
 

@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour, IHittable
     public GameObject healthBar;
     public SpriteRenderer spriteRenderer;
 
+    public UnityEvent UIEvent;
+    
     [Header("Audio Events")] public UnityEvent TakeHitStaggerEvent;
     public UnityEvent takeHitNoStaggerEvent,
         RespawnEvent,
@@ -72,6 +74,11 @@ public class PlayerHealth : MonoBehaviour, IHittable
         }
 
         currentHealth -= damage;
+        UIEvent.Invoke();
+        
+        Debug.Log("Health: " + currentHealth);
+        Debug.Log("Damage: " + damage);
+        
         invulnerable = true;
         if (currentHealth <= 0)
         {
