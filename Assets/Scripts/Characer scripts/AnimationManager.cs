@@ -32,8 +32,8 @@ public class AnimationManager : MonoBehaviour
     {
         UpdateMovementValues();
         SetMovementParams();
-        AttackAnimations();
         AttackBuffer();
+        AttackAnimations();
         
         if (inputManager.dashWasPressed)
         {

@@ -1,25 +1,21 @@
-using System;
-using TMPro;
 using UnityEngine;
 
-public class HidePlayerID : StateMachineBehaviour
+public class IgnoreOtherPlayers : StateMachineBehaviour
 {
-    public bool hide;
+    public bool ignore;
+    public LayerMask layersToIgnore;
 
+    private Rigidbody2D rb;
+    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        TMP_Text text = animator.transform.GetComponentInParent<InputManager>().IDDisplayInstance.GetComponentInChildren<TMP_Text>();
-
-        if (hide)
-        {
-            text.enabled = false;
-            animator.GetComponent<TrailRenderer>().emitting = false;
-        }
-        else if (!hide)
-        {
-            text.enabled = true;
-        }
+        rb = animator.transform.parent.GetComponent<Rigidbody2D>();
+        
+        if (ignore)
+            rb.excludeLayers = layersToIgnore.value;
+        else 
+            rb.excludeLayers -= layersToIgnore.value;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -28,12 +24,11 @@ public class HidePlayerID : StateMachineBehaviour
     //    
     //}
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if(!hide)
-            animator.GetComponent<TrailRenderer>().emitting = true;
-    }
+    // OnStateExit is called when a transitxsion ends and the state machine finishes evaluating this state
+    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    
+    //}
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

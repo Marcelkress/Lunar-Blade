@@ -509,6 +509,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958bdc58493e8d34a99658c36dac65f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  UI_onButtonHovered:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_onButtonClicked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_onButtonClickedFailure:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!4 &1357581016
 Transform:
   m_ObjectHideFlags: 0
