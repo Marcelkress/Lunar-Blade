@@ -25,7 +25,7 @@ public class PlayerHealthBar : MonoBehaviour
         characterIcon.sprite = _characterSprite;
 
         // Assign listeners
-        playerHealth.takeHitEvent.AddListener(UpdateBar);
+        playerHealth.takeHitNoStaggerEvent.AddListener(UpdateBar);
         playerHealth.DeathEvent.AddListener(UpdateBar);
         playerHealth.RespawnEvent.AddListener(ResetHealthBar);
         playerHealth.DeathEvent.AddListener(UpdateLives);
