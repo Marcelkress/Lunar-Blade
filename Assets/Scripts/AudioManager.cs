@@ -2,6 +2,7 @@ using FMOD.Studio;
 using UnityEngine;
 using FMODUnity;
 using FMOD;
+using FMODUnityResonance;
 
 public class AudioManager : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class AudioManager : MonoBehaviour
  [SerializeField] private EventReference UI_onButtonHovered;
  [SerializeField] private EventReference UI_onButtonClicked;
  [SerializeField] private EventReference UI_onButtonClickedFailure;
-
+ [SerializeField] private FMOD.Studio.EventInstance musicEvent;
     public void PlayButtonOnHovered()
     {
         AudioManager.instance.PlayOneShot(UI_onButtonHovered, this.transform.position);
@@ -36,5 +37,9 @@ public class AudioManager : MonoBehaviour
     public void playButtonOnClickedFailure()
     {
         AudioManager.instance.PlayOneShot(UI_onButtonClickedFailure, this.transform.position);
+    }
+    public void MusicVolume()
+    {
+        
     }
 }

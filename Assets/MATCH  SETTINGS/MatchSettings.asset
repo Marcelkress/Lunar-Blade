@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c40ca8c0abd94b54b3df4f9e4b3fe8e, type: 3}
   m_Name: MatchSettings
   m_EditorClassIdentifier: Assembly-CSharp::MatchSettings
+  maxPlayerCount: 4
+  maxAllowedLives: 8
+  defaultMatchLives: 3
