@@ -1868,7 +1868,7 @@ MonoBehaviour:
       Data2: 1334255417
       Data3: -355258713
       Data4: -314433624
-    Path: event:/Ambience/Event_amb_01
+    Path: event:/Level/Ambience/Event_amb_01
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2

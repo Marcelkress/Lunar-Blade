@@ -408,19 +408,94 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4725785649747394556}
   TakeHitStaggerEvent:
     m_PersistentCalls:
-      m_Calls: []
-  takeHitEvent:
+      m_Calls:
+      - m_Target: {fileID: 3347957927246775664}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: PlayerTakeHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  takeHitNoStaggerEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3347957927246775664}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: PlayerTakeHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   RespawnEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3347957927246775664}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: PlayerRespawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   DeathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3347957927246775664}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: TwinbladeDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   PermadeathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3347957927246775664}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: TwinbladeFinalDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SuccesfulDeflectEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3347957927246775664}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: PlayerDeflectHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8376629810405613802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +511,19 @@ MonoBehaviour:
   currentlyDeflecting: 0
   deflectEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3347957927246775664}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: PlayerDeflect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3266697459240375208
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +908,90 @@ MonoBehaviour:
       Data3: 2071131023
       Data4: 1907777842
     Path: event:/Movement/Event_player_footsteps_01
+  playerDeflect:
+    Guid:
+      Data1: 1536044472
+      Data2: 1124750747
+      Data3: 432695463
+      Data4: -1299109313
+    Path: event:/Char/General/sfx_deflect
+  playerDeflectHit:
+    Guid:
+      Data1: 213701518
+      Data2: 1290518705
+      Data3: 1526000063
+      Data4: 1065881959
+    Path: event:/Char/General/sfx_deflecthit
+  playerTakeHit:
+    Guid:
+      Data1: 5899578
+      Data2: 1306603443
+      Data3: 247712939
+      Data4: 1611673927
+    Path: event:/Char/General/sfx_player_takeHit
+  playerRespawn:
+    Guid:
+      Data1: -1251934288
+      Data2: 1108456214
+      Data3: -688591482
+      Data4: -802274316
+    Path: event:/Movement/Event_player_respawn
+  swordFinalDeath:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  axemanFinalDeath:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  reaperFinalDeath:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  twinbladeFinalDeath:
+    Guid:
+      Data1: 745155687
+      Data2: 1279218637
+      Data3: -1327317584
+      Data4: -1029390424
+    Path: event:/Char/General/Final Death/Event_twinblade_finalDeath
+  swordDeath:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  axemanDeath:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  reaperDeath:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  twinbladeDeath:
+    Guid:
+      Data1: 1683665796
+      Data2: 1217292181
+      Data3: -1908105038
+      Data4: -1995225359
+    Path: event:/Char/Twinblade/Event_twinblade_death
   playerAttack_01:
     Guid:
       Data1: -1130963062

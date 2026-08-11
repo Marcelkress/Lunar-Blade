@@ -1241,6 +1241,90 @@ MonoBehaviour:
       Data3: 2071131023
       Data4: 1907777842
     Path: event:/Movement/Event_player_footsteps_01
+  playerDeflect:
+    Guid:
+      Data1: 1536044472
+      Data2: 1124750747
+      Data3: 432695463
+      Data4: -1299109313
+    Path: event:/Char/General/sfx_deflect
+  playerDeflectHit:
+    Guid:
+      Data1: 213701518
+      Data2: 1290518705
+      Data3: 1526000063
+      Data4: 1065881959
+    Path: event:/Char/General/sfx_deflecthit
+  playerTakeHit:
+    Guid:
+      Data1: 5899578
+      Data2: 1306603443
+      Data3: 247712939
+      Data4: 1611673927
+    Path: event:/Char/General/sfx_player_takeHit
+  playerRespawn:
+    Guid:
+      Data1: -1251934288
+      Data2: 1108456214
+      Data3: -688591482
+      Data4: -802274316
+    Path: event:/Movement/Event_player_respawn
+  swordFinalDeath:
+    Guid:
+      Data1: -1380727485
+      Data2: 1107833818
+      Data3: -968639587
+      Data4: 1285645327
+    Path: event:/Char/General/Final Death/Event_sword_finalDeath
+  axemanFinalDeath:
+    Guid:
+      Data1: -2138272775
+      Data2: 1312348762
+      Data3: -51599715
+      Data4: 1119670570
+    Path: event:/Char/General/Final Death/Event_axeman_finalDeath
+  reaperFinalDeath:
+    Guid:
+      Data1: -295745425
+      Data2: 1340079764
+      Data3: 1471811513
+      Data4: -1682915294
+    Path: event:/Char/General/Final Death/Event_reaper_finalDeath
+  twinbladeFinalDeath:
+    Guid:
+      Data1: 745155687
+      Data2: 1279218637
+      Data3: -1327317584
+      Data4: -1029390424
+    Path: event:/Char/General/Final Death/Event_twinblade_finalDeath
+  swordDeath:
+    Guid:
+      Data1: 1747770167
+      Data2: 1078350373
+      Data3: -662776189
+      Data4: -968354302
+    Path: event:/Char/Sword/Event_sword_death
+  axemanDeath:
+    Guid:
+      Data1: -710941727
+      Data2: 1310507535
+      Data3: 36176028
+      Data4: -1353478057
+    Path: event:/Char/Axeman/Event_axeman_death
+  reaperDeath:
+    Guid:
+      Data1: -1807788756
+      Data2: 1203094944
+      Data3: 1456489644
+      Data4: -824753134
+    Path: event:/Char/Reaper/Event_reaper_death
+  twinbladeDeath:
+    Guid:
+      Data1: 1683665796
+      Data2: 1217292181
+      Data3: -1908105038
+      Data4: -1995225359
+    Path: event:/Char/Twinblade/Event_twinblade_death
   playerAttack_01:
     Guid:
       Data1: -1130963062
@@ -1271,102 +1355,102 @@ MonoBehaviour:
     Path: event:/Attack/Event_player_attack_04
   reaperLightAttack:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1387436769
+      Data2: 1267667140
+      Data3: 590164662
+      Data4: 165618368
+    Path: event:/Attack/Reaper/reaperLightAttack
   reaperDoubleAttack:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1561555773
+      Data2: 1074883171
+      Data3: 2020644495
+      Data4: -736776018
+    Path: event:/Attack/Reaper/reaperDoubleAttack
   reaperSurpriseAttackEnter:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 477921361
+      Data2: 1267543355
+      Data3: 256665739
+      Data4: 1777192282
+    Path: event:/Attack/Reaper/reaperSurpriseAttackEnter
   reaperSurpriseAttackExit:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 540820989
+      Data2: 1218183463
+      Data3: -67777403
+      Data4: -1999296644
+    Path: event:/Attack/Reaper/reaperSurpriseAttackExit
   reaperSpecialAttack:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1743301800
+      Data2: 1187198783
+      Data3: -711391092
+      Data4: 770471772
+    Path: event:/Attack/Reaper/reaperSpecialAttack
   twinbladeLightAttack:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -132958187
+      Data2: 1160577071
+      Data3: -147804282
+      Data4: 1521868096
+    Path: event:/Attack/Twinblade/twinbladeLightAttack
   twinbladeDoubleAttack:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1505420783
+      Data2: 1261010047
+      Data3: 156617875
+      Data4: 1118248981
+    Path: event:/Attack/Twinblade/twinbladeDoubleAttack
   twinbladeSmokeAttackIn:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 961860209
+      Data2: 1291336489
+      Data3: 1861811110
+      Data4: 553195311
+    Path: event:/Attack/Twinblade/twinbladeSmokeAttackIn
   twinbladeSmokeAttackOut:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1240866657
+      Data2: 1159024820
+      Data3: 1811652780
+      Data4: 1687192773
+    Path: event:/Attack/Twinblade/twinbladeSmokeAttackOut
   twinbladeSpecialAttack:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1272909390
+      Data2: 1167185881
+      Data3: -935296075
+      Data4: 1387339656
+    Path: event:/Attack/Twinblade/twinbladeSpecialAttack
   axemanLightAttack:
     Guid:
       Data1: 186631690
       Data2: 1214606567
       Data3: -937853531
       Data4: 483099938
-    Path: event:/Attack/Axeman/axemanLightAttack
+    Path: event:/Char/Axeman/axemanLightAttack
   axemanMediumAttack:
     Guid:
       Data1: -692862934
       Data2: 1297110861
       Data3: 662776962
       Data4: -1022670799
-    Path: event:/Attack/Axeman/axemanMediumAttack
+    Path: event:/Char/Axeman/axemanMediumAttack
   axemanDoubleAttack:
     Guid:
       Data1: 515926827
       Data2: 1158522553
       Data3: 1026477503
       Data4: 2128520070
-    Path: event:/Attack/Axeman/axemanDoubleAttack
+    Path: event:/Char/Axeman/axemanDoubleAttack
   axemanSpecialAttack:
     Guid:
       Data1: -772842879
       Data2: 1196374833
       Data3: 1042088321
       Data4: 249670401
-    Path: event:/Attack/Axeman/axemanSpecialAttack
+    Path: event:/Char/Axeman/axemanSpecialAttack
 --- !u!1 &3922122818354222105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,19 +1542,94 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2257215298391813281}
   TakeHitStaggerEvent:
     m_PersistentCalls:
-      m_Calls: []
-  takeHitEvent:
+      m_Calls:
+      - m_Target: {fileID: 205134474628109238}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: PlayerTakeHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  takeHitNoStaggerEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 205134474628109238}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: PlayerTakeHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   RespawnEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 205134474628109238}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: PlayerRespawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   DeathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 205134474628109238}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: AxemandDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   PermadeathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 205134474628109238}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: AxemandFinalDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SuccesfulDeflectEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 205134474628109238}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: PlayerDeflectHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &441742042195630330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1486,7 +1645,19 @@ MonoBehaviour:
   currentlyDeflecting: 0
   deflectEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 205134474628109238}
+        m_TargetAssemblyTypeName: AudioAnimEvents, Assembly-CSharp
+        m_MethodName: PlayerDeflect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7793262377579960101
 GameObject:
   m_ObjectHideFlags: 0

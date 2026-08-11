@@ -8,6 +8,18 @@ public class AudioAnimEvents : MonoBehaviour
     [SerializeField] private EventReference playerJump;
     [SerializeField] private EventReference playerDash;
     [SerializeField] private EventReference playerRun;
+    [SerializeField] private EventReference playerDeflect;
+    [SerializeField] private EventReference playerDeflectHit;
+    [SerializeField] private EventReference playerTakeHit;
+    [SerializeField] private EventReference playerRespawn;
+    [SerializeField] private EventReference swordFinalDeath;
+    [SerializeField] private EventReference axemanFinalDeath;
+    [SerializeField] private EventReference reaperFinalDeath;
+    [SerializeField] private EventReference twinbladeFinalDeath;
+    [SerializeField] private EventReference swordDeath;
+    [SerializeField] private EventReference axemanDeath;
+    [SerializeField] private EventReference reaperDeath;
+    [SerializeField] private EventReference twinbladeDeath;
     [SerializeField] private EventReference playerAttack_01;
     [SerializeField] private EventReference playerAttack_02;
     [SerializeField] private EventReference playerAttack_03;
@@ -51,9 +63,58 @@ public class AudioAnimEvents : MonoBehaviour
     {
         AudioManager.instance.PlayOneShot(playerDash, this.transform.position);
     }
-     private void RunSound()
+     private void RunSound()//playerDeflectHit;
     {
         AudioManager.instance.PlayOneShot(playerRun, this.transform.position);
+    }
+    public void PlayerTakeHit()//;;
+    {
+        AudioManager.instance.PlayOneShot(playerTakeHit, this.transform.position);
+    }
+    public void PlayerRespawn()//;;
+    {
+        AudioManager.instance.PlayOneShot(playerRespawn, this.transform.position);
+    }
+   
+    public void SwordDeath()//;;
+    {
+        AudioManager.instance.PlayOneShot(swordDeath, this.transform.position);
+    }
+    public void AxemandDeath()//;;
+    {
+        AudioManager.instance.PlayOneShot(axemanDeath, this.transform.position);
+    }
+    public void ReaperDeath()//;;
+    {
+        AudioManager.instance.PlayOneShot(reaperDeath, this.transform.position);
+    }
+    public void TwinbladeDeath()//;;
+    {
+        AudioManager.instance.PlayOneShot(twinbladeDeath, this.transform.position);
+    }
+     public void SwordFinalDeath()//;;Final
+    {
+        AudioManager.instance.PlayOneShot(swordFinalDeath, this.transform.position);
+    }
+    public void AxemandFinalDeath()//;;
+    {
+        AudioManager.instance.PlayOneShot(axemanFinalDeath, this.transform.position);
+    }
+    public void ReaperFinalDeath()//;;
+    {
+        AudioManager.instance.PlayOneShot(reaperFinalDeath, this.transform.position);
+    }
+    public void TwinbladeFinalDeath()//;;
+    {
+        AudioManager.instance.PlayOneShot(twinbladeFinalDeath, this.transform.position);
+    }
+    public void PlayerDeflectHit()//;playerTakeHit;
+    {
+        AudioManager.instance.PlayOneShot(playerDeflectHit, this.transform.position);
+    }
+    public void PlayerDeflect()//;
+    {
+        AudioManager.instance.PlayOneShot(playerDeflect, this.transform.position);
     }
     private void PlayerAttack_01()
     {
