@@ -14,11 +14,12 @@ public class PlayerHealth : MonoBehaviour, IHittable
     public GameObject healthBar;
     public SpriteRenderer spriteRenderer;
 
-    [Header("Events")] public UnityEvent TakeHitStaggerEvent;
-    public UnityEvent takeHitEvent,
+    [Header("Audio Events")] public UnityEvent TakeHitStaggerEvent;
+    public UnityEvent takeHitNoStaggerEvent,
         RespawnEvent,
         DeathEvent,
-        PermadeathEvent;
+        PermadeathEvent,
+        SuccesfulDeflectEvent;
     
     private int maxHealth;
     private int currentHealth;
@@ -66,12 +67,13 @@ public class PlayerHealth : MonoBehaviour, IHittable
         {
             // Do something else
             deflected = true;
+            SuccesfulDeflectEvent.Invoke();
             return false;
         }
 
         currentHealth -= damage;
         
-        takeHitEvent?.Invoke();
+        takeHitNoStaggerEvent?.Invoke();
         invulnerable = true;
 
         if (staggerAttack)
