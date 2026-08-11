@@ -409,7 +409,7 @@ MonoBehaviour:
   TakeHitStaggerEvent:
     m_PersistentCalls:
       m_Calls: []
-  takeHitEvent:
+  takeHitNoStaggerEvent:
     m_PersistentCalls:
       m_Calls: []
   RespawnEvent:
@@ -419,6 +419,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   PermadeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  SuccesfulDeflectEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &8376629810405613802
