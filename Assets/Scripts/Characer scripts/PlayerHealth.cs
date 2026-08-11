@@ -72,19 +72,20 @@ public class PlayerHealth : MonoBehaviour, IHittable
         }
 
         currentHealth -= damage;
-        
-        takeHitNoStaggerEvent?.Invoke();
         invulnerable = true;
-
-        if (staggerAttack)
-        {
-            TakeHitStaggerEvent.Invoke();
-        }
-
         if (currentHealth <= 0)
         {
             Die();
             return true;
+        }
+        
+        if (staggerAttack)
+        {
+            TakeHitStaggerEvent.Invoke();
+        }
+        else
+        {
+            takeHitNoStaggerEvent?.Invoke();
         }
 
         StartCoroutine(ResetInvulnerability());
