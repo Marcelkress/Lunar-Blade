@@ -444,7 +444,7 @@
                 {
                     "name": "",
                     "id": "89646795-955f-436e-ab8b-ef9dd2b4dd6e",
-                    "path": "<HID::Akishop Customs PS360+ v1.00>/button6",
+                    "path": "<XInputController>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

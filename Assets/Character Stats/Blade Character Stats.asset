@@ -46,9 +46,9 @@ MonoBehaviour:
   respawnWaitTime: 2
   specialAttackInputBuffer: 0.3
   attackInputBuffer: 0.802
-  attackOneDmg: 2
+  attackOneDmg: 3
   attackTwoDmg: 3
-  attackThreeDmg: 2
+  attackThreeDmg: 3
   specialAttackDmg: 6
   takeHitStaggerTime: 0.2
   invulnerabilityTimeAfterHit: 0.2
