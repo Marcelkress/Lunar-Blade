@@ -102,9 +102,9 @@ public class MatchManager : MonoBehaviour
     public void DecreaseLifeCount()
     {
         lifeCount--;
-        if (lifeCount < 0)
+        if (lifeCount < 1)
         {
-            lifeCount = 0;
+            lifeCount = 1;
         }
         lifeCountDisplay.text = lifeCount.ToString();
     }

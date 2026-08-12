@@ -8,7 +8,7 @@ public class PlayerHealthBar : MonoBehaviour
     private PlayerHealth playerHealth;
     private Image[] lives;
     private int lifeIndex;
-
+    
     public float slideTime;
     public Image characterIcon;
     public GameObject lifeUnit_Prefab;
@@ -58,7 +58,7 @@ public class PlayerHealthBar : MonoBehaviour
     {
         if (lifeIndex <= -1)
             return;
-        
+
         lives[lifeIndex].DOFade(0, slideTime);
         lifeIndex--;
     }

@@ -11,11 +11,11 @@ public class IgnoreOtherPlayers : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         rb = animator.transform.parent.GetComponent<Rigidbody2D>();
-        
+
         if (ignore)
-            rb.excludeLayers = layersToIgnore.value;
-        else 
-            rb.excludeLayers -= layersToIgnore.value;
+            rb.excludeLayers = layersToIgnore.value; // all other player layers
+        else
+            rb.excludeLayers = 0; // nothing
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
