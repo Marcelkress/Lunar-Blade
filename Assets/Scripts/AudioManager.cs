@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private EventReference UI_onButtonHovered;
     [SerializeField] private EventReference UI_onButtonClicked;
     [SerializeField] private EventReference UI_onButtonClickedFailure;
+    [SerializeField] private EventReference UI_onButtonClickedSlider;
     [SerializeField] private FMOD.Studio.EventInstance musicEvent;
 
     private void Awake()
@@ -41,6 +42,11 @@ public class AudioManager : MonoBehaviour
     {
         AudioManager.instance.PlayOneShot(UI_onButtonClickedFailure, this.transform.position);
     }
+    public void PlayButtonOnClickedSlider()
+    {
+        AudioManager.instance.PlayOneShot(UI_onButtonClickedSlider, this.transform.position);
+    }
+
     public void MusicVolume()
     {
         

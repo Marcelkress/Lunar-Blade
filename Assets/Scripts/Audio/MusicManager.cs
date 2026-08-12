@@ -7,9 +7,9 @@ using FMOD.Studio;
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
-    
+
     private static bool alreadyPlaying = false;
-    
+
     //[EventRef]
     //[SerializeField] EventReference Track_01;
     //[SerializeField] EventInstance Track_01;
@@ -33,12 +33,12 @@ public class MusicManager : MonoBehaviour
     {
         if (alreadyPlaying)
             return;
-        
+
         musicInstance = RuntimeManager.CreateInstance(musicEventPath);
 
         musicInstance.start();
         //AudioManager.instance.PlayOneShot(Track_01);
-        
+
         alreadyPlaying = true;
     }
 

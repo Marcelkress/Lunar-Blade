@@ -798,6 +798,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb46ec083fde43768315d5af4f00c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsPanel
+  fmodEvent:
+    Guid:
+      Data1: -346347303
+      Data2: 1305077191
+      Data3: -1078606145
+      Data4: -432653436
+    Path: event:/Music/Track_01
   vSyncText: {fileID: 1879177451}
   fullscreenText: {fileID: 1209888794}
   musicSlider: {fileID: 647982218}
@@ -2602,9 +2609,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1358571675}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2622,7 +2629,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1052611270}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayButtonOnClicked
+        m_MethodName: PlayButtonOnClickedSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2902,9 +2909,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1694465325}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2922,7 +2929,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1052611270}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayButtonOnClicked
+        m_MethodName: PlayButtonOnClickedSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3597,11 +3604,18 @@ MonoBehaviour:
     Path: event:/UI/sfx_ui_buttonOnClicked
   UI_onButtonClickedFailure:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1930011218
+      Data2: 1274980637
+      Data3: -524307810
+      Data4: 1259355998
+    Path: event:/UI/sfx_ui_buttonUnused
+  UI_onButtonClickedSlider:
+    Guid:
+      Data1: 143345105
+      Data2: 1318219289
+      Data3: -102412115
+      Data4: -132329118
+    Path: event:/UI/sfx_ui_slider
 --- !u!4 &1052611271
 Transform:
   m_ObjectHideFlags: 0
@@ -9514,9 +9528,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1974133753}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -9534,7 +9548,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1052611270}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayButtonOnClicked
+        m_MethodName: PlayButtonOnClickedSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

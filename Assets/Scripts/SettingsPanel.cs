@@ -1,6 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using FMOD;
+using FMOD.Studio;
+using UnityEngine.Rendering;
 
 public class SettingsPanel : MonoBehaviour
 {
@@ -8,7 +11,9 @@ public class SettingsPanel : MonoBehaviour
     private bool fullscreenToggle;
 
     private float musicVolume = 10, ambientVolume = 10, characterVolume = 10;
+
     
+
     [Header("Display things")]
     public TMP_Text vSyncText;
     public TMP_Text fullscreenText;
@@ -23,29 +28,42 @@ public class SettingsPanel : MonoBehaviour
         fullscreenText.text = Screen.fullScreen ? "On" : "Off";
         
         // ABSALON her skal vi hente FMOD volumer og sette slider til de rigtige values
-        musicSlider.value = musicVolume;
-        ambientSlider.value = ambientVolume;
-        characterSlider.value = characterVolume;
+        FMODUnity.RuntimeManager.StudioSystem.getParameterByName("Param_Volume_Music", out float VolMus);
+        FMODUnity.RuntimeManager.StudioSystem.getParameterByName("Param_Volume_Char", out float VolChar);
+        FMODUnity.RuntimeManager.StudioSystem.getParameterByName("Param_Volume_Ambience", out float VolAmb);
+        
+        musicSlider.value = VolMus + 10;
+        characterSlider.value = VolChar + 10;
+        ambientSlider.value = VolAmb + 10;
+        UnityEngine.Debug.Log(VolMus);
     }
-
+//rema 1000 skraber
     #region AudioSettings
 
     public void ChangeMusicVolume(float volume)
     {
         // SET FMOD VOL
         musicVolume = volume;
+        //musicInstance.setParameterByName("Param_Volume_Music", volume);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_Volume_Music",volume);
+        
+        
     }
 
     public void ChangeAmbientVolume(float volume)
     {
         // SET FMOD VOL
         ambientVolume = volume;
+
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_Volume_Ambience",volume);
     }
 
     public void ChangeCharacterVolume(float volume)
     {
         // SET FMOD VOL
         characterVolume = volume;
+
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_Volume_Char",volume);
     }
 
     #endregion
