@@ -7,6 +7,11 @@ using FMODUnityResonance;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance {get; private set; }
+    
+    [SerializeField] private EventReference UI_onButtonHovered;
+    [SerializeField] private EventReference UI_onButtonClicked;
+    [SerializeField] private EventReference UI_onButtonClickedFailure;
+    [SerializeField] private FMOD.Studio.EventInstance musicEvent;
 
     private void Awake()
     {
@@ -18,14 +23,12 @@ public class AudioManager : MonoBehaviour
         }
         instance = this;
     }
+    
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
     }
- [SerializeField] private EventReference UI_onButtonHovered;
- [SerializeField] private EventReference UI_onButtonClicked;
- [SerializeField] private EventReference UI_onButtonClickedFailure;
- [SerializeField] private FMOD.Studio.EventInstance musicEvent;
+    
     public void PlayButtonOnHovered()
     {
         AudioManager.instance.PlayOneShot(UI_onButtonHovered, this.transform.position);
