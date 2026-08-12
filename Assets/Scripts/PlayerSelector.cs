@@ -143,7 +143,6 @@ public class PlayerSelector : MonoBehaviour
             selectedCharacterTexts[characterIndex].enabled = false;
             
             AudioManager.instance.PlayButtonOnHovered();
-            Debug.Log("Hover sound");
             
             for (int i = 0; i < highlightedCharacterImages.Length; i++)
             {

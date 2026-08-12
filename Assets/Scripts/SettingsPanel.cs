@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,10 +11,6 @@ public class SettingsPanel : MonoBehaviour
     private bool enableVsync;
     private bool fullscreenToggle;
 
-    private float musicVolume = 10, ambientVolume = 10, characterVolume = 10;
-
-    
-
     [Header("Display things")]
     public TMP_Text vSyncText;
     public TMP_Text fullscreenText;
@@ -21,53 +18,46 @@ public class SettingsPanel : MonoBehaviour
     [Header("Audio things")] 
     public Slider musicSlider;
     public Slider ambientSlider, characterSlider;
-    
+
+    private void Start()
+    {
+        AudioValues.CreateInstance();
+        ChangeMusicVolume(AudioValues.instance.musicVol);
+        ChangeAmbientVolume(AudioValues.instance.ambienceVol);
+        ChangeCharacterVolume(AudioValues.instance.CharVol);
+    }
+
     public void OnEnter()
     {
         vSyncText.text = QualitySettings.vSyncCount == 1 ? "On" : "Off";
         fullscreenText.text = Screen.fullScreen ? "On" : "Off";
-        
-        // ABSALON her skal vi hente FMOD volumer og sette slider til de rigtige values
-        FMODUnity.RuntimeManager.StudioSystem.getParameterByName("Param_Volume_Music", out float VolMus);
-        FMODUnity.RuntimeManager.StudioSystem.getParameterByName("Param_Volume_Char", out float VolChar);
-        FMODUnity.RuntimeManager.StudioSystem.getParameterByName("Param_Volume_Ambience", out float VolAmb);
-        
-        musicSlider.value = VolMus + 10;
-        characterSlider.value = VolChar + 10;
-        ambientSlider.value = VolAmb + 10;
-        UnityEngine.Debug.Log(VolMus);
+
+        musicSlider.value = AudioValues.instance.musicVol;
+        characterSlider.value = AudioValues.instance.CharVol;
+        ambientSlider.value = AudioValues.instance.ambienceVol;
     }
-//rema 1000 skraber
+    
     #region AudioSettings
 
     public void ChangeMusicVolume(float volume)
     {
-        // SET FMOD VOL
-        musicVolume = volume;
-        //musicInstance.setParameterByName("Param_Volume_Music", volume);
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_Volume_Music",volume);
-        
-        
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_Volume_Music", volume);
+        AudioValues.instance.musicVol = volume;
     }
 
     public void ChangeAmbientVolume(float volume)
     {
-        // SET FMOD VOL
-        ambientVolume = volume;
-
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_Volume_Ambience",volume);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_Volume_Ambience", volume);
+        AudioValues.instance.ambienceVol = volume;
     }
 
     public void ChangeCharacterVolume(float volume)
     {
-        // SET FMOD VOL
-        characterVolume = volume;
-
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_Volume_Char",volume);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_Volume_Char", volume);
+        AudioValues.instance.CharVol = volume;
     }
 
     #endregion
-    
     
     #region  DisplaySettings
 

@@ -798,13 +798,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb46ec083fde43768315d5af4f00c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsPanel
-  fmodEvent:
-    Guid:
-      Data1: -346347303
-      Data2: 1305077191
-      Data3: -1078606145
-      Data4: -432653436
-    Path: event:/Music/Track_01
   vSyncText: {fileID: 1879177451}
   fullscreenText: {fileID: 1209888794}
   musicSlider: {fileID: 647982218}
@@ -2611,7 +2604,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2911,7 +2904,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -9530,7 +9523,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
