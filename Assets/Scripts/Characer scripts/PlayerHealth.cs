@@ -76,8 +76,8 @@ public class PlayerHealth : MonoBehaviour, IHittable
         currentHealth -= damage;
         UIEvent.Invoke();
         
-        Debug.Log("Health: " + currentHealth);
-        Debug.Log("Damage: " + damage);
+        // Debug.Log("Health: " + currentHealth);
+        // Debug.Log("Damage: " + damage);
         
         invulnerable = true;
         if (currentHealth <= 0)
@@ -117,7 +117,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
         currentLives--;
         input.LockInput(true);
 
-        if (currentLives < 0)
+        if (currentLives <= 0)
         {
             PermadeathEvent.Invoke();
             return;

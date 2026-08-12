@@ -907,7 +907,8 @@ AnimatorStateMachine:
     - {fileID: 580492365493822232}
     - {fileID: 6913254933411241532}
     - {fileID: -5491232562441086188}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 2162043699759853395}
   m_AnyStatePosition: {x: -20, y: 330, z: 0}
   m_EntryPosition: {x: 630, y: -170, z: 0}
   m_ExitPosition: {x: 880, y: -40, z: 0}
@@ -1387,6 +1388,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   hide: 1
+--- !u!114 &2162043699759853395
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 926e4271e94ae48fb8581a4c2e29eb1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IgnoreOtherPlayers
+  ignore: 0
+  layersToIgnore:
+    serializedVersion: 2
+    m_Bits: 960
 --- !u!114 &2174934654317632911
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2063,7 +2080,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.1
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 1
   m_HasExitTime: 1
