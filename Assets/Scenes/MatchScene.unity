@@ -11365,11 +11365,11 @@ MonoBehaviour:
     Path: 
   UI_onStartButtonClicked:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -697873113
+      Data2: 1277558204
+      Data3: 1452212643
+      Data4: -1862462045
+    Path: event:/UI/sfx_ui_menuSceneStart
   UI_onStageSelect:
     Guid:
       Data1: 1568469000
@@ -11377,6 +11377,41 @@ MonoBehaviour:
       Data3: -551801705
       Data4: -138011248
     Path: event:/UI/sfx_ui_levelSelectCave
+  UI_onCharSelectEnter:
+    Guid:
+      Data1: 2060470011
+      Data2: 1114155395
+      Data3: -184347992
+      Data4: -1935657338
+    Path: event:/UI/Announcer/sfx_ui_voice_charSelect
+  UI_voiceCountdown_three:
+    Guid:
+      Data1: -296005063
+      Data2: 1265639870
+      Data3: 713083521
+      Data4: -1844044978
+    Path: event:/UI/Announcer/sfx_ui_voice_matchCountThree
+  UI_voiceCountdown_two:
+    Guid:
+      Data1: 1462750503
+      Data2: 1276410590
+      Data3: 1365890452
+      Data4: -532099775
+    Path: event:/UI/Announcer/sfx_ui_voice_matchCountTwo
+  UI_voiceCountdown_one:
+    Guid:
+      Data1: 722317730
+      Data2: 1200371557
+      Data3: -2033266526
+      Data4: 1264582683
+    Path: event:/UI/Announcer/sfx_ui_voice_matchCountOne
+  UI_voiceCountdown_start:
+    Guid:
+      Data1: -1529580274
+      Data2: 1116336582
+      Data3: -787926098
+      Data4: -911834412
+    Path: event:/UI/Announcer/sfx_ui_voice_matchCountStart
   UI_charSelectSword:
     Guid:
       Data1: 480666025
@@ -12285,7 +12320,7 @@ PrefabInstance:
       objectReference: {fileID: 1694877461}
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -12297,6 +12332,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
@@ -12312,11 +12351,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 50033026}
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1014118106}
+    - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
@@ -12332,6 +12379,10 @@ PrefabInstance:
       value: PlayerCountSet
       objectReference: {fileID: 0}
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: PlayCharSelectEnter
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: AudioManager, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -12340,11 +12391,19 @@ PrefabInstance:
       value: MatchManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []

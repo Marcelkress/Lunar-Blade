@@ -464,7 +464,8 @@ MonoBehaviour:
   reaper: {fileID: 3048778114713400946, guid: dfdc09b384823472cb0f0adb9c2a393b, type: 3}
   axe: {fileID: 148659617038121618, guid: 9c567a8b72ca245c39ffe2b52a6eb568, type: 3}
   twinblade: {fileID: 4665585378770905653, guid: 0a590adeeaccb4f25865f7274c927f0f, type: 3}
-  character: 0
+  bitman: {fileID: 2302069009670788881, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
+  character: 4
 --- !u!4 &1199378437
 Transform:
   m_ObjectHideFlags: 0
@@ -524,6 +525,90 @@ MonoBehaviour:
       Data4: 0
     Path: 
   UI_onButtonClickedFailure:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_onButtonClickedSlider:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_onStartButtonClicked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_onStageSelect:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_onCharSelectEnter:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_voiceCountdown_three:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_voiceCountdown_two:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_voiceCountdown_one:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_voiceCountdown_start:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_charSelectSword:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_charSelectReaper:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_charSelectTwinblade:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_charSelectAxeman:
     Guid:
       Data1: 0
       Data2: 0

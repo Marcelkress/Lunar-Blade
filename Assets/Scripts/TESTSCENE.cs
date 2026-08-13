@@ -3,11 +3,11 @@ using UnityEngine;
 public class TESTSCENE : MonoBehaviour
 {
     [Header("Characters")] public GameObject blade;
-    public GameObject reaper, axe, twinblade;
+    public GameObject reaper, axe, twinblade, bitman;
 
     public enum CHARACTERS
     {
-        blade, reaper, axe, twinblade
+        blade, reaper, axe, twinblade, bitman
     }
     
     [Header("Test character")]
@@ -28,6 +28,9 @@ public class TESTSCENE : MonoBehaviour
                 break;
             case CHARACTERS.twinblade:
                 Instantiate(twinblade, transform.position, twinblade.transform.rotation);
+                break;
+            case CHARACTERS.bitman:
+                Instantiate(bitman, transform.position, bitman.transform.rotation);
                 break;
         }    
     }

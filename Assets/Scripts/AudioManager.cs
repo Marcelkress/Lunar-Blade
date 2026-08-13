@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private EventReference UI_onButtonClickedSlider;
     [SerializeField] private EventReference UI_onStartButtonClicked;
     [SerializeField] private EventReference UI_onStageSelect;
+    [SerializeField] private EventReference UI_onCharSelectEnter;
     [SerializeField] private EventReference UI_voiceCountdown_three;
     [SerializeField] private EventReference UI_voiceCountdown_two;
     [SerializeField] private EventReference UI_voiceCountdown_one;
@@ -80,6 +81,10 @@ public class AudioManager : MonoBehaviour
     public void PlayVoiceCountdown_start()
     {
         PlayOneShot(UI_voiceCountdown_start, this.transform.position);
+    }
+    public void PlayCharSelectEnter()
+    {
+        PlayOneShot(UI_onCharSelectEnter, this.transform.position);
     }
     public void PlayCharSelectSword()
     {
