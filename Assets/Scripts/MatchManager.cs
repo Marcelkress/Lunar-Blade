@@ -47,7 +47,6 @@ public class MatchManager : MonoBehaviour
     private InputActionAsset uiActionsInstance;
     private InputSystemUIInputModule uiModule;
     
-    private bool startedMatch;
     private int lifeCount;
     
     private PlayerHealth[] players;
@@ -81,7 +80,6 @@ public class MatchManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(lifeCountButton);
         lifeCount = matchSettings.defaultMatchLives;
         lifeCountDisplay.text = lifeCount.ToString();
-        startedMatch = false;
     }
     
     private void DoPanelPosition(RectTransform panel, RectTransform target)
@@ -184,7 +182,6 @@ public class MatchManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(lifeCountButton);
         lifeCount = matchSettings.defaultMatchLives;
         lifeCountDisplay.text = lifeCount.ToString();
-        startedMatch = false;
     }
 
     public void GoToMainMenu()

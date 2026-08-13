@@ -33,13 +33,11 @@ public class CharacterSelectionManager : MonoBehaviour
     private int readyCount = 0;
     private bool allPlayersReady;
 
-    private bool allSpawned = false;
     private int lifeCount;
     private PlayerInputManager playerInputManager;
 
     void Awake()
     {
-        allSpawned = false;
         Instance = this;
         allPlayersReady = false;
         
@@ -92,7 +90,6 @@ public class CharacterSelectionManager : MonoBehaviour
 
     public void Reset()
     {
-        allSpawned = false;
         allPlayersReady = false;
         readyCount = 0;
         
@@ -168,7 +165,6 @@ public class CharacterSelectionManager : MonoBehaviour
         if (allPlayersReady)
         {
             SpawnSelectedCharacters();
-            allSpawned = true;
             playerInputManager.DisableJoining();
         } 
     }

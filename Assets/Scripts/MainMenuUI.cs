@@ -1,12 +1,16 @@
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
     public string matchSceneName;
+    public InputSystemUIInputModule inputModule;
     
     [Header("Panels")] public RectTransform mainPanel;
     public RectTransform mapPanel;
@@ -20,10 +24,20 @@ public class MainMenuUI : MonoBehaviour
     public GameObject mainFirstSelectedButton;
     public GameObject mapFirstSelectedButton;
     public GameObject settingsFirstSelectedButton;
-    
+
     [Header("Animation")] 
     public float animationDuration;
+    
+    void Start()
+    {
+        inputModule.cancel.action.performed += Back;
+    }
 
+    private void Back(InputAction.CallbackContext ctx)
+    {
+        GoToMainPanel();
+    }
+    
     public void GoToMapPanel()
     {
         DoPanelPosition(mainPanel, leftPosition);

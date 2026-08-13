@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerSelector : MonoBehaviour
 {
-    private int _highlighted = 0;
     private int characterCount = 2;
     
     public Image[] highlightedCharacterImages;
@@ -161,7 +160,7 @@ public class PlayerSelector : MonoBehaviour
             selectedCharacterTexts[characterIndex].enabled = false;
             
             // Play sound on hover 
-            // AudioManager.instance.
+            AudioManager.instance.PlayButtonOnClickedSlider();
             
             for (int i = 0; i < highlightedCharacterImages.Length; i++)
             {
