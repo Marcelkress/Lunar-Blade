@@ -10920,6 +10920,48 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  UI_onStartButtonClicked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UI_onStageSelect:
+    Guid:
+      Data1: 1568469000
+      Data2: 1235330397
+      Data3: -551801705
+      Data4: -138011248
+    Path: event:/UI/sfx_ui_levelSelectCave
+  UI_charSelectSword:
+    Guid:
+      Data1: 480666025
+      Data2: 1147752658
+      Data3: 338594720
+      Data4: -741846036
+    Path: event:/UI/sfx_ui_charSelectSword
+  UI_charSelectReaper:
+    Guid:
+      Data1: -431677568
+      Data2: 1327583457
+      Data3: -1116115063
+      Data4: 476108447
+    Path: event:/UI/sfx_ui_charSelectReaper
+  UI_charSelectTwinblade:
+    Guid:
+      Data1: 966768121
+      Data2: 1139075387
+      Data3: -850954326
+      Data4: -910470163
+    Path: event:/UI/sfx_ui_charSelectTwinblade
+  UI_charSelectAxeman:
+    Guid:
+      Data1: -1334362927
+      Data2: 1327577159
+      Data3: -551906899
+      Data4: 495521753
+    Path: event:/UI/sfx_ui_charSelectAxeman
 --- !u!4 &1014118107
 Transform:
   m_ObjectHideFlags: 0

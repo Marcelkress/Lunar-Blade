@@ -142,13 +142,30 @@ public class PlayerSelector : MonoBehaviour
         {
             selectedCharacterTexts[characterIndex].enabled = false;
             
-            AudioManager.instance.PlayButtonOnHovered();
+            //AudioManager.instance.PlayButtonOnHovered();
             
             for (int i = 0; i < highlightedCharacterImages.Length; i++)
             {
                 if (i == characterIndex)
                 {
                     highlightedCharacterImages[i].DOColor(highlightedColor, 0.3f);
+                    
+                    switch (i)
+                    {
+                        case 0:
+                            AudioManager.instance.PlayCharSelectSword();
+                            break;
+                        case 1:
+                            AudioManager.instance.PlayCharSelectAxeman();
+                            break;
+                        case 2:
+                            AudioManager.instance.PlayCharSelectReaper();
+                            break;
+                        case 3:
+                            AudioManager.instance.PlayCharSelectTwinblade();
+                            break;
+                        
+                    }
                 }
                 else
                 {

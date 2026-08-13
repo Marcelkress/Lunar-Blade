@@ -17,7 +17,7 @@ public class SettingsPanel : MonoBehaviour
 
     [Header("Audio things")] 
     public Slider musicSlider;
-    public Slider ambientSlider, characterSlider;
+    public Slider ambientSlider, characterSlider, UISlider;
 
     private void Start()
     {
@@ -35,6 +35,7 @@ public class SettingsPanel : MonoBehaviour
         musicSlider.value = AudioValues.instance.musicVol;
         characterSlider.value = AudioValues.instance.CharVol;
         ambientSlider.value = AudioValues.instance.ambienceVol;
+        UISlider.value = AudioValues.instance.uiVol;
     }
     
     #region AudioSettings
@@ -56,6 +57,13 @@ public class SettingsPanel : MonoBehaviour
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_Volume_Char", volume);
         AudioValues.instance.CharVol = volume;
     }
+    
+    public void ChangeUIVolume(float volume)
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_Volume_UI", volume);
+        AudioValues.instance.uiVol = volume;
+    }
+    
 
     #endregion
     

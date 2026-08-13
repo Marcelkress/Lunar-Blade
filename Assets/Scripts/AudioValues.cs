@@ -10,5 +10,5 @@ public class AudioValues
         }
     }
     
-    public float musicVol = 10, ambienceVol = 10, CharVol = 10;
+    public float musicVol = 10, ambienceVol = 10, CharVol = 10, uiVol = 10;
 }
