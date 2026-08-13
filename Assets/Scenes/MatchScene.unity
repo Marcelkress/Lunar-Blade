@@ -1755,7 +1755,7 @@ MonoBehaviour:
   waitToSpawnTime: 1.5
   matchSettings: {fileID: 11400000, guid: b2a4e882150bb4541bae3bb1ba5cf1ea, type: 2}
   playerCountDisplay: {fileID: 987511830}
-  startingText: {fileID: 1696967188}
+  countdownText: {fileID: 0}
   pressToJoinText: {fileID: 1744368518}
 --- !u!1 &581146297
 GameObject:
@@ -12531,12 +12531,12 @@ GameObject:
   - component: {fileID: 1696967191}
   - component: {fileID: 1696967190}
   m_Layer: 5
-  m_Name: Starting text
+  m_Name: CountDown text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1696967189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13859,63 +13859,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2211251765269634264
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2302069009670788881, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
-      propertyPath: m_Name
-      value: BITMAN Character
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349778395316482839, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.449
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349778395316482839, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.084
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349778395316482839, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349778395316482839, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349778395316482839, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349778395316482839, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349778395316482839, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349778395316482839, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349778395316482839, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349778395316482839, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -13941,4 +13884,3 @@ SceneRoots:
   - {fileID: 2140658416}
   - {fileID: 2015280912}
   - {fileID: 1580441212}
-  - {fileID: 2211251765269634264}

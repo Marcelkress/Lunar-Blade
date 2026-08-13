@@ -586,8 +586,10 @@ MonoBehaviour:
   characterIcon: {fileID: 4723107735738678597, guid: 8b6f79353bbde49a59b65af95e860226, type: 3}
   fadeBounceTime: 0.2
   fadeAlphaVal: 0.2
-  healthBar: {fileID: 6892664336840044592, guid: 9f844fa7a7ab94dcd8eff572dde6ea4b, type: 3}
   spriteRenderer: {fileID: 6581229869867410519}
+  UIEvent:
+    m_PersistentCalls:
+      m_Calls: []
   TakeHitStaggerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -720,8 +722,6 @@ GameObject:
   - component: {fileID: 8798605122659318634}
   - component: {fileID: 6311077083648359767}
   - component: {fileID: 2712741407638976773}
-  - component: {fileID: 9016310082061343113}
-  - component: {fileID: 4870938970730744840}
   - component: {fileID: 4480276450178610092}
   - component: {fileID: 3389559572446464157}
   - component: {fileID: 2582195436581348884}
@@ -1019,6 +1019,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9fafe3f1-9622-4496-a47a-1c8d6c72160a
     m_ActionName: 'Player/Deflect[/DualSenseGamepadHID/leftTrigger,/DualShock4GamepadHID/leftTrigger,/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 39779591-052d-43ff-b7d8-0f5edac61fa1
+    m_ActionName: 'UI/Back[/DualShock4GamepadHID/buttonEast]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1036,34 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1494e841074a43159463219e2177546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimatorManager
---- !u!114 &9016310082061343113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3048778114713400946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36171d807942242d48ef5dbcf83094d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AttackManager
---- !u!114 &4870938970730744840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3048778114713400946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 120e113a86ec64408b295ef1690e1fd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterAudio
-  source: {fileID: 4480276450178610092}
-  attackOne: {fileID: 8300000, guid: bac0573d51e8449579aa39173e6eaba8, type: 3}
-  attackTwo: {fileID: 8300000, guid: ed05c9e2099794b0ca53c2432291e8fd, type: 3}
-  attackThree: {fileID: 8300000, guid: cff9709286a254a1abdd22115567820c, type: 3}
+  health: {fileID: 0}
 --- !u!82 &4480276450178610092
 AudioSource:
   m_ObjectHideFlags: 0

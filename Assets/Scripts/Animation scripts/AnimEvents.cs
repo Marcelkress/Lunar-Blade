@@ -8,23 +8,18 @@ public class AnimEvents : MonoBehaviour
     
     private CharacterMovement characterMovement;
     private AbilityChargeManager chargeManager;
-
+    private CameraGroupTarget camGroupTarget;
+    
+    public CameraSettings camSettings;
+    
     private void Start()
     {
+        camGroupTarget = GetComponentInParent<CameraGroupTarget>();
         characterMovement = GetComponentInParent<CharacterMovement>();
         chargeManager = GetComponentInParent<AbilityChargeManager>();
     }
 
-    public void LockMove()
-    {
-        characterMovement.CanMove(false);
-    }
-    
-    public void UnlockMove()
-    {
-        characterMovement.CanMove(true);
-    }
-
+    #region Combat
     public void StartStagger()
     {
         characterMovement.StartStagger();
@@ -63,4 +58,30 @@ public class AnimEvents : MonoBehaviour
     {
         chargeManager.ConsumeCharge();
     }
+    
+    #endregion
+    
+    #region Movement
+    
+    public void LockMove()
+    {
+        characterMovement.CanMove(false);
+    }
+    
+    public void UnlockMove()
+    {
+        characterMovement.CanMove(true);
+    }
+    
+    #endregion
+    
+    #region Camera
+
+    public void SpecialAttackFocus()
+    {
+        camGroupTarget.FocusOnTarget();
+    }
+    
+    #endregion
+
 }

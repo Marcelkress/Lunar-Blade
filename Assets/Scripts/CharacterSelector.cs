@@ -24,7 +24,7 @@ public class CharacterSelectionManager : MonoBehaviour
 
     [Header("UI")] 
     public TMP_Text playerCountDisplay;
-    public GameObject startingText;
+    public TMP_Text countdownText;
     public GameObject pressToJoinText;
 
     private PlayerInput[] selectors;
@@ -44,7 +44,7 @@ public class CharacterSelectionManager : MonoBehaviour
         
         playerInputManager = GetComponent<PlayerInputManager>();
         playerInputManager.DisableJoining();
-        startingText.SetActive(false);
+        countdownText.gameObject.SetActive(false);
         
         playerCount = 2;
         playerCountDisplay.text = playerCount.ToString();
@@ -100,7 +100,7 @@ public class CharacterSelectionManager : MonoBehaviour
         Array.Fill(selections, -1);
         playerInputManager = GetComponent<PlayerInputManager>();
         playerInputManager.DisableJoining();
-        startingText.SetActive(false);
+        countdownText.gameObject.SetActive(false);
 
     }
 
@@ -148,7 +148,7 @@ public class CharacterSelectionManager : MonoBehaviour
         if (AllSelected())
         {
             allPlayersReady = true;
-            startingText.SetActive(true);
+            countdownText.gameObject.SetActive(true);
             StartCoroutine(WaitToSpawn());
         }
     }
@@ -161,26 +161,36 @@ public class CharacterSelectionManager : MonoBehaviour
         }
         return true;
     }
-
+    
     public IEnumerator WaitToSpawn()
     {
+        countdownText.gameObject.SetActive(true);
+
+        for (int i = 3; i > 0; i--)
+        {
+            countdownText.text = i.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+
+        countdownText.text = "FIGHT!";
+
         yield return new WaitForSeconds(waitToSpawnTime);
 
         if (allPlayersReady)
         {
-            startingText.SetActive(false);
             SpawnSelectedCharacters();
+            countdownText.gameObject.SetActive(false);
             allSpawned = true;
             playerInputManager.DisableJoining();
         } 
     }
-
+    
     public void OnCharacterDeselected(int playerIndex)
     {
         selections[playerIndex] = -1;
         readyCount--;
         allPlayersReady = false;
-        startingText.SetActive(false);
+        countdownText.gameObject.SetActive(false);
     }
 
     private void SpawnSelectedCharacters()
