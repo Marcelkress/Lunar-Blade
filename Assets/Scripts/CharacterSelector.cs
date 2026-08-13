@@ -24,8 +24,9 @@ public class CharacterSelectionManager : MonoBehaviour
 
     [Header("UI")] 
     public TMP_Text playerCountDisplay;
-    public TMP_Text countdownText;
     public GameObject pressToJoinText;
+
+    public CountdownPanel countdownPanel;
 
     private PlayerInput[] selectors;
     private int[] selections; // = new int[] { -1, -1 };       // chosen character index per player
@@ -44,7 +45,6 @@ public class CharacterSelectionManager : MonoBehaviour
         
         playerInputManager = GetComponent<PlayerInputManager>();
         playerInputManager.DisableJoining();
-        countdownText.gameObject.SetActive(false);
         
         playerCount = 2;
         playerCountDisplay.text = playerCount.ToString();
@@ -100,8 +100,6 @@ public class CharacterSelectionManager : MonoBehaviour
         Array.Fill(selections, -1);
         playerInputManager = GetComponent<PlayerInputManager>();
         playerInputManager.DisableJoining();
-        countdownText.gameObject.SetActive(false);
-
     }
 
     public void OnPlayerJoined(PlayerInput selectorInput)
@@ -148,7 +146,6 @@ public class CharacterSelectionManager : MonoBehaviour
         if (AllSelected())
         {
             allPlayersReady = true;
-            countdownText.gameObject.SetActive(true);
             StartCoroutine(WaitToSpawn());
         }
     }
@@ -164,22 +161,13 @@ public class CharacterSelectionManager : MonoBehaviour
     
     public IEnumerator WaitToSpawn()
     {
-        countdownText.gameObject.SetActive(true);
-
-        for (int i = 3; i > 0; i--)
-        {
-            countdownText.text = i.ToString();
-            yield return new WaitForSeconds(1f);
-        }
-
-        countdownText.text = "FIGHT!";
+        countdownPanel.StartCountdown();
 
         yield return new WaitForSeconds(waitToSpawnTime);
 
         if (allPlayersReady)
         {
             SpawnSelectedCharacters();
-            countdownText.gameObject.SetActive(false);
             allSpawned = true;
             playerInputManager.DisableJoining();
         } 
@@ -190,7 +178,7 @@ public class CharacterSelectionManager : MonoBehaviour
         selections[playerIndex] = -1;
         readyCount--;
         allPlayersReady = false;
-        countdownText.gameObject.SetActive(false);
+        countdownPanel.StopCountdown();
     }
 
     private void SpawnSelectedCharacters()
