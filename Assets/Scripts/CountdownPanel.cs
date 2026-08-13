@@ -53,20 +53,21 @@ public class CountdownPanel : MonoBehaviour
 
             switch (i)
             {
-                case 0:
-                    // 1
-                    break;
                 case 1:
-                    // 2
+                    AudioManager.instance.PlayVoiceCountdown_one();
+                    break;
+                case 2:
+                    AudioManager.instance.PlayVoiceCountdown_two();
                     break;
                 case 3:
-                    // 3
+                    AudioManager.instance.PlayVoiceCountdown_three();
                     break;
             }
             
             yield return new WaitForSeconds(1f);
         }
-
+        
+        AudioManager.instance.PlayVoiceCountdown_start();
         fightText.SetActive(true);
         countdownText.gameObject.SetActive(false);
         
