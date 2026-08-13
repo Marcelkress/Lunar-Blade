@@ -11358,11 +11358,11 @@ MonoBehaviour:
     Path: event:/UI/sfx_ui_buttonOnClickedFailure
   UI_onButtonClickedSlider:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 143345105
+      Data2: 1318219289
+      Data3: -102412115
+      Data4: -132329118
+    Path: event:/UI/sfx_ui_slider
   UI_onStartButtonClicked:
     Guid:
       Data1: -697873113
