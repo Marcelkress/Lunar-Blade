@@ -11,7 +11,6 @@ public class PlayerHealth : MonoBehaviour, IHittable
     public float fadeBounceTime = 0.2f, fadeAlphaVal = 0.5f;
 
     [Header("Refs")]
-    public GameObject healthBar;
     public SpriteRenderer spriteRenderer;
 
     public UnityEvent UIEvent;
@@ -53,7 +52,6 @@ public class PlayerHealth : MonoBehaviour, IHittable
         UI.Init(this, characterIcon, maxLives);
     }
     
-
     public bool TakeHit(int damage, bool staggerAttack, out bool deflected, bool specialAttack)
     {
         //Debug.Log("hit detected on Player " + GetComponentInParent<InputManager>().playerID);

@@ -6,7 +6,7 @@ public class AnimationManager : MonoBehaviour
     private Animator anim;
     private CharacterMovement movement;
     private InputManager inputManager;
-    private PlayerHealth health;
+    [HideInInspector] public PlayerHealth health;
     private DeflectAbility deflectAbility;
     
     private bool isGrounded, moving;

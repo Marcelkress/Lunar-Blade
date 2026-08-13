@@ -39,43 +39,43 @@ public class AudioManager : MonoBehaviour
     
     public void PlayButtonOnHovered()
     {
-        AudioManager.instance.PlayOneShot(UI_onButtonHovered, this.transform.position);
+        PlayOneShot(UI_onButtonHovered, this.transform.position);
     }
     public void PlayButtonOnClicked()
     {
-        AudioManager.instance.PlayOneShot(UI_onButtonClicked, this.transform.position);
+        PlayOneShot(UI_onButtonClicked, this.transform.position);
     }
     public void PlayButtonOnClickedFailure()
     {
-        AudioManager.instance.PlayOneShot(UI_onButtonClickedFailure, this.transform.position);
+        PlayOneShot(UI_onButtonClickedFailure, this.transform.position);
     }
     public void PlayButtonOnClickedSlider()
     {
-        AudioManager.instance.PlayOneShot(UI_onButtonClickedSlider, this.transform.position);
+        PlayOneShot(UI_onButtonClickedSlider, this.transform.position);
     }
     public void PlayStartButtonClicked()
     {
-        AudioManager.instance.PlayOneShot(UI_onStartButtonClicked, this.transform.position);
+        PlayOneShot(UI_onStartButtonClicked, this.transform.position);
     }
     public void PlayStageSelect()
     {
-        AudioManager.instance.PlayOneShot(UI_onStageSelect, this.transform.position);
+        PlayOneShot(UI_onStageSelect, this.transform.position);
     }
     public void PlayCharSelectSword()
     {
-        AudioManager.instance.PlayOneShot(UI_charSelectSword, this.transform.position);
+        PlayOneShot(UI_charSelectSword, this.transform.position);
     }
     public void PlayCharSelectReaper()
     {
-        AudioManager.instance.PlayOneShot(UI_charSelectReaper, this.transform.position);
+        PlayOneShot(UI_charSelectReaper, this.transform.position);
     }
     public void PlayCharSelectTwinblade()
     {
-        AudioManager.instance.PlayOneShot(UI_charSelectTwinblade, this.transform.position);
+        PlayOneShot(UI_charSelectTwinblade, this.transform.position);
     }
     public void PlayCharSelectAxeman()
     {
-        AudioManager.instance.PlayOneShot(UI_charSelectAxeman, this.transform.position);
+        PlayOneShot(UI_charSelectAxeman, this.transform.position);
     }
     public void MusicVolume()
     {

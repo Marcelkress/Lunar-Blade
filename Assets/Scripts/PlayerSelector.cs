@@ -137,35 +137,37 @@ public class PlayerSelector : MonoBehaviour
             selectedCharacterTexts[characterIndex].enabled = true;
             highlightedCharacterImages[characterIndex].rectTransform
                 .DOShakeAnchorPos(0.2f, 50, 100, 90);
+            
+            // play sound based on character
+            switch (characterIndex)
+            {
+                case 0:
+                    AudioManager.instance.PlayCharSelectSword();
+                    break;
+                case 1:
+                    AudioManager.instance.PlayCharSelectAxeman();
+                    break;
+                case 2:
+                    AudioManager.instance.PlayCharSelectReaper();
+                    break;
+                case 3:
+                    AudioManager.instance.PlayCharSelectTwinblade();
+                    break;
+                        
+            }
         }
         else
         {
             selectedCharacterTexts[characterIndex].enabled = false;
             
-            //AudioManager.instance.PlayButtonOnHovered();
+            // Play sound on hover 
+            // AudioManager.instance.
             
             for (int i = 0; i < highlightedCharacterImages.Length; i++)
             {
                 if (i == characterIndex)
                 {
                     highlightedCharacterImages[i].DOColor(highlightedColor, 0.3f);
-                    
-                    switch (i)
-                    {
-                        case 0:
-                            AudioManager.instance.PlayCharSelectSword();
-                            break;
-                        case 1:
-                            AudioManager.instance.PlayCharSelectAxeman();
-                            break;
-                        case 2:
-                            AudioManager.instance.PlayCharSelectReaper();
-                            break;
-                        case 3:
-                            AudioManager.instance.PlayCharSelectTwinblade();
-                            break;
-                        
-                    }
                 }
                 else
                 {

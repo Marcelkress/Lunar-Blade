@@ -88,7 +88,8 @@ public class AttackHitDetection : MonoBehaviour
             }
             else if (deflected)
             {
-                animationManager.StaggerAnim();
+                // animationManager.StaggerAnim();
+                animationManager.health.TakeHit(stats.deflectDamage, true, out bool _deflect, false);
             }
         }
     }

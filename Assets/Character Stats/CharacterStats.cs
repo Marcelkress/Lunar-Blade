@@ -70,8 +70,9 @@ public class CharacterStats : ScriptableObject
 
     [Header("Lunar Charge")] 
     public int requiredHitsToCharge = 3;
-    
-    [Header("Deflection")]
+
+    [Header("Deflection")] 
+    public int deflectDamage = 2;
     [Range(0.1f, 0.8f)] public float deflectTime = 0.4f;
     [Range(0.2f, 1.5f)] public float deflectCoolDownTime = 0.8f;
     
