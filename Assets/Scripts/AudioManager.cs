@@ -14,6 +14,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private EventReference UI_onButtonClickedSlider;
     [SerializeField] private EventReference UI_onStartButtonClicked;
     [SerializeField] private EventReference UI_onStageSelect;
+    [SerializeField] private EventReference UI_voiceCountdown_three;
+    [SerializeField] private EventReference UI_voiceCountdown_two;
+    [SerializeField] private EventReference UI_voiceCountdown_one;
+    [SerializeField] private EventReference UI_voiceCountdown_start;
     [SerializeField] private EventReference UI_charSelectSword;
     [SerializeField] private EventReference UI_charSelectReaper;
     [SerializeField] private EventReference UI_charSelectTwinblade;
@@ -60,6 +64,22 @@ public class AudioManager : MonoBehaviour
     public void PlayStageSelect()
     {
         PlayOneShot(UI_onStageSelect, this.transform.position);
+    }
+    public void PlayVoiceCountdown_three()
+    {
+        PlayOneShot(UI_voiceCountdown_three, this.transform.position);
+    }
+    public void PlayVoiceCountdown_two()
+    {
+        PlayOneShot(UI_voiceCountdown_two, this.transform.position);
+    }
+    public void PlayVoiceCountdown_one()
+    {
+        PlayOneShot(UI_voiceCountdown_one, this.transform.position);
+    }
+    public void PlayVoiceCountdown_start()
+    {
+        PlayOneShot(UI_voiceCountdown_start, this.transform.position);
     }
     public void PlayCharSelectSword()
     {
