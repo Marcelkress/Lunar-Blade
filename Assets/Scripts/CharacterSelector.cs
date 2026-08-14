@@ -30,7 +30,6 @@ public class CharacterSelectionManager : MonoBehaviour
 
     private PlayerInput[] selectors;
     private int[] selections; // = new int[] { -1, -1 };       // chosen character index per player
-    private int readyCount = 0;
     private bool allPlayersReady;
 
     private int lifeCount;
@@ -84,14 +83,12 @@ public class CharacterSelectionManager : MonoBehaviour
         pressToJoinText.SetActive(true);
         selections = new int[playerCount];
         Array.Fill(selections, -1);
-        readyCount = 0;
         selectors = new PlayerInput[playerCount];
     }
 
     public void Reset()
     {
         allPlayersReady = false;
-        readyCount = 0;
         
         selections = new int[playerCount];
         Array.Fill(selections, -1);
@@ -136,7 +133,6 @@ public class CharacterSelectionManager : MonoBehaviour
             return;
 
         selections[playerIndex] = characterIndex;
-        readyCount++;
 
         // Debug.Log($"playerCount={playerCount}, selections=[{string.Join(",", selections)}]");
         
@@ -172,7 +168,6 @@ public class CharacterSelectionManager : MonoBehaviour
     public void OnCharacterDeselected(int playerIndex)
     {
         selections[playerIndex] = -1;
-        readyCount--;
         allPlayersReady = false;
         countdownPanel.StopCountdown();
     }

@@ -101,11 +101,38 @@ public class PlayerSelector : MonoBehaviour
         }
     }
 
+    private readonly int bitmanRequiredPresses = 15;
+    private int currentPresses = 0;
+    private bool selectionLocked = false;
+
+    public void OnBITMANCHEAT(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            currentPresses++;
+            Debug.Log(currentPresses);
+            
+            if (currentPresses >= bitmanRequiredPresses)
+            {
+                CharacterSelectionManager.Instance.OnCharacterDeselected(playerIndex);
+                selected = false;
+                // UpdateUI();
+                Debug.Log("CHOSEN BITMAN NO WAY BACK");
+                characterIndex = 4;
+                selectionLocked = true;
+                selected = true;
+                CharacterSelectionManager.Instance.OnCharacterSelect(playerIndex, characterIndex);
+                AudioManager.instance.PlayStageSelect();
+            }
+        }
+    }
+
     public void OnSelect(InputValue value)
     {
         if (value.isPressed)
         {
-//            Debug.Log($"OnSelect fired for playerIndex={playerIndex}, characterIndex={characterIndex}");
+            // Debug.Log($"OnSelect fired for playerIndex={playerIndex}, characterIndex={characterIndex}");
+            
             CharacterSelectionManager.Instance.OnCharacterSelect(playerIndex, characterIndex);
             selected = true;
             UpdateUI();
@@ -114,6 +141,9 @@ public class PlayerSelector : MonoBehaviour
 
     public void OnDeselect(InputValue value)
     {
+        if (selectionLocked)
+            return;
+        
         if (!value.isPressed) 
             return;
     
