@@ -130,7 +130,7 @@ public class AudioAnimEvents : MonoBehaviour
     }
     private void BitmanC()
     {
-        AudioManager.instance.PlayOneShot(bitmanC this.transform.position);
+        AudioManager.instance.PlayOneShot(bitmanC, this.transform.position);
     }
     private void BitmanS()
     {

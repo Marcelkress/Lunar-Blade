@@ -112,7 +112,7 @@ public class PlayerSelector : MonoBehaviour
             currentPresses++;
             Debug.Log(currentPresses);
             
-            if (currentPresses >= bitmanRequiredPresses)
+            if (currentPresses >= bitmanRequiredPresses && !selected && !selectionLocked)
             {
                 CharacterSelectionManager.Instance.OnCharacterDeselected(playerIndex);
                 selected = false;
