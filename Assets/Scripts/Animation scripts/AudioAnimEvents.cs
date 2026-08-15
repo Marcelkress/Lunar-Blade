@@ -42,6 +42,14 @@ public class AudioAnimEvents : MonoBehaviour
     [SerializeField] private EventReference bitmanB;
     [SerializeField] private EventReference bitmanC;
     [SerializeField] private EventReference bitmanS;
+
+    [SerializeField] private EventReference bitmanDash;
+
+    [SerializeField] private EventReference bitmanHurt;
+
+    [SerializeField] private EventReference bitmanDeath;
+
+    [SerializeField] private EventReference bitmanJump;
   
 
     
@@ -120,6 +128,8 @@ public class AudioAnimEvents : MonoBehaviour
     {
         AudioManager.instance.PlayOneShot(playerDeflect, this.transform.position);
     }
+
+    //-----------------------BITMAN----------------------------------------------------------//
     private void BitmanA()
     {
         AudioManager.instance.PlayOneShot(bitmanA, this.transform.position);
@@ -136,6 +146,23 @@ public class AudioAnimEvents : MonoBehaviour
     {
         AudioManager.instance.PlayOneShot(bitmanS, this.transform.position);
     }
+    private void BitmanDash()
+    {
+        AudioManager.instance.PlayOneShot(bitmanDash, this.transform.position);
+    }
+    private void BitmanHurt()
+    {
+        AudioManager.instance.PlayOneShot(bitmanHurt, this.transform.position);
+    }
+    private void BitmanDeath()
+    {
+        AudioManager.instance.PlayOneShot(bitmanDeath, this.transform.position);
+    }
+    private void BitmanJump()
+    {
+        AudioManager.instance.PlayOneShot(bitmanJump, this.transform.position);
+    }
+
     private void PlayerAttack_01()
     {
         AudioManager.instance.PlayOneShot(playerAttack_01, this.transform.position);

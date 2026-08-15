@@ -499,7 +499,19 @@ MonoBehaviour:
   canDash: 0
   jumpPerformedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6567310618093445571}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   doubleJumpPerformedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1626,18 +1638,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioAnimEvents
   playerJump:
     Guid:
-      Data1: -1226168983
-      Data2: 1205064531
-      Data3: 612037790
-      Data4: -1802388586
-    Path: event:/Movement/2DEvent_player_jump_01
+      Data1: -1511803372
+      Data2: 1335207528
+      Data3: 998305715
+      Data4: 1643336846
+    Path: event:/Char/BITMAN/BITMAN_Jump
   playerDash:
     Guid:
-      Data1: -635969385
-      Data2: 1207741448
-      Data3: -215535486
-      Data4: -1252880350
-    Path: event:/Movement/Event_player_dash_01
+      Data1: -846261414
+      Data2: 1177486518
+      Data3: -685983838
+      Data4: -971848565
+    Path: event:/Char/BITMAN/BITMAN_Dash
   playerRun:
     Guid:
       Data1: -2072951488
@@ -1661,11 +1673,11 @@ MonoBehaviour:
     Path: event:/Char/General/sfx_deflecthit
   playerTakeHit:
     Guid:
-      Data1: 5899578
-      Data2: 1306603443
-      Data3: 247712939
-      Data4: 1611673927
-    Path: event:/Char/General/sfx_player_takeHit
+      Data1: -1977174068
+      Data2: 1285670141
+      Data3: 1300956817
+      Data4: -1911750746
+    Path: event:/Char/BITMAN/BITMAN_Hurt
   playerRespawn:
     Guid:
       Data1: -1251934288
@@ -1682,11 +1694,11 @@ MonoBehaviour:
     Path: event:/Char/General/Final Death/Event_sword_finalDeath
   axemanFinalDeath:
     Guid:
-      Data1: -2138272775
-      Data2: 1312348762
-      Data3: -51599715
-      Data4: 1119670570
-    Path: event:/Char/General/Final Death/Event_axeman_finalDeath
+      Data1: 1397824314
+      Data2: 1105041593
+      Data3: 145215104
+      Data4: -1206220382
+    Path: event:/Char/BITMAN/BITMAN_Death
   reaperFinalDeath:
     Guid:
       Data1: -295745425
@@ -1710,11 +1722,11 @@ MonoBehaviour:
     Path: event:/Char/Sword/Event_sword_death
   axemanDeath:
     Guid:
-      Data1: -710941727
-      Data2: 1310507535
-      Data3: 36176028
-      Data4: -1353478057
-    Path: event:/Char/Axeman/Event_axeman_death
+      Data1: 1397824314
+      Data2: 1105041593
+      Data3: 145215104
+      Data4: -1206220382
+    Path: event:/Char/BITMAN/BITMAN_Death
   reaperDeath:
     Guid:
       Data1: -1807788756
@@ -1883,6 +1895,34 @@ MonoBehaviour:
       Data3: 2066164663
       Data4: -1245764993
     Path: event:/Char/BITMAN/BITMAN_S
+  bitmanDash:
+    Guid:
+      Data1: -846261414
+      Data2: 1177486518
+      Data3: -685983838
+      Data4: -971848565
+    Path: event:/Char/BITMAN/BITMAN_Dash
+  bitmanHurt:
+    Guid:
+      Data1: -1977174068
+      Data2: 1285670141
+      Data3: 1300956817
+      Data4: -1911750746
+    Path: event:/Char/BITMAN/BITMAN_Hurt
+  bitmanDeath:
+    Guid:
+      Data1: 1397824314
+      Data2: 1105041593
+      Data3: 145215104
+      Data4: -1206220382
+    Path: event:/Char/BITMAN/BITMAN_Death
+  bitmanJump:
+    Guid:
+      Data1: -1511803372
+      Data2: 1335207528
+      Data3: 998305715
+      Data4: 1643336846
+    Path: event:/Char/BITMAN/BITMAN_Jump
 --- !u!1 &8311416097032640063
 GameObject:
   m_ObjectHideFlags: 0
