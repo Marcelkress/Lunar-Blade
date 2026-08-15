@@ -6,6 +6,7 @@ public class AnimEvents : MonoBehaviour
     [SerializeField] private Collider2D[] damageColliders;
     [SerializeField] private Collider2D healthCollider;
     
+    private PlayerHealth playerHealth;
     private CharacterMovement characterMovement;
     private AbilityChargeManager chargeManager;
     private CameraGroupTarget camGroupTarget;
@@ -17,6 +18,7 @@ public class AnimEvents : MonoBehaviour
         camGroupTarget = GetComponentInParent<CameraGroupTarget>();
         characterMovement = GetComponentInParent<CharacterMovement>();
         chargeManager = GetComponentInParent<AbilityChargeManager>();
+        playerHealth = healthCollider.GetComponent<PlayerHealth>();
     }
 
     #region Combat
@@ -57,6 +59,11 @@ public class AnimEvents : MonoBehaviour
     private void ConsumeCharge()
     {
         chargeManager.ConsumeCharge();
+    }
+
+    public void SpecialAttackUI()
+    {
+        SpecialAttackDisplay.instance.DisplayCharacter(playerHealth.characterIndex);
     }
     
     #endregion

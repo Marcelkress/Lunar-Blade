@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
     private bool invulnerable;
     private int maxLives;
     private int currentLives;
+    public int characterIndex;
     
     private DeflectAbility deflectAbility;
     private InputManager input;
@@ -35,7 +36,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
 
     private PlayerHealthBar UI;
     
-    public void Init(int _maxLives)
+    public void Init(int _maxLives, int _characterIndex)
     {
         maxLives = _maxLives;
         currentLives = maxLives;
@@ -43,6 +44,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
         maxHealth = stats.maxHealth;
         currentHealth = maxHealth;
         invulnerable = false;
+        characterIndex = _characterIndex;
         
         input = GetComponentInParent<InputManager>();
         movement = GetComponentInParent<CharacterMovement>();

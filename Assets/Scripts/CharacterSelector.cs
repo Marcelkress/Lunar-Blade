@@ -29,7 +29,7 @@ public class CharacterSelectionManager : MonoBehaviour
     public CountdownPanel countdownPanel;
 
     private PlayerInput[] selectors;
-    private int[] selections; // = new int[] { -1, -1 };       // chosen character index per player
+    private int[] selections; // chosen character index per player
     private bool allPlayersReady;
 
     private int lifeCount;
@@ -139,9 +139,11 @@ public class CharacterSelectionManager : MonoBehaviour
         if (AllSelected())
         {
             allPlayersReady = true;
-            StartCoroutine(WaitToSpawn());
+            waitingCoroutine = StartCoroutine(WaitToSpawn());
         }
     }
+    
+    private Coroutine waitingCoroutine;
 
     private bool AllSelected()
     {
@@ -160,6 +162,7 @@ public class CharacterSelectionManager : MonoBehaviour
 
         if (allPlayersReady)
         {
+            Debug.Log("Spawning players");
             SpawnSelectedCharacters();
             playerInputManager.DisableJoining();
         } 
@@ -170,6 +173,8 @@ public class CharacterSelectionManager : MonoBehaviour
         selections[playerIndex] = -1;
         allPlayersReady = false;
         countdownPanel.StopCountdown();
+        StopCoroutine(waitingCoroutine);
+        waitingCoroutine = null;
     }
 
     private void SpawnSelectedCharacters()
@@ -214,7 +219,7 @@ public class CharacterSelectionManager : MonoBehaviour
 
             fighter.transform.position = spawnPoints[i].position;
             PlayerHealth health = fighter.GetComponentInChildren<PlayerHealth>();
-            health.Init(lifeCount);
+            health.Init(lifeCount, selections[i]);
             MatchManager.instance.StartingMatch(playerCount, health, i);
         }
     }

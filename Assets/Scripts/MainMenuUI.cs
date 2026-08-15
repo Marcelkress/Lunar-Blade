@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using DG.Tweening;
 using Unity.VisualScripting;
@@ -31,6 +32,11 @@ public class MainMenuUI : MonoBehaviour
     void Start()
     {
         inputModule.cancel.action.performed += Back;
+    }
+
+    private void OnDestroy()
+    {
+        inputModule.cancel.action.performed -= Back;
     }
 
     private void Back(InputAction.CallbackContext ctx)
