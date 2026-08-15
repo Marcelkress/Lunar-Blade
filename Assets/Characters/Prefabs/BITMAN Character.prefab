@@ -130,7 +130,7 @@ Transform:
   m_GameObject: {fileID: 1935369727869101732}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.018929, y: -2.27, z: 0}
+  m_LocalPosition: {x: -0.018929, y: 0.93, z: 0}
   m_LocalScale: {x: 0.21334, y: 0.10933675, z: 0.21334}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -726,6 +726,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 802f2172-af43-4d90-b2a7-c29d9deb464b
     m_ActionName: UI/BITMANCHEAT
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a1c018f6-ac49-4057-b564-bd6836c6b644
+    m_ActionName: Player/TEST
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

@@ -450,6 +450,19 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9fafe3f1-9622-4496-a47a-1c8d6c72160a
     m_ActionName: 'Player/Deflect[/DualSenseGamepadHID/leftTrigger,/DualShock4GamepadHID/leftTrigger,/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 39779591-052d-43ff-b7d8-0f5edac61fa1
+    m_ActionName: 'UI/Back[/DualShock4GamepadHID/buttonEast]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 802f2172-af43-4d90-b2a7-c29d9deb464b
+    m_ActionName: 'UI/BITMANCHEAT[/DualShock4GamepadHID/buttonNorth,/Akishop Customs
+      PS360+ v1.00/button2,/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a1c018f6-ac49-4057-b564-bd6836c6b644
+    m_ActionName: Player/TEST
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -467,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1494e841074a43159463219e2177546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimatorManager
+  health: {fileID: 0}
 --- !u!114 &1393691537619755315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1209,6 +1223,7 @@ MonoBehaviour:
   - {fileID: 6994228971758958139}
   - {fileID: 7355273481899833463}
   healthCollider: {fileID: 1470823614899904768}
+  camSettings: {fileID: 0}
 --- !u!114 &205134474628109238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,6 +1467,34 @@ MonoBehaviour:
       Data3: 1042088321
       Data4: 249670401
     Path: event:/Char/Axeman/axemanSpecialAttack
+  bitmanA:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  bitmanB:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  bitmanC:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  bitmanS:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!96 &6175503890569579487
 TrailRenderer:
   serializedVersion: 4
@@ -1658,7 +1701,6 @@ MonoBehaviour:
   characterIcon: {fileID: 4723107735738678597, guid: 8e4ffc5dd13de4334b4ca7ed4525276c, type: 3}
   fadeBounceTime: 0.2
   fadeAlphaVal: 0.2
-  healthBar: {fileID: 6892664336840044592, guid: 9f844fa7a7ab94dcd8eff572dde6ea4b, type: 3}
   spriteRenderer: {fileID: 2257215298391813281}
   UIEvent:
     m_PersistentCalls:

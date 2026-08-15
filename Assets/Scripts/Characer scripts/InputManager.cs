@@ -78,7 +78,7 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-       SpecialAttackBuffer();
+       //SpecialAttackBuffer();
     }
 
     public void LockInput(bool lockInput)
@@ -203,15 +203,32 @@ public class InputManager : MonoBehaviour
     }
     
     public void OnSpecialAttackBindingOne(InputAction.CallbackContext context)
-    {if(!canReceiveInput)
+    {
+        /*
+        if(!canReceiveInput)
             return;
         if (context.performed)
         {
             specialOneWasPressed = true;
             specialOneTimer = 0;
         }
+        */
+
+        if(!canReceiveInput)
+            return;
+
+        if (context.performed && abilityChargeManager.hasCharge)
+        {
+            specialAttackPressed = true;
+        }
+        else if(context.canceled)
+        {
+            specialAttackPressed = false;
+        }
+        StartCoroutine(ResetNextFrame(() => specialAttackPressed = false));
     }
 
+    /*
     public void OnSpecialAttackBindingTwo(InputAction.CallbackContext context)
     {if(!canReceiveInput)
             return;
@@ -245,7 +262,7 @@ public class InputManager : MonoBehaviour
 
         if (specialOneWasPressed && specialTwoWasPressed)
         {
-            if (abilityChargeManager.hasCharge)
+            if (abilityChargeManager.hasCharge) 
             {
                 specialAttackPressed = true;
                 StartCoroutine(ResetNextFrame(() => specialAttackPressed = false));
@@ -254,6 +271,7 @@ public class InputManager : MonoBehaviour
             }
         }
     }
+    */
     
     public void OnDeflect (InputAction.CallbackContext context)
     {

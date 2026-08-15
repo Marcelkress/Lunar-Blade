@@ -15,9 +15,9 @@ MonoBehaviour:
   maxWalkSpeed: 8
   groundAcceleration: 10
   groundDeceleration: 9.8
-  airAcceleration: 12.2
-  airControlTime: 0.748
-  maxRunSpeed: 32
+  airAcceleration: 5
+  airControlTime: 0.88
+  maxRunSpeed: 16.1
   onlyRunning: 1
   groundLayer:
     serializedVersion: 2
@@ -37,22 +37,22 @@ MonoBehaviour:
   ApexHangTime: 0.01
   JumpBufferTime: 0.125
   JumpCoyoteTime: 0.1
-  dashSpeed: 41
+  dashSpeed: 9
   dashDuration: 0.2
   betweenDashInterval: 0.07
-  dashAcceleration: 46
-  maxHealth: 50
+  dashAcceleration: 20
+  maxHealth: 30
   maxLives: 4
   respawnWaitTime: 2
   specialAttackInputBuffer: 0.3
   attackInputBuffer: 0.802
-  attackOneDmg: 13
-  attackTwoDmg: 12
-  attackThreeDmg: 12
-  specialAttackDmg: 113
+  attackOneDmg: 5
+  attackTwoDmg: 7
+  attackThreeDmg: 10
+  specialAttackDmg: 15
   invulnerabilityTimeAfterHit: 0.01
   attackDecelerationMultiplier: 12
   requiredHitsToCharge: 1
   deflectDamage: 8
-  deflectTime: 0.8
-  deflectCoolDownTime: 0.2
+  deflectTime: 0.431
+  deflectCoolDownTime: 0.587
