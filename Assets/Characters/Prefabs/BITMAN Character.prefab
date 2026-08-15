@@ -722,6 +722,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 39779591-052d-43ff-b7d8-0f5edac61fa1
     m_ActionName: 'UI/Back[/XInputControllerWindows/buttonEast]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 802f2172-af43-4d90-b2a7-c29d9deb464b
+    m_ActionName: UI/BITMANCHEAT
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1847,6 +1851,34 @@ MonoBehaviour:
       Data3: 1042088321
       Data4: 249670401
     Path: event:/Char/Axeman/axemanSpecialAttack
+  bitmanA:
+    Guid:
+      Data1: -1040178989
+      Data2: 1201363129
+      Data3: -1350036076
+      Data4: 1752299603
+    Path: event:/Char/BITMAN/BITMAN_A
+  bitmanB:
+    Guid:
+      Data1: 1973936848
+      Data2: 1299340712
+      Data3: 1411598495
+      Data4: -620891613
+    Path: event:/Char/BITMAN/BITMAN_B
+  bitmanC:
+    Guid:
+      Data1: -1490145069
+      Data2: 1102504940
+      Data3: 1939959474
+      Data4: 236148212
+    Path: event:/Char/BITMAN/BITMAN_C
+  bitmanS:
+    Guid:
+      Data1: -1854444416
+      Data2: 1149057741
+      Data3: 2066164663
+      Data4: -1245764993
+    Path: event:/Char/BITMAN/BITMAN_S
 --- !u!1 &8311416097032640063
 GameObject:
   m_ObjectHideFlags: 0
