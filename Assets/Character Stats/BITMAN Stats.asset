@@ -17,7 +17,7 @@ MonoBehaviour:
   groundDeceleration: 9.8
   airAcceleration: 5
   airControlTime: 0.88
-  maxRunSpeed: 16.1
+  maxRunSpeed: 15.6
   onlyRunning: 1
   groundLayer:
     serializedVersion: 2
@@ -37,8 +37,8 @@ MonoBehaviour:
   ApexHangTime: 0.01
   JumpBufferTime: 0.125
   JumpCoyoteTime: 0.1
-  dashSpeed: 9
-  dashDuration: 0.2
+  dashSpeed: 30
+  dashDuration: 0.1
   betweenDashInterval: 0.07
   dashAcceleration: 20
   maxHealth: 30

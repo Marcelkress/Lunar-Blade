@@ -41,6 +41,7 @@ public class OrbChargerThing : MonoBehaviour, IHittable
         if (canBeHit &&!specialAttack)
         {
             hitCount++;
+            AudioManager.instance.PlayButtonOnClickedFailure();
             anim.SetTrigger("Hit");
 
             if (hitCount >= maxHits)

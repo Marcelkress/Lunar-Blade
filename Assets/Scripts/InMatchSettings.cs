@@ -9,6 +9,11 @@ public class InMatchSettings : MonoBehaviour
     
     public void OnEnter()
     {
+        if (AudioValues.instance == null)
+        {
+            AudioValues.instance = new();
+        }
+        
         musicSlider.value = AudioValues.instance.musicVol;
         characterSlider.value = AudioValues.instance.CharVol;
         ambientSlider.value = AudioValues.instance.ambienceVol;
