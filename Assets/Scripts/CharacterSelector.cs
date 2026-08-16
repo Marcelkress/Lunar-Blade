@@ -173,7 +173,10 @@ public class CharacterSelectionManager : MonoBehaviour
         selections[playerIndex] = -1;
         allPlayersReady = false;
         countdownPanel.StopCountdown();
-        StopCoroutine(waitingCoroutine);
+        
+        if(waitingCoroutine != null)
+            StopCoroutine(waitingCoroutine);
+        
         waitingCoroutine = null;
     }
 

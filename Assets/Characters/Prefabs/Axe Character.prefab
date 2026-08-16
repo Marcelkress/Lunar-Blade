@@ -463,6 +463,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a1c018f6-ac49-4057-b564-bd6836c6b644
     m_ActionName: Player/TEST
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8b51aaf5-c65f-42f3-96d3-079d0cd8d7db
+    m_ActionName: Player/Settings
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1495,6 +1499,34 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  bitmanDash:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  bitmanHurt:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  bitmanDeath:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  bitmanJump:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!96 &6175503890569579487
 TrailRenderer:
   serializedVersion: 4
@@ -1795,6 +1827,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  characterIndex: 0
 --- !u!114 &441742042195630330
 MonoBehaviour:
   m_ObjectHideFlags: 0

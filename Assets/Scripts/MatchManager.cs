@@ -16,6 +16,7 @@ public class MatchManager : MonoBehaviour
     public RectTransform playerCountPanel;
     public RectTransform winPanel;
     public RectTransform characterSelectionPanel;
+    public RectTransform settingsPanel;
     public float animationDuration = 0.5f;
 
     [Header("UI References")] public GameObject masterCanvas;
@@ -27,13 +28,15 @@ public class MatchManager : MonoBehaviour
     [Header("First selected buttons")]
     public GameObject lifeCountButton;
     public GameObject playerCountButton;
+    public GameObject settingsButton;
     
     [Header("UI Panel Positions")] 
     public RectTransform mainPosition;
-    public RectTransform rightPosition, leftPosition;
+    public RectTransform rightPosition, leftPosition, bottomPosition;
     
     [Header("References")] 
     public CharacterSelectionManager characterSelectionManager;
+    public InMatchSettings inMatchSettings;
     
     [Header("Match settings")]public MatchSettings matchSettings;
     
@@ -50,6 +53,7 @@ public class MatchManager : MonoBehaviour
     private int lifeCount;
     
     private PlayerHealth[] players;
+    private PlayerInput[] playerInputs;
     private int deadPlayerCount;
     
     public static MatchManager instance;
@@ -126,10 +130,51 @@ public class MatchManager : MonoBehaviour
         if(players == null)
             players = new PlayerHealth[playerCount];
         
+        if(playerInputs == null)
+            playerInputs = new PlayerInput[playerCount];
+        
         players[i] = player;
+        playerInputs[i] = player.GetComponentInParent<PlayerInput>();
         player.PermadeathEvent.AddListener(WinCheck);
         DoPanelPosition(characterSelectionPanel, leftPosition);
         tintImage.enabled = false;
+
+        playerInputs[i].actions["Settings"].performed += OpenSettings;
+        playerInputs[i].actions["Back"].performed += CloseSettings;
+    }
+    
+    private void OpenSettings(InputAction.CallbackContext context)
+    {
+        inMatchSettings.OnEnter();
+        foreach (var player in players)
+        {
+            player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("UI");
+        }
+        
+        DoPanelPosition(settingsPanel, mainPosition);
+        EventSystem.current.SetSelectedGameObject(settingsButton);
+    }
+
+    public void CloseSettingsButton()
+    {
+        foreach (var player in players)
+        {
+            player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("Player");
+        }
+        
+        DoPanelPosition(settingsPanel, bottomPosition);
+        EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    private void CloseSettings(InputAction.CallbackContext context)
+    {
+        foreach (var player in players)
+        {
+            player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("Player");
+        }
+        
+        DoPanelPosition(settingsPanel, bottomPosition);
+        EventSystem.current.SetSelectedGameObject(null);
     }
     
     private void WinCheck()
