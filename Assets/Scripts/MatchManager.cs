@@ -145,6 +145,9 @@ public class MatchManager : MonoBehaviour
     
     private void OpenSettings(InputAction.CallbackContext context)
     {
+        if (players == null)
+            return;
+        
         inMatchSettings.OnEnter();
         foreach (var player in players)
         {
@@ -168,6 +171,9 @@ public class MatchManager : MonoBehaviour
 
     private void CloseSettings(InputAction.CallbackContext context)
     {
+        if (playerInputs == null)
+            return;
+        
         foreach (var player in players)
         {
             player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("Player");
