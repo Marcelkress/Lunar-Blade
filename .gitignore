@@ -106,4 +106,6 @@ fmod_editor.log
 # FMOD 1.10.x (Legacy)
 /Assets/FMODAssets/*
 /Assets/FMODStudioCache.meta
-Assets/Font/megamax-jonathan-too-font/MegamaxJonathanToo-YqOq2 SDF.asset
+
+# Other
+/Assets/Font/megamax-jonathan-too-font/MegamaxJonathanToo-YqOq2 SDF.asset
