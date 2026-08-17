@@ -13,7 +13,11 @@ public class MusicManager : MonoBehaviour
     //[EventRef]
     //[SerializeField] EventReference Track_01;
     //[SerializeField] EventInstance Track_01;
-    public string musicEventPath = "event:/Music/Track_01";
+    
+    [SerializeField] private EventReference mainMenuMusic;
+    [SerializeField] private EventReference cavesMusic;
+    [SerializeField] private EventReference forestMusic;
+    
     private EventInstance musicInstance;
 
     private void Awake()
@@ -26,6 +30,7 @@ public class MusicManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
         DontDestroyOnLoad(gameObject);
     }
 
@@ -34,7 +39,7 @@ public class MusicManager : MonoBehaviour
         if (alreadyPlaying)
             return;
 
-        musicInstance = RuntimeManager.CreateInstance(musicEventPath);
+        musicInstance = RuntimeManager.CreateInstance(mainMenuMusic);
 
         musicInstance.start();
         //AudioManager.instance.PlayOneShot(Track_01);
