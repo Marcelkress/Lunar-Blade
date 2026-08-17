@@ -283,6 +283,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  characterIndex: 0
 --- !u!114 &731357987045545771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1747,98 +1748,98 @@ MonoBehaviour:
       Data2: 1086342507
       Data3: 194375083
       Data4: -1576558277
-    Path: event:/Attack/Event_player_attack_01
+    Path: event:/Char/Sword/Event_player_attack_01
   playerAttack_02:
     Guid:
       Data1: -441556126
       Data2: 1227516093
       Data3: 311354776
       Data4: 250196057
-    Path: event:/Attack/Event_player_attack_02
+    Path: event:/Char/Sword/Event_player_attack_02
   playerAttack_03:
     Guid:
       Data1: 940410459
       Data2: 1265306100
       Data3: 557563274
       Data4: -716133016
-    Path: event:/Attack/Event_player_attack_03
+    Path: event:/Char/Sword/Event_player_attack_03
   playerAttack_04:
     Guid:
       Data1: 713555286
       Data2: 1167505775
       Data3: 336113282
       Data4: -1955049106
-    Path: event:/Attack/Event_player_attack_04
+    Path: event:/Char/Sword/Event_player_attack_04
   reaperLightAttack:
     Guid:
       Data1: -1387436769
       Data2: 1267667140
       Data3: 590164662
       Data4: 165618368
-    Path: event:/Attack/Reaper/reaperLightAttack
+    Path: event:/Char/Reaper/reaperLightAttack
   reaperDoubleAttack:
     Guid:
       Data1: -1561555773
       Data2: 1074883171
       Data3: 2020644495
       Data4: -736776018
-    Path: event:/Attack/Reaper/reaperDoubleAttack
+    Path: event:/Char/Reaper/reaperDoubleAttack
   reaperSurpriseAttackEnter:
     Guid:
       Data1: 477921361
       Data2: 1267543355
       Data3: 256665739
       Data4: 1777192282
-    Path: event:/Attack/Reaper/reaperSurpriseAttackEnter
+    Path: event:/Char/Reaper/reaperSurpriseAttackEnter
   reaperSurpriseAttackExit:
     Guid:
       Data1: 540820989
       Data2: 1218183463
       Data3: -67777403
       Data4: -1999296644
-    Path: event:/Attack/Reaper/reaperSurpriseAttackExit
+    Path: event:/Char/Reaper/reaperSurpriseAttackExit
   reaperSpecialAttack:
     Guid:
       Data1: 1743301800
       Data2: 1187198783
       Data3: -711391092
       Data4: 770471772
-    Path: event:/Attack/Reaper/reaperSpecialAttack
+    Path: event:/Char/Reaper/reaperSpecialAttack
   twinbladeLightAttack:
     Guid:
       Data1: -132958187
       Data2: 1160577071
       Data3: -147804282
       Data4: 1521868096
-    Path: event:/Attack/Twinblade/twinbladeLightAttack
+    Path: event:/Char/Twinblade/twinbladeLightAttack
   twinbladeDoubleAttack:
     Guid:
       Data1: 1505420783
       Data2: 1261010047
       Data3: 156617875
       Data4: 1118248981
-    Path: event:/Attack/Twinblade/twinbladeDoubleAttack
+    Path: event:/Char/Twinblade/twinbladeDoubleAttack
   twinbladeSmokeAttackIn:
     Guid:
       Data1: 961860209
       Data2: 1291336489
       Data3: 1861811110
       Data4: 553195311
-    Path: event:/Attack/Twinblade/twinbladeSmokeAttackIn
+    Path: event:/Char/Twinblade/twinbladeSmokeAttackIn
   twinbladeSmokeAttackOut:
     Guid:
       Data1: -1240866657
       Data2: 1159024820
       Data3: 1811652780
       Data4: 1687192773
-    Path: event:/Attack/Twinblade/twinbladeSmokeAttackOut
+    Path: event:/Char/Twinblade/twinbladeSmokeAttackOut
   twinbladeSpecialAttack:
     Guid:
       Data1: -1272909390
       Data2: 1167185881
       Data3: -935296075
       Data4: 1387339656
-    Path: event:/Attack/Twinblade/twinbladeSpecialAttack
+    Path: event:/Char/Twinblade/twinbladeSpecialAttack
   axemanLightAttack:
     Guid:
       Data1: 186631690

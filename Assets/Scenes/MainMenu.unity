@@ -4030,11 +4030,11 @@ MonoBehaviour:
     Path: event:/UI/sfx_ui_selectionUtility
   UI_onCharSelectEnter:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -697873113
+      Data2: 1277558204
+      Data3: 1452212643
+      Data4: -1862462045
+    Path: event:/UI/sfx_ui_menuSceneStart
   UI_voiceCountdown_three:
     Guid:
       Data1: -296005063
@@ -4103,7 +4103,8 @@ Transform:
   m_LocalPosition: {x: 7.19721, y: 6.78591, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1530264903}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1054462839
@@ -4118,6 +4119,7 @@ GameObject:
   - component: {fileID: 1054462841}
   - component: {fileID: 1054462840}
   - component: {fileID: 1054462843}
+  - component: {fileID: 1054462844}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4243,6 +4245,20 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1054462844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054462839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &1058165828
 GameObject:
   m_ObjectHideFlags: 0
@@ -6418,12 +6434,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530264901}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.45406, y: -0.15938, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.256849, y: -6.94529, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1052611271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1573753724
 GameObject:
@@ -11265,5 +11281,4 @@ SceneRoots:
   - {fileID: 1504201306}
   - {fileID: 1439334087}
   - {fileID: 6633709918347030364}
-  - {fileID: 1530264903}
   - {fileID: 1052611271}
