@@ -71,6 +71,8 @@ public class MatchManager : MonoBehaviour
         masterCanvas.SetActive(true);
         ArenaLoader.instance.LoadArena(ArenaLoader.Arenas.Caves);
         
+        
+        
         uiModule = EventSystem.current.GetComponent<InputSystemUIInputModule>();
         uiActionsInstance = Instantiate(uiActionsTemplate); 
         uiModule.actionsAsset = uiActionsInstance;
@@ -237,6 +239,9 @@ public class MatchManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        if(MusicManager.instance != null)
+            MusicManager.instance.SceneLoaded("MainMenu");
+        
         SceneManager.LoadScene("MainMenu");
         ArenaLoader.instance.UnLoadArena();
     }

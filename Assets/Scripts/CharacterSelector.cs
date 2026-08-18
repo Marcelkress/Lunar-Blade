@@ -162,7 +162,7 @@ public class CharacterSelectionManager : MonoBehaviour
 
         if (allPlayersReady)
         {
-            Debug.Log("Spawning players");
+            //Debug.Log("Spawning players");
             SpawnSelectedCharacters();
             playerInputManager.DisableJoining();
         } 
