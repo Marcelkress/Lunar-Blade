@@ -78,11 +78,13 @@ public class MainMenuUI : MonoBehaviour
 
     public void LoadCavesArena()
     {
+        MusicManager.instance.SceneLoaded("Caves");
         ArenaLoader.instance.LoadArena(ArenaLoader.Arenas.Caves);
     }
     
     public void LoadForestArena()
     {
+        MusicManager.instance.SceneLoaded("Forest");
         ArenaLoader.instance.LoadArena(ArenaLoader.Arenas.Forest);
     }
 

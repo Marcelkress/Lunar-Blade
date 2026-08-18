@@ -3,23 +3,21 @@ using UnityEngine;
 using FMODUnity;
 using FMOD;
 using FMOD.Studio;
+using UnityEngine.SceneManagement;
+using Debug = FMOD.Debug;
 
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
 
     private static bool alreadyPlaying = false;
-
-    //[EventRef]
-    //[SerializeField] EventReference Track_01;
-    //[SerializeField] EventInstance Track_01;
     
     [SerializeField] private EventReference mainMenuMusic;
     [SerializeField] private EventReference cavesMusic;
     [SerializeField] private EventReference forestMusic;
     
     private EventInstance musicInstance;
-
+    
     private void Awake()
     {
         if (instance == null)
@@ -33,23 +31,41 @@ public class MusicManager : MonoBehaviour
         
         DontDestroyOnLoad(gameObject);
     }
-
+    
     void Start()
     {
         if (alreadyPlaying)
             return;
 
         musicInstance = RuntimeManager.CreateInstance(mainMenuMusic);
-
         musicInstance.start();
-        //AudioManager.instance.PlayOneShot(Track_01);
+        
+        // musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         alreadyPlaying = true;
     }
 
+    public void SceneLoaded(string sceneName)
+    {
+        switch (sceneName)
+        {
+            case "MainMenu":
+                UnityEngine.Debug.Log("Main menu music");
+                // FMOD TING HER
+                break;
+            case "Caves":
+                UnityEngine.Debug.Log("Caves music");
+                // FMOD TING HER
+                break;
+            case "Forest":
+                UnityEngine.Debug.Log("Forest music");
+                //FMOD TING HER
+                break;
+        }
+    }
+
     void OnDestroy()
     {
-        //Track_01.release();
         musicInstance.release();
     }
 }

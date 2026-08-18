@@ -37,8 +37,8 @@ MonoBehaviour:
   ApexHangTime: 0.01
   JumpBufferTime: 0.125
   JumpCoyoteTime: 0.1
-  dashSpeed: 15
-  dashDuration: 0.2
+  dashSpeed: 20.1
+  dashDuration: 0.15
   betweenDashInterval: 0.28
   dashAcceleration: 90
   maxHealth: 25
@@ -50,9 +50,9 @@ MonoBehaviour:
   attackTwoDmg: 3
   attackThreeDmg: 3
   specialAttackDmg: 8
-  takeHitStaggerTime: 0.2
   invulnerabilityTimeAfterHit: 0.01
   attackDecelerationMultiplier: 12
   requiredHitsToCharge: 3
+  deflectDamage: 2
   deflectTime: 0.4
   deflectCoolDownTime: 0.8
