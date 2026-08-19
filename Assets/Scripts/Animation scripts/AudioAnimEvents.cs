@@ -167,7 +167,6 @@ public class AudioAnimEvents : MonoBehaviour
     {
         AudioManager.instance.PlayOneShot(playerAttack_01, this.transform.position);
     }
-    
     private void PlayerAttack_02()
     {
         AudioManager.instance.PlayOneShot(playerAttack_02, this.transform.position);
