@@ -1591,6 +1591,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9fafe3f1-9622-4496-a47a-1c8d6c72160a
     m_ActionName: 'Player/Deflect[/DualSenseGamepadHID/leftTrigger,/DualShock4GamepadHID/leftTrigger,/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a1c018f6-ac49-4057-b564-bd6836c6b644
+    m_ActionName: Player/TEST
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8b51aaf5-c65f-42f3-96d3-079d0cd8d7db
+    m_ActionName: 'Player/Settings[/DualShock4GamepadHID/start,/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 39779591-052d-43ff-b7d8-0f5edac61fa1
+    m_ActionName: 'UI/Back[/DualShock4GamepadHID/buttonEast,/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 802f2172-af43-4d90-b2a7-c29d9deb464b
+    m_ActionName: 'UI/BITMANCHEAT[/DualShock4GamepadHID/buttonNorth,/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
