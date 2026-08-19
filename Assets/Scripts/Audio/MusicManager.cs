@@ -5,6 +5,7 @@ using FMOD;
 using FMOD.Studio;
 using UnityEngine.SceneManagement;
 using Debug = FMOD.Debug;
+using FMODUnityResonance;
 
 public class MusicManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private EventReference forestMusic;
     
     private EventInstance musicInstance;
+    private float MenuLayer;
     
     private void Awake()
     {
@@ -68,6 +70,10 @@ public class MusicManager : MonoBehaviour
                 musicInstance.start();
                 break;
         }
+    }
+    public void MenuThemeLayers()
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_MenuMusicLayer", MenuLayer);
     }
 
     void OnDestroy()
