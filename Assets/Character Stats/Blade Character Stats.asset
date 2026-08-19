@@ -49,10 +49,10 @@ MonoBehaviour:
   attackOneDmg: 3
   attackTwoDmg: 3
   attackThreeDmg: 3
-  specialAttackDmg: 6
-  takeHitStaggerTime: 0.2
+  specialAttackDmg: 11
   invulnerabilityTimeAfterHit: 0.01
   attackDecelerationMultiplier: 12
   requiredHitsToCharge: 3
+  deflectDamage: 2
   deflectTime: 0.4
   deflectCoolDownTime: 0.8

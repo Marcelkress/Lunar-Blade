@@ -28,10 +28,16 @@ public class MainMenuUI : MonoBehaviour
 
     [Header("Animation")] 
     public float animationDuration;
+
+    [Header("Menu Music Layers")] 
+    public int mainLayer = 1;
+    public int settingsLayer = 2;
+    public int mapLayer = 3;
     
     void Start()
     {
         inputModule.cancel.action.performed += Back;
+        MusicManager.instance.SetMenuThemeLayer(mainLayer);
     }
 
     private void OnDestroy()
@@ -46,6 +52,7 @@ public class MainMenuUI : MonoBehaviour
     
     public void GoToMapPanel()
     {
+        MusicManager.instance.SetMenuThemeLayer(mapLayer);
         DoPanelPosition(mainPanel, leftPosition);
         DoPanelPosition(mapPanel, mainPosition);
         EventSystem.current.SetSelectedGameObject(mapFirstSelectedButton);
@@ -53,6 +60,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void GoToMainPanel()
     {
+        MusicManager.instance.SetMenuThemeLayer(mainLayer);
         DoPanelPosition(mainPanel, mainPosition);
         DoPanelPosition(mapPanel, rightPosition);
         DoPanelPosition(settingsPanel, rightPosition);
@@ -61,6 +69,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void GoToSettingsPanel()
     {
+        MusicManager.instance.SetMenuThemeLayer(settingsLayer);
         DoPanelPosition(settingsPanel, mainPosition);
         DoPanelPosition(mainPanel, leftPosition);
         EventSystem.current.SetSelectedGameObject(settingsFirstSelectedButton);
