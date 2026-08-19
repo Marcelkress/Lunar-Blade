@@ -71,9 +71,10 @@ public class MusicManager : MonoBehaviour
                 break;
         }
     }
-    public void MenuThemeLayers()
+    
+    public void SetMenuThemeLayer(int layer)
     {
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_MenuMusicLayer", MenuLayer);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Param_MenuMusicLayer", layer);
     }
 
     void OnDestroy()
