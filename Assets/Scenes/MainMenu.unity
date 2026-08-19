@@ -6489,18 +6489,18 @@ MonoBehaviour:
     Path: event:/Music/Track_01
   cavesMusic:
     Guid:
+      Data1: -2096717008
+      Data2: 1220097988
+      Data3: 1854525344
+      Data4: 1547253501
+    Path: event:/Music/Track_Caves
+  forestMusic:
+    Guid:
       Data1: -1721051587
       Data2: 1162527021
       Data3: -844442461
       Data4: -325336246
-    Path: event:/Music/Track_02
-  forestMusic:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+    Path: event:/Music/Track_Forest
 --- !u!4 &1530264903
 Transform:
   m_ObjectHideFlags: 0

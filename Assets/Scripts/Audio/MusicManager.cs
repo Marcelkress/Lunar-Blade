@@ -40,7 +40,7 @@ public class MusicManager : MonoBehaviour
         musicInstance = RuntimeManager.CreateInstance(mainMenuMusic);
         musicInstance.start();
         
-        // musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        //musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         alreadyPlaying = true;
     }
@@ -50,16 +50,22 @@ public class MusicManager : MonoBehaviour
         switch (sceneName)
         {
             case "MainMenu":
+                musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 UnityEngine.Debug.Log("Main menu music");
-                // FMOD TING HER
+                musicInstance = RuntimeManager.CreateInstance(mainMenuMusic);
+                musicInstance.start();
                 break;
             case "Caves":
+                musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 UnityEngine.Debug.Log("Caves music");
-                // FMOD TING HER
+                musicInstance = RuntimeManager.CreateInstance(cavesMusic);
+                musicInstance.start();
                 break;
             case "Forest":
+                musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 UnityEngine.Debug.Log("Forest music");
-                //FMOD TING HER
+                musicInstance = RuntimeManager.CreateInstance(forestMusic);
+                musicInstance.start();
                 break;
         }
     }
