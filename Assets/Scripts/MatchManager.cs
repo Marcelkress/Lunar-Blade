@@ -82,6 +82,7 @@ public class MatchManager : MonoBehaviour
     private void Start()
     {
         tintImage.enabled = true;
+        settingsOpen = false;
         DoPanelPosition(lifeCountPanel, mainPosition);
         EventSystem.current.SetSelectedGameObject(lifeCountButton);
         lifeCount = matchSettings.defaultMatchLives;
@@ -144,10 +145,12 @@ public class MatchManager : MonoBehaviour
         playerInputs[i].actions["Settings"].performed += OpenSettings;
         playerInputs[i].actions["Back"].performed += CloseSettings;
     }
+
+    private bool settingsOpen;
     
     private void OpenSettings(InputAction.CallbackContext context)
     {
-        if (players == null)
+        if (players == null || settingsOpen)
             return;
         
         inMatchSettings.OnEnter();
@@ -156,24 +159,29 @@ public class MatchManager : MonoBehaviour
             player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("UI");
         }
         
+        settingsOpen = true;
         DoPanelPosition(settingsPanel, mainPosition);
         EventSystem.current.SetSelectedGameObject(settingsButton);
     }
 
     public void CloseSettingsButton()
     {
+        if (settingsOpen == false)
+            return;
+        
         foreach (var player in players)
         {
             player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("Player");
         }
         
+        settingsOpen = false;
         DoPanelPosition(settingsPanel, bottomPosition);
         EventSystem.current.SetSelectedGameObject(null);
     }
 
     private void CloseSettings(InputAction.CallbackContext context)
     {
-        if (playerInputs == null)
+        if (playerInputs == null || !settingsOpen)
             return;
         
         foreach (var player in players)
