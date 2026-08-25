@@ -21,6 +21,8 @@ public class PlayerSelector : MonoBehaviour
     private bool canChange;
     private bool selected;
 
+    private int ignoreFirstInput;
+
     public void Init(int index)
     {
         canChange = true;
@@ -36,7 +38,9 @@ public class PlayerSelector : MonoBehaviour
 
     public void OnNavigate(InputValue value)
     {
-        if (selected)
+        ignoreFirstInput++;
+        
+        if (selected || ignoreFirstInput < 2)
             return;
         
         float y = value.Get<Vector2>().y;
@@ -129,6 +133,11 @@ public class PlayerSelector : MonoBehaviour
 
     public void OnSelect(InputValue value)
     {
+        ignoreFirstInput++;
+
+        if (ignoreFirstInput < 2)
+            return;
+        
         if (value.isPressed)
         {
             // Debug.Log($"OnSelect fired for playerIndex={playerIndex}, characterIndex={characterIndex}");
