@@ -16,6 +16,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private EventReference mainMenuMusic;
     [SerializeField] private EventReference cavesMusic;
     [SerializeField] private EventReference forestMusic;
+    [SerializeField] private EventReference BITMANMusic;
     
     private EventInstance musicInstance;
     private float MenuLayer;
@@ -67,6 +68,12 @@ public class MusicManager : MonoBehaviour
                 musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 UnityEngine.Debug.Log("Forest music");
                 musicInstance = RuntimeManager.CreateInstance(forestMusic);
+                musicInstance.start();
+                break;
+            case "BITMAN":
+                musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                UnityEngine.Debug.Log("BITMAN music");
+                musicInstance = RuntimeManager.CreateInstance(BITMANMusic);
                 musicInstance.start();
                 break;
         }

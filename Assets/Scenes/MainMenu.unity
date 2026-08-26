@@ -5949,7 +5949,7 @@ PrefabInstance:
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2088638459}
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -6501,6 +6501,13 @@ MonoBehaviour:
       Data3: -844442461
       Data4: -325336246
     Path: event:/Music/Track_Forest
+  BITMANMusic:
+    Guid:
+      Data1: -112659053
+      Data2: 1299166745
+      Data3: 1797319359
+      Data4: 370735750
+    Path: event:/Music/Track_BITMAN
 --- !u!4 &1530264903
 Transform:
   m_ObjectHideFlags: 0
@@ -10443,7 +10450,7 @@ PrefabInstance:
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 352970837}
+      objectReference: {fileID: 1382630981}
     - target: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
@@ -10566,6 +10573,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3065834202028117003, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
   m_PrefabInstance: {fileID: 2088638456}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2088638459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9162717189834644893, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
+  m_PrefabInstance: {fileID: 2088638456}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &2108459412
 GameObject:
   m_ObjectHideFlags: 0
@@ -11300,6 +11318,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 833151348911412102, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
+      propertyPath: BITDOMAINArena
+      value: 
+      objectReference: {fileID: 2525136380533650377, guid: 4f2eb16f885fd5e4d9a6db3f5bd44804, type: 3}
     - target: {fileID: 1813673065599675066, guid: 7366ce0fc586b410fa6bdcfc7a0d1efe, type: 3}
       propertyPath: m_ColliderPaths.Array.size
       value: 0

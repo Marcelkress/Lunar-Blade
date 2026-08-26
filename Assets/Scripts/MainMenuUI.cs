@@ -99,8 +99,8 @@ public class MainMenuUI : MonoBehaviour
 
     public void LoadBITDOMAINArena()
     {
-        MusicManager.instance.SceneLoaded("Caves");
-        ArenaLoader.instance.LoadArena(ArenaLoader.Arenas.Forest);
+        MusicManager.instance.SceneLoaded("BITDOMAIN");
+        ArenaLoader.instance.LoadArena(ArenaLoader.Arenas.BITDOMAIN);
     }
 
     public void Quit()
