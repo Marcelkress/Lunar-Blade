@@ -14,6 +14,8 @@ public class PlayerSelector : MonoBehaviour
     public TMP_Text[] selectedCharacterTexts;
     
     public TMP_Text playerID;
+
+    public GameObject bitmanSelectedText;
     
     public int playerIndex;
     private int characterIndex;
@@ -25,6 +27,7 @@ public class PlayerSelector : MonoBehaviour
 
     public void Init(int index)
     {
+        bitmanSelectedText.SetActive(false);
         canChange = true;
         transform.SetParent(CharacterSelectUI.instance.transform);
         playerIndex = index;
@@ -122,6 +125,7 @@ public class PlayerSelector : MonoBehaviour
                 selected = false;
                 // UpdateUI();
                 Debug.Log("CHOSEN BITMAN NO WAY BACK");
+                bitmanSelectedText.SetActive(true);
                 characterIndex = 4;
                 selectionLocked = true;
                 selected = true;
