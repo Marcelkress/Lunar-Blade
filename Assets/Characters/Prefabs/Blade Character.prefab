@@ -1365,6 +1365,7 @@ MonoBehaviour:
   moveStats: {fileID: 11400000, guid: 609077e73e9f04138a534a268ba5f0ea, type: 2}
   feetColl: {fileID: 5433645346539365506}
   bodyColl: {fileID: 4537153756499994232}
+  testvalues: {fileID: 11400000, guid: 336d3b6bbcd024ca5aeac0b2aed84da0, type: 2}
   moveVelocity: {x: 0, y: 0}
   canMove: 1
   isGrounded: 0

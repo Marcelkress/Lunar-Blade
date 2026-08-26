@@ -9,7 +9,7 @@ public class CharacterMovement : MonoBehaviour
     [Header("References")] 
     public CharacterStats moveStats;
     [SerializeField] private Collider2D feetColl, bodyColl;
-
+    
     private Rigidbody2D rb;
     private InputManager inputManager;
     

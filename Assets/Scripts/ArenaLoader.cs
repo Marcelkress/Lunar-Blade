@@ -52,14 +52,7 @@ public class ArenaLoader : MonoBehaviour
                 activeArena = forestArena;
                 break;
             case Arenas.BITDOMAIN:
-                if (BITDOMAINArena == null)
-                {
-                    activeArena = cavesArena;
-                }
-                else
-                {
-                    activeArena = BITDOMAINArena;
-                }
+                activeArena = BITDOMAINArena;
                 break;
             default:
                 activeArena = cavesArena;
