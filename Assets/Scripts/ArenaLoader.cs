@@ -3,7 +3,7 @@ using UnityEngine;
 public class ArenaLoader : MonoBehaviour
 {
     public float loadMapWaitTime;
-    public GameObject cavesArena, forestArena;
+    public GameObject cavesArena, forestArena, BITDOMAINArena;
     
     public static ArenaLoader instance;
 
@@ -11,6 +11,7 @@ public class ArenaLoader : MonoBehaviour
     {
         Caves,
         Forest,
+        BITDOMAIN
     }
 
     private bool arenaAlreadyLoaded;
@@ -50,6 +51,16 @@ public class ArenaLoader : MonoBehaviour
             case Arenas.Forest:
                 activeArena = forestArena;
                 break;
+            case Arenas.BITDOMAIN:
+                if (BITDOMAINArena == null)
+                {
+                    activeArena = cavesArena;
+                }
+                else
+                {
+                    activeArena = BITDOMAINArena;
+                }
+                break;
             default:
                 activeArena = cavesArena;
                 break;
@@ -59,8 +70,7 @@ public class ArenaLoader : MonoBehaviour
     }
 
     private void ActivateArena()
-    {
-        
+    {   
         activeArena.SetActive(true);
     }
     

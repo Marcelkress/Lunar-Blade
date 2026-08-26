@@ -14,6 +14,8 @@ public class PlayerSelector : MonoBehaviour
     public TMP_Text[] selectedCharacterTexts;
     
     public TMP_Text playerID;
+
+    public GameObject bitmanSelectedText;
     
     public int playerIndex;
     private int characterIndex;
@@ -21,8 +23,11 @@ public class PlayerSelector : MonoBehaviour
     private bool canChange;
     private bool selected;
 
+    private int ignoreFirstInput;
+
     public void Init(int index)
     {
+        bitmanSelectedText.SetActive(false);
         canChange = true;
         transform.SetParent(CharacterSelectUI.instance.transform);
         playerIndex = index;
@@ -36,7 +41,9 @@ public class PlayerSelector : MonoBehaviour
 
     public void OnNavigate(InputValue value)
     {
-        if (selected)
+        ignoreFirstInput++;
+        
+        if (selected || ignoreFirstInput < 2)
             return;
         
         float y = value.Get<Vector2>().y;
@@ -118,6 +125,7 @@ public class PlayerSelector : MonoBehaviour
                 selected = false;
                 // UpdateUI();
                 Debug.Log("CHOSEN BITMAN NO WAY BACK");
+                bitmanSelectedText.SetActive(true);
                 characterIndex = 4;
                 selectionLocked = true;
                 selected = true;
@@ -129,6 +137,11 @@ public class PlayerSelector : MonoBehaviour
 
     public void OnSelect(InputValue value)
     {
+        ignoreFirstInput++;
+
+        if (ignoreFirstInput < 2)
+            return;
+        
         if (value.isPressed)
         {
             // Debug.Log($"OnSelect fired for playerIndex={playerIndex}, characterIndex={characterIndex}");
