@@ -1,4 +1,5 @@
 using DG.Tweening;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,6 +20,8 @@ public class PlayerSelector : MonoBehaviour
     
     public int playerIndex;
     private int characterIndex;
+    
+    [SerializeField] private EventReference BITMANSelectSound;
 
     private bool canChange;
     private bool selected;
@@ -117,7 +120,7 @@ public class PlayerSelector : MonoBehaviour
         if (value.isPressed)
         {
             currentPresses++;
-            Debug.Log(currentPresses);
+            // Debug.Log(currentPresses);
             
             if (currentPresses >= bitmanRequiredPresses && !selected && !selectionLocked)
             {
@@ -130,7 +133,8 @@ public class PlayerSelector : MonoBehaviour
                 selectionLocked = true;
                 selected = true;
                 CharacterSelectionManager.Instance.OnCharacterSelect(playerIndex, characterIndex);
-                AudioManager.instance.PlayStageSelect();
+                
+                RuntimeManager.PlayOneShot(BITMANSelectSound, this.transform.position);
             }
         }
     }
