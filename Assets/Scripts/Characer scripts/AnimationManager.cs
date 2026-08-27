@@ -88,7 +88,7 @@ public class AnimationManager : MonoBehaviour
             count = true;
             timer = 0;
         }
-        else if (inputManager.specialAttackPressed && movement.isGrounded)
+        else if (inputManager.specialAttackPressed)
         { 
             //Debug.Log("Special attack");
             anim.SetTrigger("Enter Attack Tree"); 
@@ -115,6 +115,7 @@ public class AnimationManager : MonoBehaviour
                 anim.ResetTrigger("Attack One");
                 anim.ResetTrigger("Attack Two");
                 anim.ResetTrigger("Attack Three");
+                anim.ResetTrigger("Attack Special");
                 anim.ResetTrigger("Enter Attack Tree");
                 count = false;
             }
