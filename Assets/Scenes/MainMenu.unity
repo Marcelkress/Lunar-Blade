@@ -2440,7 +2440,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lunar Blade
+  m_text: 'Lunar Blades
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76663d2c0cf9f4c21a9113e29edd4a27, type: 2}
   m_sharedMaterial: {fileID: -677676348778018783, guid: 76663d2c0cf9f4c21a9113e29edd4a27, type: 2}

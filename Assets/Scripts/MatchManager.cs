@@ -158,7 +158,8 @@ public class MatchManager : MonoBehaviour
         {
             player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("UI");
         }
-        
+
+        tintImage.enabled = true;
         settingsOpen = true;
         DoPanelPosition(settingsPanel, mainPosition);
         EventSystem.current.SetSelectedGameObject(settingsButton);
@@ -174,6 +175,7 @@ public class MatchManager : MonoBehaviour
             player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("Player");
         }
         
+        tintImage.enabled = false;
         settingsOpen = false;
         DoPanelPosition(settingsPanel, bottomPosition);
         EventSystem.current.SetSelectedGameObject(null);
@@ -189,6 +191,7 @@ public class MatchManager : MonoBehaviour
             player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("Player");
         }
 
+        tintImage.enabled = false;
         settingsOpen = false;
         DoPanelPosition(settingsPanel, bottomPosition);
         EventSystem.current.SetSelectedGameObject(null);
