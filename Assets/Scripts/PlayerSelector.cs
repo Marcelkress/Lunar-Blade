@@ -38,8 +38,8 @@ public class PlayerSelector : MonoBehaviour
         playerID.text = "Player " + (playerIndex + 1).ToString();
         RectTransform rectTransform = transform.GetComponent<RectTransform>();
         rectTransform.localScale = Vector3.one;
-        
         characterCount = highlightedCharacterImages.Length - 1;
+        playSelectSound = true;
     }
 
     public void OnNavigate(InputValue value)
@@ -153,6 +153,7 @@ public class PlayerSelector : MonoBehaviour
             CharacterSelectionManager.Instance.OnCharacterSelect(playerIndex, characterIndex);
             selected = true;
             UpdateUI();
+            
         }
     }
 
@@ -165,26 +166,31 @@ public class PlayerSelector : MonoBehaviour
             return;
     
         if (!selected) 
-            return; 
-    
+            return;
+
+        playSelectSound = true;
         CharacterSelectionManager.Instance.OnCharacterDeselected(playerIndex);
         selected = false;
         UpdateUI();
     }
 
-
+    private bool playSelectSound;
 
     private void UpdateUI()
     {
-        if (selected)
+        if (selected && !selectionLocked)
         {
-            AudioManager.instance.PlayButtonOnClicked();
+            //AudioManager.instance.PlayButtonOnClicked();
             
             selectedCharacterTexts[characterIndex].enabled = true;
             highlightedCharacterImages[characterIndex].rectTransform
                 .DOShakeAnchorPos(0.2f, 50, 100, 90);
+
+            if (!playSelectSound)
+                return;
+
+            playSelectSound = false;
             
-            // play sound based on character
             switch (characterIndex)
             {
                 case 0:
@@ -199,7 +205,6 @@ public class PlayerSelector : MonoBehaviour
                 case 3:
                     AudioManager.instance.PlayCharSelectTwinblade();
                     break;
-                        
             }
         }
         else

@@ -166,7 +166,7 @@ public class MatchManager : MonoBehaviour
 
     public void CloseSettingsButton()
     {
-        if (settingsOpen == false)
+        if (!settingsOpen)
             return;
         
         foreach (var player in players)
@@ -188,7 +188,8 @@ public class MatchManager : MonoBehaviour
         {
             player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("Player");
         }
-        
+
+        settingsOpen = false;
         DoPanelPosition(settingsPanel, bottomPosition);
         EventSystem.current.SetSelectedGameObject(null);
     }
