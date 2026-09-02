@@ -202,7 +202,7 @@ public class InputManager : MonoBehaviour
         StartCoroutine(ResetNextFrame(() => attackThreeWasReleased = false));
     }
     
-    public void OnSpecialAttackBindingOne(InputAction.CallbackContext context)
+    public void OnSpecialAttack(InputAction.CallbackContext context)
     {
         /*
         if(!canReceiveInput)

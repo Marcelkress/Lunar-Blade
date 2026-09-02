@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using DG.Tweening;
 using Unity.VisualScripting;
@@ -6,6 +9,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.InputSystem.Utilities;
 using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
@@ -16,10 +20,12 @@ public class MainMenuUI : MonoBehaviour
     [Header("Panels")] public RectTransform mainPanel;
     public RectTransform mapPanel;
     public RectTransform settingsPanel;
+    public RectTransform firstPanel;
 
     [Header("Panel Positions")] public RectTransform mainPosition;
     public RectTransform rightPosition;
     public RectTransform leftPosition;
+    public RectTransform bottomPosition;
 
     [Header("Panel first selected buttons")]
     public GameObject mainFirstSelectedButton;
@@ -30,14 +36,30 @@ public class MainMenuUI : MonoBehaviour
     public float animationDuration;
 
     [Header("Menu Music Layers")] 
-    public int mainLayer = 1;
-    public int settingsLayer = 2;
-    public int mapLayer = 3;
+    public int mainMusicLayer = 1;
+    public int settingsMusicLayer = 2;
+    public int mapMusicLayer = 3;
+    
+    private int firstInputIgnored;
     
     void Start()
     {
+        firstInputIgnored = 0;
         inputModule.cancel.action.performed += Back;
-        MusicManager.instance.SetMenuThemeLayer(mainLayer);
+        
+        MusicManager.instance.SetMenuThemeLayer(mapMusicLayer);
+
+        InputSystem.onAnyButtonPress
+            .CallOnce(ctrl => Debug.Log($"Button {ctrl} was pressed"));
+        
+        InputSystem.onAnyButtonPress.CallOnce(StartGame);
+    }
+
+    private void StartGame(InputControl ctrl)
+    {
+        DoPanelPosition(firstPanel, bottomPosition, mainFirstSelectedButton);
+        MusicManager.instance.SetMenuThemeLayer(mainMusicLayer);
+        Invoke(nameof(GoToMainPanel),  animationDuration);
     }
 
     private void OnDestroy()
@@ -52,27 +74,32 @@ public class MainMenuUI : MonoBehaviour
     
     public void GoToMapPanel()
     {
-        MusicManager.instance.SetMenuThemeLayer(mapLayer);
-        DoPanelPosition(mainPanel, leftPosition);
-        DoPanelPosition(mapPanel, mainPosition);
-        EventSystem.current.SetSelectedGameObject(mapFirstSelectedButton);
+        firstInputIgnored++;
+        if (firstInputIgnored <= 2)
+            return;
+        
+        MusicManager.instance.SetMenuThemeLayer(mapMusicLayer);
+        DoPanelPosition(mainPanel, leftPosition, mapFirstSelectedButton);
+        DoPanelPosition(mapPanel, mainPosition, mapFirstSelectedButton);
     }
 
     public void GoToMainPanel()
     {
-        MusicManager.instance.SetMenuThemeLayer(mainLayer);
-        DoPanelPosition(mainPanel, mainPosition);
-        DoPanelPosition(mapPanel, rightPosition);
-        DoPanelPosition(settingsPanel, rightPosition);
-        EventSystem.current.SetSelectedGameObject(mainFirstSelectedButton);
+        firstInputIgnored++;
+        
+        MusicManager.instance.SetMenuThemeLayer(mainMusicLayer);
+        DoPanelPosition(mainPanel, mainPosition, mainFirstSelectedButton);
+        DoPanelPosition(mapPanel, rightPosition, mainFirstSelectedButton);
+        DoPanelPosition(settingsPanel, rightPosition, mainFirstSelectedButton);
     }
 
     public void GoToSettingsPanel()
     {
-        MusicManager.instance.SetMenuThemeLayer(settingsLayer);
-        DoPanelPosition(settingsPanel, mainPosition);
-        DoPanelPosition(mainPanel, leftPosition);
-        EventSystem.current.SetSelectedGameObject(settingsFirstSelectedButton);
+        firstInputIgnored++;
+        
+        MusicManager.instance.SetMenuThemeLayer(settingsMusicLayer);
+        DoPanelPosition(settingsPanel, mainPosition, settingsFirstSelectedButton);
+        DoPanelPosition(mainPanel, leftPosition, settingsFirstSelectedButton);
     }
 
     public void StartMatch()
@@ -80,11 +107,17 @@ public class MainMenuUI : MonoBehaviour
         SceneManager.LoadScene(matchSceneName);
     }
 
-    private void DoPanelPosition(RectTransform panel, RectTransform target)
+    private void DoPanelPosition(RectTransform panel, RectTransform target, GameObject selectButton)
     {
-        panel.DOAnchorPos(target.anchoredPosition, animationDuration);
+        panel.DOAnchorPos(target.anchoredPosition, animationDuration)
+            .OnComplete(() => SetSelectedButton(selectButton));
     }
 
+    private void SetSelectedButton(GameObject button)
+    {
+        EventSystem.current.SetSelectedGameObject(button);
+    }
+    
     public void LoadCavesArena()
     {
         MusicManager.instance.SceneLoaded("Caves");

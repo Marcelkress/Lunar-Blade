@@ -61,18 +61,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Special Attack Binding One",
+                    "name": "Special Attack",
                     "type": "Button",
                     "id": "3e6132bd-5f09-4a88-9c6b-3e60ddd962ae",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Special Attack Binding Two",
-                    "type": "Button",
-                    "id": "29215a62-46d3-43a1-a1bc-9f790e58a046",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -82,15 +73,6 @@
                     "name": "Deflect",
                     "type": "Button",
                     "id": "9fafe3f1-9622-4496-a47a-1c8d6c72160a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "TEST",
-                    "type": "Button",
-                    "id": "a1c018f6-ac49-4057-b564-bd6836c6b644",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -417,28 +399,6 @@
                 },
                 {
                     "name": "",
-                    "id": "6fe60755-98f6-4029-86c7-4430dc242905",
-                    "path": "<Gamepad>/dpad/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "59c95ccb-03b3-460f-a159-6f8b1cef31d4",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "bbca37ed-d580-4dbf-a20a-b0b5625d8937",
                     "path": "<HID::Akishop Customs PS360+ v1.00>/hat/up",
                     "interactions": "",
@@ -587,7 +547,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Special Attack Binding One",
+                    "action": "Special Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -598,7 +558,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Special Attack Binding One",
+                    "action": "Special Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -609,40 +569,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Special Attack Binding One",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2fd84044-1dff-41b6-b97d-3ac613e547a0",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Special Attack Binding Two",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "829b4cbb-1b88-46ca-8260-ed40e6079dc2",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Special Attack Binding Two",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "88bcdbe8-42d5-46d5-92f2-34c3f8484be3",
-                    "path": "<HID::Akishop Customs PS360+ v1.00>/button8",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Special Attack Binding Two",
+                    "action": "Special Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -676,17 +603,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Deflect",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "84fb35c7-6499-4f2a-8329-5176f673b686",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TEST",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
