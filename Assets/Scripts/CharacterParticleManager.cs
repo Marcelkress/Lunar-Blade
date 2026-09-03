@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CharacterParticleManager : MonoBehaviour
 {
+    public float jumpDisableTime = 0.2f;
+    
     private ParticleSystem ps;
     private CharacterMovement movement;
 
@@ -23,7 +25,13 @@ public class CharacterParticleManager : MonoBehaviour
         }
         else
         {
-            mod.enabled = false;
+            Invoke(nameof(DisableEmission), jumpDisableTime);
         }
     }
+
+    void DisableEmission()
+    {
+        mod.enabled = false;
+    }
+    
 }
