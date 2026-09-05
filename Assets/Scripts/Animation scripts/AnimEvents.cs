@@ -10,17 +10,27 @@ public class AnimEvents : MonoBehaviour
     private CharacterMovement characterMovement;
     private AbilityChargeManager chargeManager;
     private CameraGroupTarget camGroupTarget;
-    
-    public CameraSettings camSettings;
+    private ParticleSystem ps;
     
     private void Start()
     {
+        ps = GetComponent<ParticleSystem>();
         camGroupTarget = GetComponentInParent<CameraGroupTarget>();
         characterMovement = GetComponentInParent<CharacterMovement>();
         chargeManager = GetComponentInParent<AbilityChargeManager>();
         playerHealth = healthCollider.GetComponent<PlayerHealth>();
     }
 
+    #region Particles
+
+    public void PlayParticleBurst()
+    {
+        if(characterMovement.isGrounded)
+            ps.Play();
+    }
+
+    #endregion
+    
     #region Combat
     public void StartStagger()
     {

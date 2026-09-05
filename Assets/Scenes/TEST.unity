@@ -465,7 +465,7 @@ MonoBehaviour:
   axe: {fileID: 148659617038121618, guid: 9c567a8b72ca245c39ffe2b52a6eb568, type: 3}
   twinblade: {fileID: 4665585378770905653, guid: 0a590adeeaccb4f25865f7274c927f0f, type: 3}
   bitman: {fileID: 2302069009670788881, guid: dc67ed395d4e049f795b71f355c60c76, type: 3}
-  character: 2
+  character: 3
 --- !u!4 &1199378437
 Transform:
   m_ObjectHideFlags: 0
