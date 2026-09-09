@@ -59,11 +59,13 @@ public class PlayerHealth : MonoBehaviour, IHittable
         //Debug.Log("hit detected on Player " + GetComponentInParent<InputManager>().playerID);
         deflected = false;
         
+        /*
         if (invulnerable)
         {
-            // Debug.Log("Invulnerable");
+            Debug.Log("Invulnerable");
             return false;
         }
+        */
 
         if (deflectAbility.IsDeflecting() && !specialAttack)
         {
@@ -95,7 +97,7 @@ public class PlayerHealth : MonoBehaviour, IHittable
             takeHitNoStaggerEvent?.Invoke();
         }
 
-        StartCoroutine(ResetInvulnerability());
+        //StartCoroutine(ResetInvulnerability());
         return true;
     }
 

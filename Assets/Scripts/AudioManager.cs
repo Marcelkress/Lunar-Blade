@@ -3,6 +3,7 @@ using UnityEngine;
 using FMODUnity;
 using FMOD;
 using FMODUnityResonance;
+using Debug = FMOD.Debug;
 
 public class AudioManager : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class AudioManager : MonoBehaviour
     public void PlayButtonOnClicked()
     {
         PlayOneShot(UI_onButtonClicked, this.transform.position);
+        UnityEngine.Debug.Log("Click");
     }
     public void PlayButtonOnClickedFailure()
     {

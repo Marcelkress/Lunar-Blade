@@ -40,11 +40,8 @@ public class MainMenuUI : MonoBehaviour
     public int settingsMusicLayer = 2;
     public int mapMusicLayer = 3;
     
-    private int firstInputIgnored;
-    
     void Start()
     {
-        firstInputIgnored = 0;
         inputModule.cancel.action.performed += Back;
         
         MusicManager.instance.SetMenuThemeLayer(mapMusicLayer);
@@ -57,6 +54,8 @@ public class MainMenuUI : MonoBehaviour
 
     private void StartGame(InputControl ctrl)
     {
+
+        AudioManager.instance.PlayStartButtonClicked();
         DoPanelPosition(firstPanel, bottomPosition, mainFirstSelectedButton);
         MusicManager.instance.SetMenuThemeLayer(mainMusicLayer);
         Invoke(nameof(GoToMainPanel),  animationDuration);
@@ -74,9 +73,6 @@ public class MainMenuUI : MonoBehaviour
     
     public void GoToMapPanel()
     {
-        firstInputIgnored++;
-        if (firstInputIgnored <= 2)
-            return;
         
         MusicManager.instance.SetMenuThemeLayer(mapMusicLayer);
         DoPanelPosition(mainPanel, leftPosition, mapFirstSelectedButton);
@@ -85,7 +81,6 @@ public class MainMenuUI : MonoBehaviour
 
     public void GoToMainPanel()
     {
-        firstInputIgnored++;
         
         MusicManager.instance.SetMenuThemeLayer(mainMusicLayer);
         DoPanelPosition(mainPanel, mainPosition, mainFirstSelectedButton);
@@ -95,8 +90,6 @@ public class MainMenuUI : MonoBehaviour
 
     public void GoToSettingsPanel()
     {
-        firstInputIgnored++;
-        
         MusicManager.instance.SetMenuThemeLayer(settingsMusicLayer);
         DoPanelPosition(settingsPanel, mainPosition, settingsFirstSelectedButton);
         DoPanelPosition(mainPanel, leftPosition, settingsFirstSelectedButton);

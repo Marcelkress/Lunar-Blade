@@ -5,7 +5,7 @@ public class AbilityChargeManager : MonoBehaviour
     public CharacterStats stats;
     
     public bool hasCharge;
-    public int requiredHits, currentHits;
+    private int requiredHits, currentHits;
     
     private AbilityChargeUI UI;
     

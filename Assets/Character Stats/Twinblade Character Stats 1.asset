@@ -50,7 +50,7 @@ MonoBehaviour:
   attackTwoDmg: 2
   attackThreeDmg: 2
   specialAttackDmg: 8
-  invulnerabilityTimeAfterHit: 0.01
+  invulnerabilityTimeAfterHit: 0.1
   attackDecelerationMultiplier: 12
   requiredHitsToCharge: 3
   deflectDamage: 2

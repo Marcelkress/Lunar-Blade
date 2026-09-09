@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 59383354640874931}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -640,8 +640,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AbilityChargeManager
   stats: {fileID: 11400000, guid: 5173b6e9c414d4d24a9431e993392144, type: 2}
   hasCharge: 0
-  requiredHits: 0
-  currentHits: 0
 --- !u!114 &3219798815436818379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5491,7 +5489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d1d09f40220d4e588dfc6f5dd0a51c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterParticleManager
-  jumpDisableTime: 0.03
+  jumpDisableTime: 0.1
 --- !u!1 &2183263063691974359
 GameObject:
   m_ObjectHideFlags: 0

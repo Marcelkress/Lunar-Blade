@@ -34,19 +34,19 @@ AnimationClip:
       value: {fileID: 5046150343476845083, guid: e29f886c3560a48c2a02ac5d180ac552, type: 3}
     - time: 0.2
       value: {fileID: 4612707142050032858, guid: e29f886c3560a48c2a02ac5d180ac552, type: 3}
-    - time: 0.26666668
+    - time: 0.23333333
       value: {fileID: 2043715397035662985, guid: e29f886c3560a48c2a02ac5d180ac552, type: 3}
-    - time: 0.35
+    - time: 0.28333333
       value: {fileID: -6411210585995459653, guid: e29f886c3560a48c2a02ac5d180ac552, type: 3}
-    - time: 0.4
+    - time: 0.31666666
       value: {fileID: -2399274769894972389, guid: e29f886c3560a48c2a02ac5d180ac552, type: 3}
-    - time: 0.46666667
+    - time: 0.35
       value: {fileID: -8620873646974724477, guid: e29f886c3560a48c2a02ac5d180ac552, type: 3}
-    - time: 0.51666665
+    - time: 0.43333334
       value: {fileID: 1397877003049381756, guid: e29f886c3560a48c2a02ac5d180ac552, type: 3}
-    - time: 0.55
+    - time: 0.5
       value: {fileID: 4394263211310074107, guid: e29f886c3560a48c2a02ac5d180ac552, type: 3}
-    - time: 0.6
+    - time: 0.5833333
       value: {fileID: -3810204102987203658, guid: e29f886c3560a48c2a02ac5d180ac552, type: 3}
     - time: 0.6333333
       value: {fileID: -1337252145837713578, guid: e29f886c3560a48c2a02ac5d180ac552, type: 3}
@@ -143,49 +143,49 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.26666668
+  - time: 0.2
     functionName: DisableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.31666666
+  - time: 0.28333333
     functionName: ClearHits
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.5
+  - time: 0.35
     functionName: EnableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
-  - time: 0.51666665
+  - time: 0.36666667
     functionName: UnlockMove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.53333336
+  - time: 0.38333333
     functionName: PlayParticleBurst
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5833333
+  - time: 0.43333334
     functionName: DisableDamageCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
-  - time: 0.6166667
+  - time: 0.46666667
     functionName: ClearHits
     data: 
     objectReferenceParameter: {fileID: 0}

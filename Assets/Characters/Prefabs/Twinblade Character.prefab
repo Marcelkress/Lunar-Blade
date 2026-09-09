@@ -11500,7 +11500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d1d09f40220d4e588dfc6f5dd0a51c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterParticleManager
-  jumpDisableTime: 0.03
+  jumpDisableTime: 0.1
 --- !u!1 &5084924126653978526
 GameObject:
   m_ObjectHideFlags: 0
