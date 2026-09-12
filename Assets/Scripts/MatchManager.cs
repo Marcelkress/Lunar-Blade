@@ -218,13 +218,18 @@ public class MatchManager : MonoBehaviour
     {
         tintImage.enabled = true;
         DoPanelPosition(winPanel, mainPosition);
-        EventSystem.current.SetSelectedGameObject(mainMenuButton);
+        Invoke(nameof(EnableWinScreenUI), matchSettings.winPanelWaitTime);
         
         foreach (var player in players)
         {
             player.GetComponentInParent<PlayerInput>().SwitchCurrentActionMap("UI");
             playerWinText.text = "Player " + player.GetComponentInParent<InputManager>().playerID + " wins!";
         }
+    }
+
+    private void EnableWinScreenUI()
+    {
+        EventSystem.current.SetSelectedGameObject(mainMenuButton);
     }
 
     public void ReplayMatch()
