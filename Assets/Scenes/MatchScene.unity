@@ -387,7 +387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1872880919117749620, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_text
-      value: back to game
+      value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 3065834202028117003, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_Pivot.x
@@ -1836,7 +1836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1872880919117749620, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_text
-      value: :)
+      value: :P
       objectReference: {fileID: 0}
     - target: {fileID: 3065834202028117003, guid: 3bbe735ceb9fd4ad582d28b8a1213069, type: 3}
       propertyPath: m_Pivot.x

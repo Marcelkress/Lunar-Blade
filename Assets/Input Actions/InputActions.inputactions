@@ -388,17 +388,6 @@
                 },
                 {
                     "name": "",
-                    "id": "ca4d3e1b-7f06-4bf0-a35e-03fd26d3070d",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "bbca37ed-d580-4dbf-a20a-b0b5625d8937",
                     "path": "<HID::Akishop Customs PS360+ v1.00>/hat/up",
                     "interactions": "",

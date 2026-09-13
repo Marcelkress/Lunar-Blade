@@ -42,6 +42,8 @@ public class MainMenuUI : MonoBehaviour
     
     void Start()
     {
+        Cursor.visible = false;
+        
         inputModule.cancel.action.performed += Back;
         
         MusicManager.instance.SetMenuThemeLayer(mapMusicLayer);
