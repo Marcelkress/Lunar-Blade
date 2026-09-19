@@ -351,7 +351,6 @@ AnimatorState:
   - {fileID: -2597527739683167755}
   m_StateMachineBehaviours:
   - {fileID: 166873856894444197}
-  - {fileID: 2235931585784943073}
   - {fileID: -2824950004803564420}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1439,19 +1438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d786d4623dd2e4bdca8550ba8deea65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnlockMove
---- !u!114 &1501400983056595946
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9ab26e27efbe4658aee22125d0c9add, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HidePlayerID
-  hide: 0
 --- !u!1101 &1894143502141653528
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1510,19 +1496,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   hide: 1
---- !u!114 &2235931585784943073
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9ab26e27efbe4658aee22125d0c9add, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HidePlayerID
-  hide: 0
 --- !u!114 &2480047063613980559
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1849,7 +1822,6 @@ AnimatorState:
   - {fileID: 2540911875919280050}
   m_StateMachineBehaviours:
   - {fileID: 3665967230128505714}
-  - {fileID: 1501400983056595946}
   - {fileID: 547331255508553471}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
