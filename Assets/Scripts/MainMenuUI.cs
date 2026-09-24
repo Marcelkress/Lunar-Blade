@@ -14,6 +14,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
+    private static bool freshLaunch = true;
+    
     public string matchSceneName;
     public InputSystemUIInputModule inputModule;
     
@@ -48,15 +50,26 @@ public class MainMenuUI : MonoBehaviour
         
         MusicManager.instance.SetMenuThemeLayer(mapMusicLayer);
 
-        InputSystem.onAnyButtonPress
-            .CallOnce(ctrl => Debug.Log($"Button {ctrl} was pressed"));
-        
-        InputSystem.onAnyButtonPress.CallOnce(StartGame);
+        if (!freshLaunch)
+        {
+            freshLaunch = false;
+            AudioManager.instance.PlayStartButtonClicked();
+            DoPanelPosition(firstPanel, bottomPosition, mainFirstSelectedButton);
+            MusicManager.instance.SetMenuThemeLayer(mainMusicLayer);
+            Invoke(nameof(GoToMainPanel),  animationDuration);
+        }
+        else
+        {
+            InputSystem.onAnyButtonPress
+                .CallOnce(ctrl => Debug.Log($"Button {ctrl} was pressed"));
+            
+            InputSystem.onAnyButtonPress.CallOnce(StartGame);
+        }
     }
 
     private void StartGame(InputControl ctrl)
     {
-
+        freshLaunch = false;
         AudioManager.instance.PlayStartButtonClicked();
         DoPanelPosition(firstPanel, bottomPosition, mainFirstSelectedButton);
         MusicManager.instance.SetMenuThemeLayer(mainMusicLayer);
